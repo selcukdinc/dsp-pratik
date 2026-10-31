@@ -1,2 +1,9 @@
-docs/sunular
-.DS_Store
+node_modules/
+dist/
+.wrangler/
+.dev.vars
+*.tsbuildinfo
+docs/sunumlar/
+*.DS_Store
+docs/YOL-HARITASI.md
+docs/sunular/

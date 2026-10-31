@@ -14,6 +14,16 @@ export interface Yenilik {
 
 export const YENILIKLER: Yenilik[] = [
   {
+    pr: 5,
+    tarih: "2026-10-31",
+    baslik: "3. hafta: ayrık zamanlı sinyaller ve sistemler",
+    maddeler: [
+      "**3. hafta dersi** açıldı. Konular: birim dürtü, basamak ve rampa; üstel, karmaşık üstel ve sinüzoidal diziler ve periyodiklik; çift ve tek kısımlar; kaydırma, ters çevirme ve ölçekleme; enerji ve güç; diziyi dürtülerle yazma; sistem özellikleri ve LTI sistemler.",
+      "Etkileşimli şekillerin bazıları: temel dizileri kaydırma, aⁿ dizisini a ile değiştirme, karmaşık üstelde σ ve ω₀ ile oynama ve y(n) = x(kn − n₀) dönüşümünü adım adım görme. Bir de **sistem tezgâhı** var: sekiz örnek sistemden birini seçince hangi özellikleri neden sağladığını gösteriyor.",
+      "Soru havuzuna 3. hafta için 40 soru eklendi; tekrarda çıkacak 19 ek soru da hazır.",
+    ],
+  },
+  {
     pr: 4,
     tarih: "2026-10-31",
     baslik: "2. hafta: MATLAB ile çalışmak",

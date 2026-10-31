@@ -30,6 +30,17 @@ export const BENZERLER: string[][] = [
   ["h2-cat-boyut", "t2-yatay-boyut"],
   ["h2-mean-boyut", "t2-mean-satir"],
   ["h2-median", "t2-median-tek"],
+  // Hafta 3
+  ["h3-durtu-deger", "t3-durtu-toplam-2"],
+  ["h3-ustel-sonum", "t3-ustel-buyur"],
+  ["h3-periyot", "t3-periyot-2"],
+  ["h3-periyot-toplam", "t3-periyot-ekok"],
+  ["h3-periyot-k", "t3-periyot-k-2"],
+  ["h3-cift-kisim", "t3-cift-kisim-2"],
+  ["h3-enerji", "t3-enerji-2"],
+  ["h3-guc", "t3-guc-cos"],
+  ["h3-dogrusal", "t3-dogrusal-degil"],
+  ["h3-lti-durtu", "t3-lti-durtu-2"],
 ];
 
 const GRUP = new Map(BENZERLER.flatMap((g, i) => g.map((id) => [id, i] as const)));

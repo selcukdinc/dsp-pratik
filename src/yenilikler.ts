@@ -14,6 +14,18 @@ export interface Yenilik {
 
 export const YENILIKLER: Yenilik[] = [
   {
+    pr: 2,
+    tarih: "2026-10-31",
+    baslik: "MATLAB alanı açıldı",
+    maddeler: [
+      "**MATLAB alanı** tarayıcında çalışıyor: editör, şekil penceresi, komut penceresi ve çalışma alanı. Pencereleri sürükleyip boyutlandırabilir, düzenini kaydedebilirsin.",
+      "Vektörler, matrisler, indeksleme, `for`, `while`, `if`, `switch`, kendi fonksiyonların ve anonim fonksiyonlar destekleniyor. `sum`, `mean`, `std`, `conv`, `filter`, `fft`, `freqz` gibi fonksiyonlarla `plot`, `stem`, `histogram`, `bar` ve `subplot` ile çizim var.",
+      "Hatalar Türkçe ve satır numarasıyla gösteriliyor; ör. `x(0)` yazınca MATLAB'da indislerin 1'den başladığını hatırlatıyor.",
+      "**Örnekler** menüsünde sinüs çizimi, histogram, örtüşme, konvolüsyon, hareketli ortalama, Fourier serisi, FFT ve frekans yanıtı hazır betikleri var. Betiklerini `.m` dosyası olarak indirip yükleyebilirsin.",
+      "Derslerdeki MATLAB örnekleri sayfanın içinde çalışıyor; laboratuvar kayıtlarını tek tıkla MATLAB alanında açabiliyorsun.",
+    ],
+  },
+  {
     pr: 1,
     tarih: "2026-10-31",
     baslik: "DSP Pratik açılıyor",

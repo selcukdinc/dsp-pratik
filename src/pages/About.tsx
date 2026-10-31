@@ -1,0 +1,50 @@
+import { REPO_URL } from "../lib/api";
+
+const GELISTIRICI_URL = "https://github.com/selcukdinc";
+
+export function About() {
+  return (
+    <div className="about">
+      <h2>DSP Pratik</h2>
+      <p>
+        Sayısal sinyal işleme dersinde vize ve finale hazırlanmak için açık kaynaklı bir pratik sitesi. Dersler ve sorular
+        ders sunularının konu sırasını izler; anlatımlar, şekiller ve sorular bu site için yeniden yazılmıştır. Sunumdaki bir
+        örneğe dayanan sorular <strong>Orijinal</strong>, aynı konudan türetilenler <strong>Türetilmiş</strong> etiketi taşır.
+      </p>
+      <h3>MATLAB kodu nerede çalışıyor?</h3>
+      <p>
+        MATLAB alanı ve derslerdeki örnekler senin tarayıcında çalışan küçük bir MATLAB yorumlayıcısıyla çalışır. Ders için
+        gereken temel yapıları ve çizim fonksiyonlarını destekler; gerçek MATLAB'ın yerine geçmez. Kodun, sen bir laboratuvar
+        kaydı olarak paylaşmadıkça sunucuya gönderilmez.
+      </p>
+      <h3>Gizlilik</h3>
+      <ul>
+        <li>Reklam yok, analitik ya da takip çerezi yok.</li>
+        <li>İlk cevabını gönderdiğinde ilerlemeni tutmak için tek bir oturum çerezi yazılır.</li>
+        <li>MATLAB alanındaki betiklerin yalnızca bu tarayıcıda saklanır.</li>
+      </ul>
+      <p>
+        Ayrıntılar <a href="/gizlilik">gizlilik metninde</a>.
+      </p>
+      <h3>Geliştirici</h3>
+      <div className="kunye">
+        {/* Fotoğraf sitenin kendisinden gelir; GitHub'a istek gitmez */}
+        <img src="/gelistirici.jpg" alt="" width={72} height={72} className="kunye-foto" />
+        <div>
+          <strong className="kunye-ad">Selçuk Dinç</strong>
+          <ul className="kunye-baglantilar">
+            <li><a href={GELISTIRICI_URL} target="_blank" rel="noreferrer">GitHub profili</a></li>
+            <li><a href={REPO_URL} target="_blank" rel="noreferrer">Projenin deposu</a> (GPL-3.0)</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>Proje</h3>
+      <p>
+        Kaynak kodu açık. Bir hata ya da yanlış soru gördüysen{" "}
+        <a href={`${REPO_URL}/issues/new`} target="_blank" rel="noreferrer">GitHub'da bildirebilirsin</a>. Projeyi beğendiysen
+        depoya <a href={REPO_URL} target="_blank" rel="noreferrer">yıldız verebilirsin</a>.
+      </p>
+    </div>
+  );
+}

@@ -14,6 +14,37 @@ export interface Yenilik {
 
 export const YENILIKLER: Yenilik[] = [
   {
+    pr: 11,
+    tarih: "2026-10-31",
+    baslik: "Proje rehberi",
+    maddeler: [
+      "Ders listesinin sonuna **Proje** sayfası eklendi. Dönem projesinin adımlarını sırayla anlatıyor: gürültü eklemek, spektrumdan filtre türüne karar vermek, FIR ve IIR filtreler, dalgacıkla gürültü giderme, başarım ölçütleri, istatistiksel öznitelikler ve rapor.",
+      "Hazır çözüm yok; her adım için ilgili haftaya bağlantı kuran kısa bir açıklama ve tarayıcıda çalışan küçük bir yapı taşı var (elle pencereli FIR, Haar dalgacığıyla eşikleme, PSNR ve MSE hesabı, parça parça çarpıklık, basıklık ve entropi).",
+      "Butterworth ile Chebyshev I filtreleri derece değiştirerek karşılaştırabileceğin etkileşimli bir şekil de var.",
+    ],
+  },
+  {
+    pr: 10,
+    tarih: "2026-10-31",
+    baslik: "8. hafta: hızlı Fourier dönüşümü (FFT)",
+    maddeler: [
+      "**8. hafta dersi** açıldı. Konular: doğrudan DFT'nin işlem yükü ve FFT'nin kazancı, zamanda seyreltme ve bölüm çarpanları, kelebek, 8 noktalı radix-2 akış diyagramı ve bit ters sırası, frekansta seyreltme, 2'nin kuvveti olmayan uzunluklar için karma N algoritması, FFT ile spektrum, hızlı konvolüsyon ve ters DFT.",
+      "Etkileşimli şekillerin bazıları: N'yi büyütüp DFT ile FFT'nin çarpma sayılarını karşılaştırma, bölüm çarpanını değiştirip kelebeğin çıkışlarını karmaşık düzlemde görme, 8 noktalı FFT'nin ara değerlerini aşama aşama izleme, karma N tablolarını kurma, iki sinüsün spektrumunu farklı FFT uzunluklarında inceleme.",
+      "Derslerdeki MATLAB örnekleri arasında bit ters sıralı, yerinde çalışan bir radix-2 FFT de var; sonucunu `fft` ile karşılaştırabilirsin.",
+      "Soru havuzuna 8. hafta için 41 soru eklendi; tekrarda çıkacak 13 ek soru da hazır.",
+    ],
+  },
+  {
+    pr: 9,
+    tarih: "2026-10-31",
+    baslik: "7. hafta: ayrık Fourier dönüşümü (DFT)",
+    maddeler: [
+      "**7. hafta dersi** açıldı. Konular: ayrık Fourier serisi, DFT ve ters DFT, DFT'nin DTFT'nin örnekleri olması, frekans ekseni ve sıfır doldurma, doğrusallık, eşlenik simetri ve Parseval, dairesel kaydırma, dairesel konvolüsyon ve doğrusal konvolüsyonla ilişkisi, DFT ile konvolüsyon, örtüşme-ekleme ve örtüşme-kaydetme.",
+      "Etkileşimli şekillerin bazıları: sıfır doldurdukça DFT noktalarının aynı DTFT eğrisi üzerinde sıklaşmasını görme, taban üstelleri birim çemberde döndürme, diziyi çember üzerinde dairesel kaydırma, iç içe iki çemberle dairesel konvolüsyonu adım adım hesaplama, N'yi değiştirip zamanda örtüşmenin nasıl kaybolduğunu izleme.",
+      "Soru havuzuna 7. hafta için 45 soru eklendi; tekrarda çıkacak 14 ek soru da hazır.",
+    ],
+  },
+  {
     pr: 8,
     tarih: "2026-10-31",
     baslik: "6. hafta: frekans yanıtı ve DTFT",

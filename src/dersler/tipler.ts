@@ -29,6 +29,11 @@ export interface Ders {
   bolumler: DersBolumu[];
   // Konu sonu testi: soru havuzundaki kimlikler
   test: string[];
+  // Proje haftası: soru havuzu ve konu sonu testi yoktur, listede "Proje" diye görünür
+  proje?: boolean;
 }
+
+// Listelerde ve başlıklarda haftanın adı: "3. hafta" ya da "Proje"
+export const haftaAdi = (d: Pick<Ders, "hafta" | "proje">) => (d.proje ? "Proje" : `${d.hafta}. hafta`);
 
 export const md = (s: string) => s.replace(/~/g, "`").replace(/¬/g, "~").trim();

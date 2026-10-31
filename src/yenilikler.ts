@@ -14,6 +14,16 @@ export interface Yenilik {
 
 export const YENILIKLER: Yenilik[] = [
   {
+    pr: 11,
+    tarih: "2026-10-31",
+    baslik: "Proje rehberi",
+    maddeler: [
+      "Ders listesinin sonuna **Proje** sayfası eklendi. Dönem projesinin adımlarını sırayla anlatıyor: gürültü eklemek, spektrumdan filtre türüne karar vermek, FIR ve IIR filtreler, dalgacıkla gürültü giderme, başarım ölçütleri, istatistiksel öznitelikler ve rapor.",
+      "Hazır çözüm yok; her adım için ilgili haftaya bağlantı kuran kısa bir açıklama ve tarayıcıda çalışan küçük bir yapı taşı var (elle pencereli FIR, Haar dalgacığıyla eşikleme, PSNR ve MSE hesabı, parça parça çarpıklık, basıklık ve entropi).",
+      "Butterworth ile Chebyshev I filtreleri derece değiştirerek karşılaştırabileceğin etkileşimli bir şekil de var.",
+    ],
+  },
+  {
     pr: 10,
     tarih: "2026-10-31",
     baslik: "8. hafta: hızlı Fourier dönüşümü (FFT)",

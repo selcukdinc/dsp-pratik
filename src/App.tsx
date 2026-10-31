@@ -24,12 +24,13 @@ import { Oner } from "./pages/Oner";
 import { Mesajlar } from "./pages/Mesajlar";
 import { Topluluk, ToplulukKayit } from "./pages/Topluluk";
 import type { Topic } from "../shared/api";
+import { haftaEtiketi } from "./dersler";
 
 function baslik(route: Route, topicTitle?: string): string {
   switch (route.page) {
     case "pratik": return "PRATİK - MATLAB alanı";
     case "sorular": return `SORU HAVUZU - ${topicTitle ?? (route.hafta ? `${route.hafta}. hafta` : "Tüm sorular")}`;
-    case "ders": return route.hafta ? `DERS - ${route.hafta}. hafta` : "DERSLER";
+    case "ders": return route.hafta ? `DERS - ${haftaEtiketi(route.hafta)}` : "DERSLER";
     case "ilerleme": return "İLERLEME - Konu bazlı durum";
     case "tekrar": return "TEKRAR - Aralıklı tekrar";
     case "hakkinda": return "HAKKINDA";

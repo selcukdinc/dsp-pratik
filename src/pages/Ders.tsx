@@ -9,6 +9,7 @@ import { MiniMatlab } from "../components/MiniMatlab";
 import { QuestionCard } from "./Questions";
 import { bolumId } from "../dersler/bolumBul";
 import { DERSLER, dersBul } from "../dersler";
+import { haftaAdi } from "../dersler/tipler";
 import type { Ders as DersVerisi } from "../dersler/tipler";
 import type { Question, SoruDurumlari } from "../../shared/api";
 import { useDersIlerleme } from "../lib/dersIlerleme";
@@ -41,7 +42,7 @@ function DersListesi() {
       {son && sonDers && sonBolum && (
         <a className="ders-devam" href={`${href({ page: "ders", hafta: son.hafta })}#${bolumId(son.bolum)}`}>
           <span className="ders-hafta">Kaldığın yer</span>
-          <strong>{son.hafta}. hafta: {sonBolum.baslik}</strong>
+          <strong>{haftaAdi(sonDers)}: {sonBolum.baslik}</strong>
           <span className="ders-devam-ok">Devam et →</span>
         </a>
       )}
@@ -52,13 +53,13 @@ function DersListesi() {
           return (
             <li key={d.hafta}>
               <a href={href({ page: "ders", hafta: d.hafta })}>
-                <span className="ders-hafta">{d.hafta}. hafta</span>
+                <span className="ders-hafta">{haftaAdi(d)}</span>
                 <strong>{d.baslik}</strong>
                 <span className="hint">{d.ozet}</span>
                 <span className="ders-etiketler">
                   <span className="tag">{d.bolumler.length} bölüm</span>
                   {matlab > 0 && <span className="tag">{matlab} MATLAB örneği</span>}
-                  <span className="tag">{d.test.length} soruluk test</span>
+                  {d.test.length > 0 && <span className="tag">{d.test.length} soruluk test</span>}
                 </span>
                 {biten > 0 && <IlerlemeCubugu biten={biten} toplam={d.bolumler.length} />}
               </a>
@@ -127,12 +128,13 @@ function DersSayfasi({ ders }: { ders: DersVerisi }) {
   const { ilerleme, isaretle, sonYer } = useDersIlerleme();
   useSonBolum(ders.hafta, sonYer);
   const biten = bitenSayisi(ilerleme, ders);
+  const testVar = ders.test.length > 0;
   const onceki = dersBul(ders.hafta - 1);
   const sonraki = dersBul(ders.hafta + 1);
   return (
     <div className="ders-sayfa">
       <header className="ders-ust">
-        <span className="ders-hafta">{ders.hafta}. hafta</span>
+        <span className="ders-hafta">{haftaAdi(ders)}</span>
         <h2>{ders.baslik}</h2>
         <p className="hint">{ders.ozet}</p>
         <IlerlemeCubugu biten={biten} toplam={ders.bolumler.length} />
@@ -148,7 +150,7 @@ function DersSayfasi({ ders }: { ders: DersVerisi }) {
               </li>
             );
           })}
-          <li><a href="#test">Konu sonu testi</a></li>
+          {testVar && <li><a href="#test">Konu sonu testi</a></li>}
         </ol>
       </nav>
 
@@ -161,32 +163,34 @@ function DersSayfasi({ ders }: { ders: DersVerisi }) {
           <BolumSonu
             bitti={bolumBittiMi(ilerleme, ders.hafta, i)}
             degistir={(bitti) => isaretle(ders.hafta, i, bitti)}
-            sonraki={i + 1 < ders.bolumler.length ? { id: bolumId(i + 1), baslik: ders.bolumler[i + 1]!.baslik } : { id: "test", baslik: "Konu sonu testi" }}
+            sonraki={i + 1 < ders.bolumler.length ? { id: bolumId(i + 1), baslik: ders.bolumler[i + 1]!.baslik } : testVar ? { id: "test", baslik: "Konu sonu testi" } : null}
           />
         </section>
       ))}
 
-      <section id="test" className="ders-bolum ders-test">
-        <h3>Konu sonu testi</h3>
-        <KonuSonuTesti ders={ders} sorular={sorular} durumlar={durumlar} />
-      </section>
+      {testVar && (
+        <section id="test" className="ders-bolum ders-test">
+          <h3>Konu sonu testi</h3>
+          <KonuSonuTesti ders={ders} sorular={sorular} durumlar={durumlar} />
+        </section>
+      )}
 
       <nav className="ders-gezinti" aria-label="Dersler arasında">
-        {onceki ? <a href={href({ page: "ders", hafta: onceki.hafta })}>← {onceki.hafta}. hafta: {onceki.baslik}</a> : <span />}
-        {sonraki && <a href={href({ page: "ders", hafta: sonraki.hafta })}>{sonraki.hafta}. hafta: {sonraki.baslik} →</a>}
+        {onceki ? <a href={href({ page: "ders", hafta: onceki.hafta })}>← {haftaAdi(onceki)}: {onceki.baslik}</a> : <span />}
+        {sonraki && <a href={href({ page: "ders", hafta: sonraki.hafta })}>{haftaAdi(sonraki)}: {sonraki.baslik} →</a>}
       </nav>
     </div>
   );
 }
 
 // Bölümün sonundaki "Bu bölümü bitirdim" düğmesi; bitirilince sonraki bölüme bağlantı da verir
-function BolumSonu({ bitti, degistir, sonraki }: { bitti: boolean; degistir: (bitti: boolean) => void; sonraki: { id: string; baslik: string } }) {
+function BolumSonu({ bitti, degistir, sonraki }: { bitti: boolean; degistir: (bitti: boolean) => void; sonraki: { id: string; baslik: string } | null }) {
   return (
     <div className={`bolum-sonu${bitti ? " bitti" : ""}`}>
       {bitti ? (
         <>
           <span className="bolum-sonu-durum">✓ Bu bölümü bitirdin.</span>
-          <a href={`#${sonraki.id}`}>Sıradaki: {sonraki.baslik} →</a>
+          {sonraki && <a href={`#${sonraki.id}`}>Sıradaki: {sonraki.baslik} →</a>}
           <button className="bagli-dugme" onClick={() => degistir(false)}>Geri al</button>
         </>
       ) : (

@@ -14,6 +14,16 @@ export interface Yenilik {
 
 export const YENILIKLER: Yenilik[] = [
   {
+    pr: 6,
+    tarih: "2026-10-31",
+    baslik: "4. hafta: konvolüsyon",
+    maddeler: [
+      "**4. hafta dersi** açıldı. Konular: konvolüsyon toplamı; değişme, birleşme ve dağılma özellikleri (kaskat ve paralel sistemler); kapalı formlu dizilerde doğrudan hesap; çıkışın uzunluğu ve konumu; grafik yöntem, kaydırma kuralı ve çarpım tablosu; zarlarla olasılık dağılımları, hareketli ortalama ve korelasyon.",
+      "Etkileşimli şekillerin bazıları: çıkışı giriş örneklerinin katkılarını tek tek ekleyerek kurma, **grafik yöntemi adım adım** izleme (ters çevir, kaydır, çarp, topla), kaydırma kuralı şeridini kaydırma, çarpım tablosunda köşegen seçme, zar sayısını ve hileli zarı değiştirip toplamın dağılımını görme, hareketli ortalamanın pencere uzunluğuyla oynama.",
+      "Soru havuzuna 4. hafta için 49 soru eklendi; tekrarda çıkacak 20 ek soru da hazır.",
+    ],
+  },
+  {
     pr: 5,
     tarih: "2026-10-31",
     baslik: "3. hafta: ayrık zamanlı sinyaller ve sistemler",

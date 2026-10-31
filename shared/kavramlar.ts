@@ -41,4 +41,15 @@ export const KAVRAMLAR: Record<string, Kavram> = {
   dogrusallik: { ad: "Doğrusallık ve süperpozisyon" },
   "sistem-ozellik": { ad: "Nedensellik, kararlılık, hafıza, tersinirlik" },
   lti: { ad: "LTI sistemler ve dürtü yanıtı" },
+  // Hafta 4
+  "konvolusyon-toplam": { ad: "Konvolüsyon toplamı" },
+  "konvolusyon-ozellik": { ad: "Değişme, birleşme ve dağılma" },
+  "dogrudan-hesap": { ad: "Doğrudan değerlendirme ve seriler" },
+  "konvolusyon-uzunluk": { ad: "Çıkışın uzunluğu ve konumu" },
+  "grafik-yontem": { ad: "Grafik yöntem" },
+  "kaydirma-kurali": { ad: "Kaydırma kuralı" },
+  "polinom-carpim": { ad: "Çarpım tablosu ve polinom çarpımı" },
+  "olasilik-konvolusyon": { ad: "Olasılık dağılımlarının konvolüsyonu" },
+  "hareketli-ortalama": { ad: "Hareketli ortalama" },
+  korelasyon: { ad: "Korelasyon ve otokorelasyon" },
 };

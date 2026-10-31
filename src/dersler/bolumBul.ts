@@ -64,6 +64,23 @@ export const KAVRAM_BOLUMU: Record<number, Record<string, number>> = {
     "fourier-donusum": 6,
     "fourier-dogrusallik": 6,
   },
+  6: {
+    ozfonksiyon: 0,
+    "frekans-yaniti": 0,
+    "db-olcek": 1,
+    "grup-gecikmesi": 1,
+    "frekans-simetri": 2,
+    "dogrusal-faz": 3,
+    "tam-geciren": 3,
+    "filtre-turleri": 3,
+    "sistem-baglanti-frekans": 4,
+    dtft: 5,
+    "ters-dtft": 5,
+    "dtft-ozellik": 6,
+    "konvolusyon-teoremi": 6,
+    parseval: 6,
+    "ters-sistem": 7,
+  },
 };
 
 export interface SoruBolumu {

@@ -9,10 +9,11 @@ import { HAFTA_2_GORSELLERI } from "./hafta-2";
 import { HAFTA_3_GORSELLERI } from "./hafta-3";
 import { HAFTA_4_GORSELLERI } from "./hafta-4";
 import { HAFTA_5_GORSELLERI } from "./hafta-5";
+import { HAFTA_6_GORSELLERI } from "./hafta-6";
 
 export type { Gorsel } from "./tip";
 
-export const GORSELLER: Gorsel[] = [...HAFTA_1_GORSELLERI, ...HAFTA_2_GORSELLERI, ...HAFTA_3_GORSELLERI, ...HAFTA_4_GORSELLERI, ...HAFTA_5_GORSELLERI];
+export const GORSELLER: Gorsel[] = [...HAFTA_1_GORSELLERI, ...HAFTA_2_GORSELLERI, ...HAFTA_3_GORSELLERI, ...HAFTA_4_GORSELLERI, ...HAFTA_5_GORSELLERI, ...HAFTA_6_GORSELLERI];
 
 export const gorselBul = (kod: string) => GORSELLER.find((g) => g.kod === kod);
 

@@ -14,6 +14,19 @@ export interface Yenilik {
 
 export const YENILIKLER: Yenilik[] = [
   {
+    pr: 14,
+    tarih: "2026-10-31",
+    baslik: "Ders kodlarında çıktı karşılaştırma",
+    maddeler: [
+      "Derslerdeki kod kutuları her çalıştırmayı hatırlıyor. Bir değeri değiştirip yeniden çalıştırınca önceki çıktı yanda durur ve değişen satırlar vurgulanır; bir önceki yerine daha eski bir çalıştırmayı da seçebilirsin. Her sütunun üstünde o çalıştırmada kodda neyi değiştirdiğin yazar.",
+      "**Örneğe dön** artık yalnızca kodu geri getiriyor, çıktılar yerinde kalıyor. Geçmişi temizlemek için yeni **Sıfırla** düğmesini kullan.",
+      "1. haftada kutulama daha ayrıntılı anlatılıyor: kutu numarasının nasıl bulunduğu, alt sınırı sıfır olmayan aralıklar, kutu sayısının seçimi ve histogramdan pdf'e geçiş. Kutu sayısını ve örnek değeri değiştirebileceğin etkileşimli bir şekil ve üç yeni soru da eklendi.",
+      "Vektör indeksleme şeklinde her ok ayrı renkte; x(end:-1:1) gibi kesişen oklar artık kolayca izleniyor.",
+      "Hatalı satırı işaretleyen kırmızı zemin artık seçimi örtmüyor; o satırda da metin seçebilirsin.",
+      "Ders ve soru metinlerinde art arda tekrar eden sözcükler düzeltildi (örneğin \"eleman eleman\" yerine \"eleman bazında\").",
+    ],
+  },
+  {
     pr: 13,
     tarih: "2026-10-31",
     baslik: "Kod alanının yeni adı: MatStudio",
@@ -28,7 +41,7 @@ export const YENILIKLER: Yenilik[] = [
     baslik: "Proje rehberi",
     maddeler: [
       "Ders listesinin sonuna **Proje** sayfası eklendi. Dönem projesinin adımlarını sırayla anlatıyor: gürültü eklemek, spektrumdan filtre türüne karar vermek, FIR ve IIR filtreler, dalgacıkla gürültü giderme, başarım ölçütleri, istatistiksel öznitelikler ve rapor.",
-      "Hazır çözüm yok; her adım için ilgili haftaya bağlantı kuran kısa bir açıklama ve tarayıcıda çalışan küçük bir yapı taşı var (elle pencereli FIR, Haar dalgacığıyla eşikleme, PSNR ve MSE hesabı, parça parça çarpıklık, basıklık ve entropi).",
+      "Hazır çözüm yok; her adım için ilgili haftaya bağlantı kuran kısa bir açıklama ve tarayıcıda çalışan küçük bir yapı taşı var (elle pencereli FIR, Haar dalgacığıyla eşikleme, PSNR ve MSE hesabı, parçalara göre çarpıklık, basıklık ve entropi).",
       "Butterworth ile Chebyshev I filtreleri derece değiştirerek karşılaştırabileceğin etkileşimli bir şekil de var.",
     ],
   },
@@ -38,7 +51,7 @@ export const YENILIKLER: Yenilik[] = [
     baslik: "8. hafta: hızlı Fourier dönüşümü (FFT)",
     maddeler: [
       "**8. hafta dersi** açıldı. Konular: doğrudan DFT'nin işlem yükü ve FFT'nin kazancı, zamanda seyreltme ve bölüm çarpanları, kelebek, 8 noktalı radix-2 akış diyagramı ve bit ters sırası, frekansta seyreltme, 2'nin kuvveti olmayan uzunluklar için karma N algoritması, FFT ile spektrum, hızlı konvolüsyon ve ters DFT.",
-      "Etkileşimli şekillerin bazıları: N'yi büyütüp DFT ile FFT'nin çarpma sayılarını karşılaştırma, bölüm çarpanını değiştirip kelebeğin çıkışlarını karmaşık düzlemde görme, 8 noktalı FFT'nin ara değerlerini aşama aşama izleme, karma N tablolarını kurma, iki sinüsün spektrumunu farklı FFT uzunluklarında inceleme.",
+      "Etkileşimli şekillerin bazıları: N'yi büyütüp DFT ile FFT'nin çarpma sayılarını karşılaştırma, bölüm çarpanını değiştirip kelebeğin çıkışlarını karmaşık düzlemde görme, 8 noktalı FFT'nin ara değerlerini aşamalar boyunca izleme, karma N tablolarını kurma, iki sinüsün spektrumunu farklı FFT uzunluklarında inceleme.",
       "Derslerdeki MatStudio örnekleri arasında bit ters sıralı, yerinde çalışan bir radix-2 FFT de var; sonucunu `fft` ile karşılaştırabilirsin.",
       "Soru havuzuna 8. hafta için 41 soru eklendi; tekrarda çıkacak 13 ek soru da hazır.",
     ],
@@ -49,7 +62,7 @@ export const YENILIKLER: Yenilik[] = [
     baslik: "7. hafta: ayrık Fourier dönüşümü (DFT)",
     maddeler: [
       "**7. hafta dersi** açıldı. Konular: ayrık Fourier serisi, DFT ve ters DFT, DFT'nin DTFT'nin örnekleri olması, frekans ekseni ve sıfır doldurma, doğrusallık, eşlenik simetri ve Parseval, dairesel kaydırma, dairesel konvolüsyon ve doğrusal konvolüsyonla ilişkisi, DFT ile konvolüsyon, örtüşme-ekleme ve örtüşme-kaydetme.",
-      "Etkileşimli şekillerin bazıları: sıfır doldurdukça DFT noktalarının aynı DTFT eğrisi üzerinde sıklaşmasını görme, taban üstelleri birim çemberde döndürme, diziyi çember üzerinde dairesel kaydırma, iç içe iki çemberle dairesel konvolüsyonu adım adım hesaplama, N'yi değiştirip zamanda örtüşmenin nasıl kaybolduğunu izleme.",
+      "Etkileşimli şekillerin bazıları: sıfır doldurdukça DFT noktalarının aynı DTFT eğrisi üzerinde sıklaşmasını görme, taban üstelleri birim çemberde döndürme, diziyi çember üzerinde dairesel kaydırma, iç içe iki çemberle dairesel konvolüsyonu sırayla hesaplama, N'yi değiştirip zamanda örtüşmenin nasıl kaybolduğunu izleme.",
       "Soru havuzuna 7. hafta için 45 soru eklendi; tekrarda çıkacak 14 ek soru da hazır.",
     ],
   },
@@ -79,7 +92,7 @@ export const YENILIKLER: Yenilik[] = [
     baslik: "4. hafta: konvolüsyon",
     maddeler: [
       "**4. hafta dersi** açıldı. Konular: konvolüsyon toplamı; değişme, birleşme ve dağılma özellikleri (kaskat ve paralel sistemler); kapalı formlu dizilerde doğrudan hesap; çıkışın uzunluğu ve konumu; grafik yöntem, kaydırma kuralı ve çarpım tablosu; zarlarla olasılık dağılımları, hareketli ortalama ve korelasyon.",
-      "Etkileşimli şekillerin bazıları: çıkışı giriş örneklerinin katkılarını tek tek ekleyerek kurma, **grafik yöntemi adım adım** izleme (ters çevir, kaydır, çarp, topla), kaydırma kuralı şeridini kaydırma, çarpım tablosunda köşegen seçme, zar sayısını ve hileli zarı değiştirip toplamın dağılımını görme, hareketli ortalamanın pencere uzunluğuyla oynama.",
+      "Etkileşimli şekillerin bazıları: çıkışı giriş örneklerinin katkılarını sırayla ekleyerek kurma, **grafik yöntemini adımlarıyla** izleme (ters çevir, kaydır, çarp, topla), kaydırma kuralı şeridini kaydırma, çarpım tablosunda köşegen seçme, zar sayısını ve hileli zarı değiştirip toplamın dağılımını görme, hareketli ortalamanın pencere uzunluğuyla oynama.",
       "Soru havuzuna 4. hafta için 49 soru eklendi; tekrarda çıkacak 20 ek soru da hazır.",
     ],
   },
@@ -89,7 +102,7 @@ export const YENILIKLER: Yenilik[] = [
     baslik: "3. hafta: ayrık zamanlı sinyaller ve sistemler",
     maddeler: [
       "**3. hafta dersi** açıldı. Konular: birim dürtü, basamak ve rampa; üstel, karmaşık üstel ve sinüzoidal diziler ve periyodiklik; çift ve tek kısımlar; kaydırma, ters çevirme ve ölçekleme; enerji ve güç; diziyi dürtülerle yazma; sistem özellikleri ve LTI sistemler.",
-      "Etkileşimli şekillerin bazıları: temel dizileri kaydırma, aⁿ dizisini a ile değiştirme, karmaşık üstelde σ ve ω₀ ile oynama ve y(n) = x(kn − n₀) dönüşümünü adım adım görme. Bir de **sistem tezgâhı** var: sekiz örnek sistemden birini seçince hangi özellikleri neden sağladığını gösteriyor.",
+      "Etkileşimli şekillerin bazıları: temel dizileri kaydırma, aⁿ dizisini a ile değiştirme, karmaşık üstelde σ ve ω₀ ile oynama ve y(n) = x(kn − n₀) dönüşümünü adımlarıyla görme. Bir de **sistem tezgâhı** var: sekiz örnek sistemden birini seçince hangi özellikleri neden sağladığını gösteriyor.",
       "Soru havuzuna 3. hafta için 40 soru eklendi; tekrarda çıkacak 19 ek soru da hazır.",
     ],
   },
@@ -98,7 +111,7 @@ export const YENILIKLER: Yenilik[] = [
     tarih: "2026-10-31",
     baslik: "2. hafta: MatStudio ile çalışmak",
     maddeler: [
-      "**2. hafta dersi** açıldı. Konular: betik yazma, vektör ve matris kurma, indeksleme ve doğrusal indeks, eleman eleman ve matris işlemleri, ilişkisel ve mantıksal işleçler, fonksiyon yazma, rastgele sayılar, dizi birleştirme ve istatistik fonksiyonları.",
+      "**2. hafta dersi** açıldı. Konular: betik yazma, vektör ve matris kurma, indeksleme ve doğrusal indeks, eleman bazında ve matris işlemleri, ilişkisel ve mantıksal işleçler, fonksiyon yazma, rastgele sayılar, dizi birleştirme ve istatistik fonksiyonları.",
       "Etkileşimli şekillerde bir indeksleme ifadesi seçip vektörden ya da matristen hangi elemanların alındığını görebilirsin. `mean`, `median`, `std` ve `var` için boyutu ve ağırlığı değiştirip sonucu karşılaştırabilirsin.",
       "MatStudio'ya yeni fonksiyonlar eklendi: `cat`, `vertcat`, `corrcoef`, `randperm`, `who` ve `whos`. `mean`, `std`, `var`, `median`, `sum`, `max` ve `min` artık `'all'` seçeneğini de kabul ediyor.",
       "Soru havuzuna 2. hafta için 46 soru eklendi; tekrarda çıkacak 20 ek soru da hazır.",

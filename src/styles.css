@@ -38,6 +38,12 @@
   --mark-warning: #fff2d6;
   --msg-hover: #eef4fc;
   --detail: #444;
+  /* Hatalı satırın yarı saydam zemini: seçim altta kalmasın diye */
+  --mark-error-satir: rgba(204, 26, 26, 0.13);
+  --mark-warning-satir: rgba(214, 140, 0, 0.16);
+  /* Birden çok oku ayırt etmek için sıralı renkler */
+  --ok-0: #2563eb; --ok-1: #dc2626; --ok-2: #059669; --ok-3: #d97706;
+  --ok-4: #7c3aed; --ok-5: #db2777; --ok-6: #0891b2; --ok-7: #65a30d;
   --cm-keyword: #708;
   --cm-type: #085;
   --cm-string: #a11;
@@ -90,6 +96,10 @@
   --mark-warning: #4a3a1a;
   --msg-hover: #2a3442;
   --detail: #b0b0b0;
+  --mark-error-satir: rgba(240, 96, 96, 0.22);
+  --mark-warning-satir: rgba(240, 180, 60, 0.2);
+  --ok-0: #60a5fa; --ok-1: #f87171; --ok-2: #34d399; --ok-3: #fbbf24;
+  --ok-4: #a78bfa; --ok-5: #f472b6; --ok-6: #22d3ee; --ok-7: #a3e635;
   --cm-keyword: #cc7832;
   --cm-type: #6aab73;
   --cm-string: #6a8759;
@@ -234,8 +244,8 @@ code { background: var(--code-bg); padding: 0 3px; border-radius: 3px; }
 .tok-string { color: var(--cm-string); }
 .tok-number { color: var(--cm-number); }
 .tok-comment { color: var(--cm-comment); font-style: italic; }
-.cm-line.cm-mark-error { background: var(--mark-error); box-shadow: inset 3px 0 var(--error); }
-.cm-line.cm-mark-warning { background: var(--mark-warning); box-shadow: inset 3px 0 var(--warning); }
+.cm-line.cm-mark-error { background: var(--mark-error-satir); box-shadow: inset 3px 0 var(--error); }
+.cm-line.cm-mark-warning { background: var(--mark-warning-satir); box-shadow: inset 3px 0 var(--warning); }
 .waves { background: #000; }
 .tabs { display: flex; background: var(--tab-bar); border-bottom: 1px solid var(--border); }
 .tabs button { border: none; border-right: 1px solid var(--border); border-radius: 0; background: none; padding: 4px 14px; }
@@ -801,6 +811,22 @@ polygon.g-renk-b { fill: var(--error); }
 .g-seri-c { fill: none; stroke: var(--green); stroke-width: 2.5; }
 .g-seri-d { fill: none; stroke: var(--warning); stroke-width: 2.5; }
 .g-ince { stroke-width: 1.4; }
+.g-ok-0 { stroke: var(--ok-0); }
+polygon.g-ok-0 { fill: var(--ok-0); stroke: none; }
+.g-ok-1 { stroke: var(--ok-1); }
+polygon.g-ok-1 { fill: var(--ok-1); stroke: none; }
+.g-ok-2 { stroke: var(--ok-2); }
+polygon.g-ok-2 { fill: var(--ok-2); stroke: none; }
+.g-ok-3 { stroke: var(--ok-3); }
+polygon.g-ok-3 { fill: var(--ok-3); stroke: none; }
+.g-ok-4 { stroke: var(--ok-4); }
+polygon.g-ok-4 { fill: var(--ok-4); stroke: none; }
+.g-ok-5 { stroke: var(--ok-5); }
+polygon.g-ok-5 { fill: var(--ok-5); stroke: none; }
+.g-ok-6 { stroke: var(--ok-6); }
+polygon.g-ok-6 { fill: var(--ok-6); stroke: none; }
+.g-ok-7 { stroke: var(--ok-7); }
+polygon.g-ok-7 { fill: var(--ok-7); stroke: none; }
 .g-eksen { stroke: var(--muted); stroke-width: 1.1; }
 .g-izgara { fill: none; stroke: var(--border-soft); stroke-width: 1; }
 .g-stem { stroke-width: 1.6; }
@@ -1190,3 +1216,18 @@ body.boyutlaniyor-dikey { cursor: ns-resize; user-select: none; }
 .takvim-liste ul { margin: 0; padding-left: 18px; font-size: 13px; }
 .takvim-liste li { margin: 3px 0; }
 .tekrar-sifirla { margin-top: 24px; font-size: 12px; }
+
+/* ---- Ders kodu: çalıştırma geçmişi ve karşılaştırma ---- */
+.mini-gecmis { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; font-size: 12px; }
+.mini-gecmis-ad { color: var(--muted); font-weight: 600; }
+.mini-gecmis-liste { display: inline-flex; flex-wrap: wrap; gap: 4px; }
+.mini-gecmis-simdi { border-style: dashed; cursor: default; }
+.mini-gecmis-dugmeler { display: inline-flex; gap: 4px; margin-left: auto; }
+.mini-gecmis button.cip { cursor: pointer; font: inherit; font-size: 12px; }
+.mini-karsi { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 8px; align-items: start; }
+.mini-sutun { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.mini-sutun-baslik { display: flex; flex-direction: column; gap: 1px; font-size: 12px; min-width: 0; }
+.mini-sutun-baslik .hint { font-family: var(--mono); font-size: 11px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.mini-sutun.onceki .mini-cikti { border-style: dashed; }
+.mini-sutun.onceki .mini-sekil { opacity: .85; }
+.mini-cikti .farkli { background: var(--mark-warning-satir); border-radius: 2px; }

@@ -1,4 +1,4 @@
-// Matris işlemleri: eleman eleman işlemler (genişletmeyle), matris çarpımı,
+// Matris işlemleri: eleman bazında işlemler (genişletmeyle), matris çarpımı,
 // birleştirme, indeksleme ve indisli atama.
 
 import { boyutDenetle, hata, mat, numel, skalerMi, type Matris, type Sinif } from "./deger";
@@ -103,7 +103,7 @@ export function matrisCarp(A: Matris, B: Matris): Matris {
   if (skalerMi(A) || skalerMi(B)) return elemanEleman(".*", A, B);
   if (A.c !== B.r)
     hata(
-      `Matris çarpımında iç boyutlar uyuşmuyor: ${A.r}×${A.c} * ${B.r}×${B.c}. Eleman eleman çarpım için .* kullan.`,
+      `Matris çarpımında iç boyutlar uyuşmuyor: ${A.r}×${A.c} * ${B.r}×${B.c}. Eleman bazında çarpım için .* kullan.`,
     );
   boyutDenetle(A.r, B.c);
   const r = A.r, c = B.c, k = A.c;
@@ -136,7 +136,7 @@ export function devrik(A: Matris, eslenik: boolean): Matris {
 
 // Kare matrisin tersiyle çözüm (Gauss eliminasyonu, gerçek sayılar)
 function coz(A: Matris, B: Matris): Matris {
-  if (A.r !== A.c) hata("Matris bölmesi yalnızca kare matrislerle desteklenir. Eleman eleman bölme için ./ kullan.");
+  if (A.r !== A.c) hata("Matris bölmesi yalnızca kare matrislerle desteklenir. Eleman bazında bölme için ./ kullan.");
   if (A.im || B.im) hata("Karmaşık matris bölmesi desteklenmiyor.");
   const n = A.r;
   if (B.r !== n) hata(`Boyutlar uyuşmuyor: ${A.r}×${A.c} \\ ${B.r}×${B.c}.`);
@@ -184,7 +184,7 @@ export function ikiliIslem(op: string, A: Matris, B: Matris): Matris {
         for (let k = 0; k < B.re[0]!; k++) s = matrisCarp(s, A);
         return s;
       }
-      return hata("'^' matris kuvvetidir; eleman eleman kuvvet için .^ kullan (ör. x.^2).");
+      return hata("'^' matris kuvvetidir; eleman bazında kuvvet için .^ kullan (ör. x.^2).");
     }
     default:
       return elemanEleman(op, A, B);

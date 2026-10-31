@@ -276,6 +276,49 @@ function kesinlikDogruluk(): string {
   return s;
 }
 
+// ---- G-H1-10: Kayan noktalı veride kutulama ----
+// 0 ile 10 arasında değer alan 400 örnek; iki tepeli bir dağılımdan gelir.
+const KUTU_A = 0;
+const KUTU_B = 10;
+export const KUTU_SAYILARI = [5, 10, 20, 50, 100, 250];
+const kutuPdf = (x: number) =>
+  (0.7 * Math.exp(-((x - 4) ** 2) / (2 * 1.1 ** 2))) / (1.1 * Math.sqrt(2 * Math.PI)) +
+  (0.3 * Math.exp(-((x - 7.5) ** 2) / (2 * 0.6 ** 2))) / (0.6 * Math.sqrt(2 * Math.PI));
+export const KUTU_VERI: number[] = [...gaussUret(280, 31, 4, 1.1), ...gaussUret(120, 32, 7.5, 0.6)].map((v) => Math.min(9.999, Math.max(0, v)));
+
+// Değerin kutusu: k = ⌊(x − a) / w⌋. Üst sınırın kendisi son kutuya düşer.
+export const kutuNo = (x: number, M: number) => Math.min(M - 1, Math.floor(((x - KUTU_A) * M) / (KUTU_B - KUTU_A)));
+
+export function kutulamaCiz(M: number, x: number, yogunluk: boolean) {
+  const w = (KUTU_B - KUTU_A) / M;
+  const N = KUTU_VERI.length;
+  const H: number[] = new Array(M).fill(0);
+  for (const v of KUTU_VERI) H[kutuNo(v, M)]!++;
+  const y = yogunluk ? H.map((h) => h / (N * w)) : H;
+  const k = kutuNo(x, M);
+  const ymax = Math.max(yogunluk ? 0.4 : 0, ...y) * 1.15;
+  const kenar = Array.from({ length: M + 1 }, (_, i) => KUTU_A + i * w);
+  // Üst şerit: örneklerin sayı doğrusundaki yerleri ve kutu sınırları
+  const u = { x: 70, w: 540, y: 34, h: 30 };
+  const X = (v: number) => u.x + ((v - KUTU_A) / (KUTU_B - KUTU_A)) * u.w;
+  let s = `<rect x="${X(k * w)}" y="${u.y - 3}" width="${Math.max(2, X(w) - X(0))}" height="${u.h + 6}" class="g-bolge-a"/>`;
+  for (const v of KUTU_VERI) s += cizgi([[X(v), u.y + 5], [X(v), u.y + u.h - 5]], "g-cizgi g-ince g-soluk");
+  if (M <= 100) for (const v of kenar) s += cizgi([[X(v), u.y], [X(v), u.y + u.h]], "g-kesik");
+  s += cizgi([[u.x, u.y + u.h], [u.x + u.w, u.y + u.h]], "g-cizgi g-eksen");
+  s += yazi(u.x - 8, u.y + u.h / 2 + 4, "örnekler", "g-mini g-soluk", "end");
+  s += ok([[X(x), u.y - 14], [X(x), u.y + 2]], "g-cizgi g-renk-b-cizgi", "g-renk-b");
+  s += yazi(Math.min(Math.max(X(x), u.x + 30), u.x + u.w - 30), u.y - 18, `x = ${virgul(x)}`, "g-mini g-kalin g-renk-b");
+  // Alt: histogram
+  const e = eksen({
+    x: 70, y: 100, w: 540, h: 170, x0: KUTU_A, x1: KUTU_B, y0: 0, y1: ymax,
+    xTik: aralik(0, 1, 10), yTik: tikler(0, ymax), yEtiket: (v) => kisa(v, yogunluk ? 2 : 0), izgara: true,
+    xAd: "değer", yAd: yogunluk ? "Hₖ / (N·w)" : "Hₖ (adet)",
+  });
+  s += e.s + cubuklar(e, kenar, y, "g-cubuk-a") + cubuklar(e, [kenar[k]!, kenar[k + 1]!], [y[k]!], "g-cubuk-b");
+  if (yogunluk) s += fonksiyon(e, kutuPdf, "g-seri-b g-ince") + gosterge(80, 318, [["g-seri-b g-ince", "örneklerin geldiği pdf"]], 200);
+  return { s, w, k, Hk: H[k]!, bos: H.filter((h) => h === 0).length, alt: kenar[k]!, ust: kenar[k + 1]!, N };
+}
+
 export const HAFTA_1_GORSELLERI: Gorsel[] = [
   {
     kod: "G-H1-01",
@@ -312,6 +355,12 @@ export const HAFTA_1_GORSELLERI: Gorsel[] = [
     baslik: "pmf ayrık değerlerin, pdf sürekli değerlerin olasılığı",
     aciklama: "Solda bir zarın pmf'i: altı değerin her biri altıda bir olasılıklı. Sağda bir pdf eğrisi: belirli bir aralığın olasılığı eğrinin altındaki alandır.",
     en: 660, boy: 220, icerik: pmfPdf(),
+  },
+  {
+    kod: "G-H1-10",
+    baslik: "Kayan noktalı veride kutulama",
+    aciklama: "0 ile 10 arasında değer alan 400 örnek. Üstte örneklerin sayı doğrusundaki yerleri ve kutu sınırları, altta her kutuya düşen örnek sayısı. İşaretli değerin düştüğü kutu vurgulanır; kutu sayısı arttıkça kutular daralır ve boş kalanlar çoğalır.",
+    en: 660, boy: 330, icerik: kutulamaCiz(20, 3.14, false).s, etkilesim: "kutulama",
   },
   {
     kod: "G-H1-07",

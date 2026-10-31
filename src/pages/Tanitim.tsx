@@ -10,7 +10,7 @@ import { TANITIM_GORULDU } from "../components/Shell";
 const KITLELER = [
   {
     baslik: "Sayısal sinyal işleme dersini alan öğrenciler",
-    metin: "Vize ve finale hazırlanırken konuyu hafta hafta tekrar et, haftaya göre açılan sorularla kendini dene. Yanlış yaptığın sorular aralıklı tekrarla unutmadan önce yeniden karşına çıkar; ilerleme sayfası zayıf konularını gösterir.",
+    metin: "Vize ve finale hazırlanırken konuları haftalar halinde tekrar et, haftaya göre açılan sorularla kendini dene. Yanlış yaptığın sorular aralıklı tekrarla unutmadan önce yeniden karşına çıkar; ilerleme sayfası zayıf konularını gösterir.",
   },
   {
     baslik: "Konuyu görerek anlamak isteyenler",

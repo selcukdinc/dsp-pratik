@@ -13,7 +13,7 @@ export const hafta4: Soru[] = [
         "$\\sum_k x(k)\\,h(k)$",
       ],
       dogru: 0,
-      aciklama: "Konvolüsyon toplamı: her giriş örneği x(k), n − k adım sonraki dürtü yanıtı değeriyle çarpılır ve toplanır. İkinci şık korelasyondur, üçüncüsü örnek örnek çarpım, dördüncüsü n'ye bağlı bile değildir.",
+      aciklama: "Konvolüsyon toplamı: her giriş örneği x(k), n − k adım sonraki dürtü yanıtı değeriyle çarpılır ve toplanır. İkinci şık korelasyondur, üçüncüsü örnek bazında çarpım, dördüncüsü n'ye bağlı bile değildir.",
     },
     {
       id: "h4-durtu-birim", zorluk: 1, tip: "fill",

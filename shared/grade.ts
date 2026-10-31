@@ -140,7 +140,7 @@ export function sayiEslesir(beklenen: string, yazilan: string): boolean {
   return v !== null && yakin(v, b.degerler[0]!, b.tolerans);
 }
 
-// fill ve num sorularında her boşluğun ayrı ayrı doğru olup olmadığı; öğrenci
+// fill ve num sorularında her boşluğun ayrıca doğru olup olmadığı; öğrenci
 // yalnızca yanlış boşluğa odaklanabilsin. Boşluk sayısı tutmazsa null.
 export function boslukSonuclari(expected: Expected, answer: Answer, tur: QuestionType = "fill"): boolean[] | null {
   if (!("blanks" in expected) || !("blanks" in answer)) return null;

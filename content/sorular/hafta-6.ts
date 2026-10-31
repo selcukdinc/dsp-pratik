@@ -282,7 +282,7 @@ export const hafta6: Soru[] = [
     },
     {
       id: "h6-carpma", kaynak: "original", zorluk: 2, tip: "tf",
-      soru: "İki dizinin zamanda örnek örnek çarpımının DTFT'si, DTFT'lerinin çarpımıdır.",
+      soru: "İki dizinin zamanda örnek bazında çarpımının DTFT'si, DTFT'lerinin çarpımıdır.",
       dogru: false,
       aciklama: "Yanlış. Zamanda çarpım frekansta (periyodik) konvolüsyona karşılık gelir; çarpım-konvolüsyon ikiliği ters yönde işler.",
     },

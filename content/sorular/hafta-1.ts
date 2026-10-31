@@ -202,6 +202,30 @@ export const hafta1: Soru[] = [
       aciklama: "Kutu genişliği 10 / 1000 = 0,01. 7,2049 / 0,01 = 720,49; aşağı yuvarlanınca kutu 720.",
     },
     {
+      id: "h1-kutu-alt-sinir", kaynak: "original", zorluk: 2, tip: "num",
+      soru: "5 ile 15 arasında değer alan kayan noktalı bir sinyal 500 kutulu bir histogramla sayılıyor (kutu 0: 5–5,02). 9,137 değerindeki bir örnek kaçıncı kutuya düşer?",
+      bosluklar: [["206"]],
+      aciklama: "w = (15 − 5) / 500 = 0,02. Önce alt sınır çıkarılır: (9,137 − 5) / 0,02 = 206,85; aşağı yuvarlanınca kutu 206.",
+    },
+    {
+      id: "h1-kutu-yogunluk", kaynak: "original", zorluk: 2, tip: "num",
+      soru: "N = 2000 örnekli bir sinyalin histogramında kutu genişliği 0,05. Bir kutuda 150 örnek var. Bu kutunun pdf yaklaşımı (yoğunluk) kaçtır?",
+      bosluklar: [["1.5"]],
+      aciklama: "pₖ = Hₖ / (N·w) = 150 / (2000 · 0,05) = 150 / 100 = 1,5. Yoğunluk 1'den büyük olabilir; çubuğun alanı 1,5 · 0,05 = 0,075'tir.",
+    },
+    {
+      id: "h1-kutu-sayisi", kaynak: "original", zorluk: 1, tip: "mcq",
+      soru: "Az örnekli bir sinyalin histogramında kutu sayısı çok büyük seçilirse ne olur?",
+      secenekler: [
+        "Kutuların çoğu boş kalır, histogram pürüzlenir",
+        "Birbirine yakın tepeler tek yığına karışır",
+        "Kutulardaki sayıların toplamı N'yi aşar",
+        "Kutu genişliği büyür, ayrıntı kaybolur",
+      ],
+      dogru: 0,
+      aciklama: "Kutu başına ortalama N / M örnek düşer. M büyüyünce bu sayı küçülür: çoğu kutu boş kalır ya da birkaç örnek alır. Tepelerin karışması az kutunun sonucudur; toplam her zaman N'dir.",
+    },
+    {
       id: "h1-hist-puruz", kaynak: "original", zorluk: 2, tip: "mcq",
       soru: "Bir histogramı çıkarırken kullanılan örnek sayısı 4 katına çıkarılırsa histogramın pürüzlülüğü (istatistiksel gürültüsü) ne olur?",
       secenekler: ["Değişmez", "Yarıya iner", "Dörtte birine iner", "İki katına çıkar"],

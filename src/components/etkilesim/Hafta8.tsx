@@ -90,7 +90,7 @@ export function KarmaN({ g }: { g: Gorsel }) {
       <Cizim g={g} html={r.s} etiket={`N = ${r.N} = ${N1} × ${N2}.`} />
       <Denetim>
         <Secim ad="N₁ × N₂" secenekler={KARMA_SECENEKLERI.map(([a, b], j) => [j, `${a} × ${b} = ${a * b}`])} deger={i} degis={setI} />
-        <p>Giriş tablosu sütun sütun okunduğunda x(n) doğal sırada gelir; çıkış tablosu satır satır okunduğunda X(k) doğal sırada gelir.</p>
+        <p>Giriş tablosu sütunlara göre okunduğunda x(n) doğal sırada gelir; çıkış tablosu satırlara göre okunduğunda X(k) doğal sırada gelir.</p>
       </Denetim>
     </>
   );

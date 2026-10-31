@@ -23,7 +23,7 @@ export const hafta2: Soru[] = [
     },
     {
       id: "h2-yorum", kaynak: "original", zorluk: 1, tip: "fill",
-      soru: "Bir MatStudio betiğini Run Section ile ayrı ayrı çalıştırılabilen bölümlere ayırmak için satır başına hangi işaret yazılır?",
+      soru: "Bir MatStudio betiğini Run Section ile ayrı çalıştırılabilen bölümlere ayırmak için satır başına hangi işaret yazılır?",
       bosluklar: [["%%"]],
       aciklama: "~%%~ ile başlayan yorum satırı yeni bir bölüm başlatır. Tek ~%~ yalnızca yorumdur.",
     },
@@ -108,7 +108,7 @@ export const hafta2: Soru[] = [
       id: "h2-dogrusal-indeks", kaynak: "original", zorluk: 2, tip: "num",
       soru: "~A = [2 4 6; 1 3 5; 7 8 9];~ için ~A(4)~ kaçtır?",
       bosluklar: [["4"]],
-      aciklama: "Doğrusal indeks sütun sütun sayar: 2, 1, 7 (1. sütun), sonra 4. Yani ~A(4)~ = ~A(1, 2)~ = 4.",
+      aciklama: "Doğrusal indeks sütunlara göre sayar: 2, 1, 7 (1. sütun), sonra 4. Yani ~A(4)~ = ~A(1, 2)~ = 4.",
     },
     {
       id: "h2-find", kaynak: "original", zorluk: 2, tip: "num",
@@ -129,11 +129,11 @@ export const hafta2: Soru[] = [
       id: "h2-eleman-carpim", zorluk: 1, tip: "num",
       soru: "~[1 2 3] .* [4 5 6]~ nedir?",
       bosluklar: [["[4 10 18]"]],
-      aciklama: "Eleman eleman çarpım: 1·4, 2·5, 3·6.",
+      aciklama: "Eleman bazında çarpım: 1·4, 2·5, 3·6.",
     },
     {
       id: "h2-matris-carpim", kaynak: "original", zorluk: 2, tip: "num",
-      soru: "~[2 0; 1 3] * [1 2; 0 1]~ matris çarpımının sonucunu satır satır yaz (ör. ~[a b; c d]~).",
+      soru: "~[2 0; 1 3] * [1 2; 0 1]~ matris çarpımının sonucunu satır sırasıyla yaz (ör. ~[a b; c d]~).",
       bosluklar: [["[2 4; 1 5]"]],
       aciklama: "1. satır: 2·1 + 0·0 = 2, 2·2 + 0·1 = 4. 2. satır: 1·1 + 3·0 = 1, 1·2 + 3·1 = 5.",
     },
@@ -142,7 +142,7 @@ export const hafta2: Soru[] = [
       soru: "~x = [1 2 3];~ vektörünün her elemanının karesini almak için hangisi yazılır?",
       secenekler: ["x^2", "x.^2", "x*x", "x'^2"],
       dogru: 1,
-      aciklama: "~.^~ eleman eleman kuvvettir. ~x^2~ ve ~x*x~ matris işlemidir ve 1×3'lük bir vektörde hata verir.",
+      aciklama: "~.^~ eleman bazında kuvvettir. ~x^2~ ve ~x*x~ matris işlemidir ve 1×3'lük bir vektörde hata verir.",
     },
     {
       id: "h2-us", kaynak: "original", zorluk: 1, tip: "num",
@@ -182,12 +182,12 @@ export const hafta2: Soru[] = [
       soru: "~&&~ işlecinin ~&~ işlecinden farkı nedir?",
       secenekler: [
         "Yalnızca skalerlerle çalışır ve sol taraf yanlışsa sağı hesaplamaz",
-        "Vektörlerde eleman eleman VE işlemi yapar",
+        "Vektörlerde eleman bazında VE işlemi yapar",
         "VE yerine VEYA işlemi yapar",
         "İki tarafı da her zaman hesaplar ama sonucu tersine çevirir",
       ],
       dogru: 0,
-      aciklama: "~&&~ kısa devre VE'dir: skalerlerde çalışır, sol taraf 0 ise sonuç zaten 0 olduğundan sağ tarafı hesaplamaz. Eleman eleman VE ~&~'dir.",
+      aciklama: "~&&~ kısa devre VE'dir: skalerlerde çalışır, sol taraf 0 ise sonuç zaten 0 olduğundan sağ tarafı hesaplamaz. Eleman bazında VE ~&~'dir.",
     },
   ]),
 

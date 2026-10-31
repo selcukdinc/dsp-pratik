@@ -176,7 +176,7 @@ Büyüklüğü her frekansta 1'dir; yalnızca fazı (gecikmeyi) frekansa göre d
 
 [[G-H6-05]]
 
-**Frekans seçici filtreler.** Uygulamada önemli filtrelerin çoğunun büyüklüğü parça parça sabittir: **alçak geçiren**, **yüksek geçiren**, **bant geçiren** ve **bant durduran**. Büyüklüğün 1 olduğu aralıklar **geçiş bandı**, 0 olduğu aralıklar **durdurma bandı**dır; bu bantların kenarlarındaki frekanslara **kesim frekansı** denir.
+**Frekans seçici filtreler.** Uygulamada önemli filtrelerin çoğunun büyüklüğü bölgeler halinde sabittir: **alçak geçiren**, **yüksek geçiren**, **bant geçiren** ve **bant durduran**. Büyüklüğün 1 olduğu aralıklar **geçiş bandı**, 0 olduğu aralıklar **durdurma bandı**dır; bu bantların kenarlarındaki frekanslara **kesim frekansı** denir.
 
 [[G-H6-04]]
 

@@ -19,7 +19,7 @@ describe("grade", () => {
     expect(grade("fill", want, { blanks: ["linspace"] })).toBe(false);
   });
 
-  it("boşluklar ayrı ayrı değerlendirilir", () => {
+  it("boşluklar ayrıca değerlendirilir", () => {
     const want = { blanks: [["1"], ["-1", "- 1"], ["2"]] };
     expect(boslukSonuclari(want, { blanks: ["1", "1", "2"] })).toEqual([true, false, true]);
     expect(boslukSonuclari(want, { blanks: ["1", "-1", "2"] })).toEqual([true, true, true]);

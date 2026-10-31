@@ -69,7 +69,7 @@ export const ekHafta2: Soru[] = [
       id: "t2-bolme", zorluk: 1, tip: "num", yedek: true,
       soru: "~[8 6 4] ./ [2 3 4]~ nedir?",
       bosluklar: [["[4 2 1]"]],
-      aciklama: "Eleman eleman bölme: 8/2, 6/3, 4/4.",
+      aciklama: "Eleman bazında bölme: 8/2, 6/3, 4/4.",
     },
     {
       id: "t2-ic-carpim", zorluk: 2, tip: "num", yedek: true,
@@ -82,7 +82,7 @@ export const ekHafta2: Soru[] = [
       soru: "~[1 2 3] * [4 5 6]~ yazılınca ne olur?",
       secenekler: ["Hata verir: iç boyutlar uyuşmuyor", "[4 10 18] döner", "32 döner", "3×3'lük bir matris döner"],
       dogru: 0,
-      aciklama: "1×3 ile 1×3 matris çarpımına giremez (A'nın sütun sayısı 3, B'nin satır sayısı 1). Eleman eleman çarpım için ~.*~ gerekir.",
+      aciklama: "1×3 ile 1×3 matris çarpımına giremez (A'nın sütun sayısı 3, B'nin satır sayısı 1). Eleman bazında çarpım için ~.*~ gerekir.",
     },
   ]),
   ...turet(2, "matlab-fonksiyon", "mantiksal", [

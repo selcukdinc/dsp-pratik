@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from "react";
 import {
-  ADC_BITLER, ADC_FS, DALGA_ADLARI, HIST_N, adcCiz, gaussCiz, histogramCiz, istatistikCiz, rndToplamCiz, type DalgaTuru,
+  ADC_BITLER, ADC_FS, DALGA_ADLARI, HIST_N, KUTU_SAYILARI, adcCiz, kutulamaCiz, gaussCiz, histogramCiz, istatistikCiz, rndToplamCiz, type DalgaTuru,
 } from "../../gorseller/hafta-1";
 import type { Gorsel } from "../../gorseller/tip";
 import { Cizim, Denetim, Kaydirici, Kaydiricilar, Olcumler, Secim } from "./ortak";
@@ -68,6 +68,35 @@ export function Histogram({ g }: { g: Gorsel }) {
           <span>histogramdan σ = {v(h.sigma)}</span>
         </Olcumler>
         <p>Örnekler ortalaması 128, standart sapması 18 olan bir dağılımdan geliyor. N büyüdükçe histogramdan bulunan μ ve σ bu değerlere yaklaşır ve çubuklar eğriye oturur. pmf'e geçince biçim aynı kalır, yalnızca dikey eksen N'ye bölünür.</p>
+      </Denetim>
+    </>
+  );
+}
+
+// G-H1-10
+export function Kutulama({ g }: { g: Gorsel }) {
+  const [M, setM] = useState(20);
+  const [x, setX] = useState(3.14);
+  const [yog, setYog] = useState(false);
+  const h = useMemo(() => kutulamaCiz(M, x, yog), [M, x, yog]);
+  const b = h.w < 0.1 ? 3 : 2;
+  return (
+    <>
+      <Cizim g={g} html={h.s} etiket={`${M} kutu, kutu genişliği ${v(h.w, b)}; ${v(x)} değeri kutu ${h.k}'e düşer.`} />
+      <Denetim>
+        <Secim ad="Kutu sayısı" secenekler={KUTU_SAYILARI.map((m) => [m, `M = ${m}`])} deger={M} degis={setM} />
+        <Secim ad="Gösterim" secenekler={[[0, "adet Hₖ"], [1, "yoğunluk Hₖ / (N·w)"]]} deger={yog ? 1 : 0} degis={(k) => setYog(k === 1)} />
+        <Kaydiricilar>
+          <Kaydirici ad="Örnek değer x" deger={x} min={0} max={10} adim={0.01} yaz={(t) => v(t)} degis={setX} />
+        </Kaydiricilar>
+        <Olcumler>
+          <span>w = (10 − 0) / {M} = {v(h.w, b)}</span>
+          <span>k = ⌊{v(x)} / {v(h.w, b)}⌋ = {h.k}</span>
+          <span>kutu {h.k}: [{v(h.alt, b)}, {v(h.ust, b)})</span>
+          <span>Hₖ = {h.Hk}</span>
+          <span>boş kutu: {h.bos} / {M}</span>
+        </Olcumler>
+        <p>Az kutuda iki tepe tek bir yığına karışır; çok kutuda her kutuya birkaç örnek düşer, histogram pürüzlenir ve boş kutular çoğalır. Yoğunluk gösteriminde dikey eksen N·w'ye bölünür: kutu sayısı değişse de çubuklar aynı pdf eğrisinin çevresinde kalır.</p>
       </Denetim>
     </>
   );

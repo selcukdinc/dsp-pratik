@@ -24,7 +24,7 @@ function enAz(args: Deger[], n: number, ad: string) {
   if (args.length < n) hata(`${ad} en az ${n} argüman ister.`);
 }
 
-// ---- Eleman eleman fonksiyonlar ----
+// ---- Eleman bazında fonksiyonlar ----
 
 function gercekHarita(f: (v: number) => number, mantiksal = false): Yerlesik {
   return (_y, args) => {
@@ -152,7 +152,7 @@ function varyans(x: number[], w: number): number {
   return x.reduce((t, v) => t + (v - m) ** 2, 0) / (w === 1 ? n : n - 1);
 }
 
-// max/min: tek argümanla [m, i]; iki argümanla eleman eleman
+// max/min: tek argümanla [m, i]; iki argümanla eleman bazında
 function enUc(buyuk: boolean): Yerlesik {
   return (_y, args, nargout) => {
     const a = M(args[0]);

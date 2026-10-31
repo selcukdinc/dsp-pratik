@@ -32,7 +32,7 @@ Yani dürtü konvolüsyonun birim elemanıdır; kaydırılmış dürtüyle konvo
 > 2. y(1) = x(0)h(1) + x(1)h(0) = −1 + 6 = 5.
 > 3. y(2) = x(1)h(1) = −3. Başka örnek yok: y = (2, 5, −3), n = 0'dan başlayarak.
 
-> **Sık hata:** $x(n) * h(n)$'yi örnek örnek çarpım $x(n)\\,h(n)$ sanmak. Konvolüsyonda bir çıkış örneği birçok çarpımın toplamıdır.
+> **Sık hata:** $x(n) * h(n)$'yi örnek bazında çarpım $x(n)\\,h(n)$ sanmak. Konvolüsyonda bir çıkış örneği birçok çarpımın toplamıdır.
 
 MatStudio'da ~conv(x, h)~ iki sonlu dizinin konvolüsyonunu verir. ~conv~ dizilerin n konumlarını bilmez; ikisi de ilk elemanından başlıyor kabul edilir.
 `),
@@ -205,7 +205,7 @@ Grafik yöntemin adımları:
 1. x(k) ve h(k) dizilerini **k'nin** fonksiyonu olarak çiz.
 2. Birini seç (genellikle h) ve **ters çevir**: h(−k).
 3. Ters çevrilen diziyi n kadar **kaydır**: h(n − k). n > 0 ise sağa (gecikme), n < 0 ise sola (ilerleme) kayar.
-4. x(k) ile h(n − k)'yı örnek örnek **çarp** ve bütün k'ler için **topla**. Sonuç y(n)'dir.
+4. x(k) ile h(n − k)'yı örnek bazında **çarp** ve bütün k'ler için **topla**. Sonuç y(n)'dir.
 
 Bu işlem her n için tekrarlanır. İki dizi hiç örtüşmüyorsa çarpımların hepsi sıfırdır ve y(n) = 0'dır; örtüşme ilk başladığında y'nin ilk örneği, bittiğinde son örneği bulunur.
 
@@ -254,7 +254,7 @@ conv(x, h)                           % aynı sonuç`,
 
 1. x(k) değerlerini bir kâğıt şeridin üstüne, h(−k) değerlerini (yani h'yi **ters sırada**) ikinci bir şeride yaz.
 2. x(0) ile h(0)'ı alt alta getir; üst üste gelen her sayı çiftini çarp ve topla: bu y(0)'dır.
-3. Alt şeridi birer birer **sağa** kaydırarak y(1), y(2), ... değerlerini bul. n < 0 için şeridi sola kaydır.
+3. Alt şeridi birer adım **sağa** kaydırarak y(1), y(2), ... değerlerini bul. n < 0 için şeridi sola kaydır.
 
 [[G-H4-05]]
 
@@ -262,7 +262,7 @@ conv(x, h)                           % aynı sonuç`,
 
 [[G-H4-06]]
 
-**Polinom çarpımı.** Dizilerin elemanlarını polinom katsayısı yaparsak $x(n) \\to 1 + 2z + 3z^2$ ve $h(n) \\to 4 + 5z + 6z^2$ olur. Çarpımda $z^i \\cdot z^j = z^{i+j}$ olduğu için katsayılar tam olarak konvolüsyonla toplanır. MatStudio'da da iki polinomu çarpmak için ~conv~ kullanılır.
+**Polinom çarpımı.** Dizilerin elemanlarını polinom katsayısı yaparsak $x(n) \\to 1 + 2z + 3z^2$ ve $h(n) \\to 4 + 5z + 6z^2$ olur. Çarpımda $z^i \\cdot z^j = z^{i+j}$ olduğu için katsayılar tam olarak konvolüsyonla toplanır. MatStudio'da iki polinomu çarpmak için de ~conv~ kullanılır.
 
 > **Çözümlü örnek:** (1, 2, 3) * (4, 5, 6) dizisini kaydırma kuralıyla bul.
 >

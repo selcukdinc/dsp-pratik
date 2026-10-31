@@ -1,5 +1,5 @@
 // Hafta 2 ders şekilleri: vektör indeksleme, matrislerde doğrusal indeks,
-// eleman eleman ve matris çarpımı, dizi birleştirme, istatistik
+// eleman bazında ve matris çarpımı, dizi birleştirme, istatistik
 // fonksiyonlarının boyutu.
 
 import { bitDizisi, kutu, ok, yazi } from "./cizim";
@@ -40,8 +40,11 @@ export function indekslemeCiz(secim: IndeksSecimi): string {
   // Sonuç
   s += yazi(x0 - 12, 150, "sonuç", "g-kod g-kucuk", "end");
   s += bitDizisi(x0, 136, secim.indisler.map((i) => sayi(VEKTOR[i - 1]!)), { en, boy: 30, cls: "g-dolu" });
+  // Oklar sırayla farklı renkte: kesişen oklar (örneğin ters çevirmede) ayırt edilsin
+  const tek = secim.indisler.length === 1;
   secim.indisler.forEach((i, k) => {
-    s += ok([[x0 + (i - 1) * en + en / 2, 84], [x0 + k * en + en / 2, 132]], "g-cizgi g-renk-a-cizgi g-ince", "g-renk-a");
+    const renk = tek ? "g-renk-a" : `g-ok-${k % 8}`;
+    s += ok([[x0 + (i - 1) * en + en / 2, 84], [x0 + k * en + en / 2, 132]], `g-cizgi g-ince ${tek ? "g-renk-a-cizgi" : renk}`, renk);
   });
   s += yazi(330, 196, secim.ifade, "g-kod g-kalin");
   return s;
@@ -68,7 +71,7 @@ export const MATRIS_SECIMLERI: MatrisSecimi[] = [
   { ifade: "A(2, 3)", konumlar: [[2, 3]], aciklama: "Önce satır, sonra sütun: 2. satır, 3. sütun." },
   { ifade: "A(3, :)", konumlar: tum((i) => i === 3), aciklama: "İki nokta üst üste o boyutun tamamı demektir: 3. satırın bütün sütunları." },
   { ifade: "A(:, 3)", konumlar: tum((_, j) => j === 3), aciklama: "3. sütunun bütün satırları; sonuç bir sütun vektörüdür." },
-  { ifade: "A(6)", konumlar: [[3, 2]], aciklama: "Tek indis doğrusal indekstir. MatStudio elemanları sütun sütun saklar: 6. eleman 2. sütunun en altıdır." },
+  { ifade: "A(6)", konumlar: [[3, 2]], aciklama: "Tek indis doğrusal indekstir. MatStudio elemanları sütun sırasıyla saklar: 6. eleman 2. sütunun en altıdır." },
   { ifade: "A(:)", konumlar: tum(() => true), aciklama: "Bütün elemanlar sütun sırasıyla tek bir sütun vektörüne dizilir." },
   { ifade: "find(A > 5)", konumlar: tum((i, j) => MATRIS[i - 1]![j - 1]! > 5), aciklama: "find koşulu sağlayan elemanların doğrusal indekslerini döndürür: [3; 6; 8; 9]." },
 ];
@@ -108,7 +111,7 @@ export function matrisCiz(secim: MatrisSecimi): string {
   return s;
 }
 
-// ---- G-H2-03: Eleman eleman ve matris çarpımı ----
+// ---- G-H2-03: Eleman bazında ve matris çarpımı ----
 function carpimlar(): string {
   const A = [[1, 2], [3, 4]];
   const B = [[5, 6], [7, 8]];
@@ -117,7 +120,7 @@ function carpimlar(): string {
     for (let i = 0; i < 2; i++) for (let j = 0; j < 2; j++) s += kutu(x + j * 34, y + i * 30, 34, 30, vurgu(i, j)) + yazi(x + j * 34 + 17, y + i * 30 + 15, String(M[i]![j]), "g-kod g-kucuk");
     return s;
   };
-  let s = yazi(160, 20, "A .* B  (eleman eleman)", "g-kucuk g-kalin");
+  let s = yazi(160, 20, "A .* B  (eleman bazında)", "g-kucuk g-kalin");
   s += mini(30, 40, A, (i, j) => (i === 0 && j === 1 ? "g-dolu g-secili" : "g-kutu")) + yazi(115, 70, ".*", "g-kod g-kalin");
   s += mini(130, 40, B, (i, j) => (i === 0 && j === 1 ? "g-dolu g-secili" : "g-kutu")) + yazi(215, 70, "=", "g-kod g-kalin");
   s += mini(230, 40, [[5, 12], [21, 32]], (i, j) => (i === 0 && j === 1 ? "g-dolu g-secili" : "g-kutu"));
@@ -223,7 +226,7 @@ export const HAFTA_2_GORSELLERI: Gorsel[] = [
   },
   {
     kod: "G-H2-03",
-    baslik: "Eleman eleman çarpım ve matris çarpımı",
+    baslik: "Eleman bazında çarpım ve matris çarpımı",
     aciklama: "Solda .* aynı konumdaki elemanları çarpar. Sağda * birinci matrisin satırıyla ikincinin sütununu çarpıp toplar.",
     en: 660, boy: 160, icerik: carpimlar(),
   },

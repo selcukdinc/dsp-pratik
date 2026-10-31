@@ -172,7 +172,7 @@ title('Kare dalga: ilk 10 tek harmonik')`,
       metin: md(`
 **Neden önemli?** Konuşma, müzik ya da tek bir darbe kendini tekrarlamaz. Bunların da frekans içeriğini anlatabilmek için Fourier serisinden Fourier dönüşümüne geçilir.
 
-Kendini tekrarlamayan bir dalga biçimi de sinüslerle elde edilebilir. Bunun için harmonikler yetmez: **bütün frekanslardaki** sinüsler gerekir ve her birinin genliği **çok çok küçük** olmalıdır.
+Kendini tekrarlamayan bir dalga biçimi de sinüslerle elde edilebilir. Bunun için harmonikler yetmez: **bütün frekanslardaki** sinüsler gerekir ve her birinin genliği **son derece küçük** olmalıdır.
 
 **Kâğıt benzetmesi.** Bir kâğıt yaprağı o kadar incedir ki hacmi neredeyse sıfırdır. Ama sonsuz sayıda yaprak üst üste konunca ölçülebilir bir hacim oluşur. Burada da tek başına ölçülebilir bir anlamı olmayan, sonsuz küçük genlikli sonsuz sayıda sinüsün toplamı anlamlı bir sinyal verir. Bazı yapraklar diğerlerinden büyük olabilir: bazı frekans bölgelerinde sinüsler daha **yoğun**dur.
 

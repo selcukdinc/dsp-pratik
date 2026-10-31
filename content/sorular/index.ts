@@ -11,6 +11,8 @@ import { hafta5 } from "./hafta-5.ts";
 import { ekHafta5 } from "./ek-hafta-5.ts";
 import { hafta6 } from "./hafta-6.ts";
 import { ekHafta6 } from "./ek-hafta-6.ts";
+import { hafta7 } from "./hafta-7.ts";
+import { ekHafta7 } from "./ek-hafta-7.ts";
 
 // Konular haftalara bölünür; her hafta kendi konularını ve soru dosyalarını ekler.
 export const konular: Konu[] = [
@@ -34,7 +36,10 @@ export const konular: Konu[] = [
   { id: "frekans-yaniti", baslik: "Frekans yanıtı: büyüklük, dB, faz ve simetri", hafta: 6, sira: 1 },
   { id: "filtreler", baslik: "Doğrusal faz, tam geçiren, frekans seçici filtreler ve bağlantılar", hafta: 6, sira: 2 },
   { id: "dtft", baslik: "DTFT, özellikleri ve ters sistem", hafta: 6, sira: 3 },
+  { id: "dft-temel", baslik: "DFS, DFT ve ters DFT, frekans ekseni ve sıfır doldurma", hafta: 7, sira: 1 },
+  { id: "dft-ozellikleri", baslik: "DFT özellikleri, simetri ve dairesel kaydırma", hafta: 7, sira: 2 },
+  { id: "dairesel-konvolusyon", baslik: "Dairesel konvolüsyon, DFT ile konvolüsyon ve blok yöntemleri", hafta: 7, sira: 3 },
 ];
 
 // ek-* dosyaları türetilen sorulardır; yedek olanlar havuzda görünmez, tekrarda gelir
-export const sorular: Soru[] = [...hafta1, ...hafta2, ...hafta3, ...hafta4, ...hafta5, ...hafta6, ...ekHafta1, ...ekHafta2, ...ekHafta3, ...ekHafta4, ...ekHafta5, ...ekHafta6];
+export const sorular: Soru[] = [...hafta1, ...hafta2, ...hafta3, ...hafta4, ...hafta5, ...hafta6, ...hafta7, ...ekHafta1, ...ekHafta2, ...ekHafta3, ...ekHafta4, ...ekHafta5, ...ekHafta6, ...ekHafta7];

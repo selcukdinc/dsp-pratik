@@ -8,7 +8,8 @@ import { HAFTA_3 } from "./hafta-3";
 import { HAFTA_4 } from "./hafta-4";
 import { HAFTA_5 } from "./hafta-5";
 import { HAFTA_6 } from "./hafta-6";
+import { HAFTA_7 } from "./hafta-7";
 
-export const DERSLER: Ders[] = [HAFTA_1, HAFTA_2, HAFTA_3, HAFTA_4, HAFTA_5, HAFTA_6];
+export const DERSLER: Ders[] = [HAFTA_1, HAFTA_2, HAFTA_3, HAFTA_4, HAFTA_5, HAFTA_6, HAFTA_7];
 
 export const dersBul = (hafta: number) => DERSLER.find((d) => d.hafta === hafta);

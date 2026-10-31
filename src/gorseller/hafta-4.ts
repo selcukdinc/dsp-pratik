@@ -302,7 +302,7 @@ export const HAFTA_4_GORSELLERI: Gorsel[] = [
   {
     kod: "G-H4-04",
     baslik: "Grafik yöntem: ters çevir, kaydır, çarp, topla",
-    aciklama: "Dört satır: x(k); ters çevrilmiş ve n kadar kaydırılmış h(n − k); ikisinin örnek örnek çarpımı; ve çarpımların toplamından elde edilen y(n). n değiştikçe ters çevrilmiş dizi kayar.",
+    aciklama: "Dört satır: x(k); ters çevrilmiş ve n kadar kaydırılmış h(n − k); ikisinin örnek bazında çarpımı; ve çarpımların toplamından elde edilen y(n). n değiştikçe ters çevrilmiş dizi kayar.",
     en: 680, boy: 382, icerik: grafikCiz(0, 1).s, etkilesim: "grafikyontem",
   },
   {

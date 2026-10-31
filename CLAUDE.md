@@ -7,3 +7,4 @@
 - Derslerdeki MatStudio örnekleri tarayıcıdaki yorumlayıcının desteklediği alt kümeyle yazılır ve `src/dersler/dersler.test.ts` hepsini çalıştırır.
 - Denetimler: `npx tsc -b`, `npx vitest run`, `npm run build`.
 - Kod alanının adı **MatStudio**'dur. Sitede, sorularda ve belgelerde "MATLAB" adı kullanılmaz; karşılaştırma gerekirse "masaüstü yazılımlar" denir. Konu kimlikleri (`matlab-temel` vb.) ve kod içi adlar ilerleme kaybolmasın diye değişmez.
+- Metinlerde ikilemeler kullanılmaz ("eleman eleman", "satır satır", "tek tek" gibi): "eleman bazında", "satır sırasıyla", "sırayla" yazılır. Yeni metinden sonra art arda tekrar eden sözcükleri tara.

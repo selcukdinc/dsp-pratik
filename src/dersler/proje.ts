@@ -150,7 +150,7 @@ d = designfilt('lowpassiir', 'FilterOrder', 8, ...
 y3 = filtfilt(d, ynoise);
 \`\`\`
 
-**filter mi filtfilt mi?** ~filter~ sinyali bir kez süzer ve fazı (gecikmeyi) korur. ~filtfilt~ ileri ve geri iki kez süzer: faz bozulması sıfırlanır, büyüklük yanıtının karesi uygulanır. Asıl sinyalle örnek örnek karşılaştırma yapacağın için gecikmeyi hesaba katmayı unutma.
+**filter mi filtfilt mi?** ~filter~ sinyali bir kez süzer ve fazı (gecikmeyi) korur. ~filtfilt~ ileri ve geri iki kez süzer: faz bozulması sıfırlanır, büyüklük yanıtının karesi uygulanır. Asıl sinyalle örnek bazında karşılaştırma yapacağın için gecikmeyi hesaba katmayı unutma.
 `),
       matlab: {
         kod: `% Pencere yöntemiyle elle bir FIR alçak geçiren (tasarım aracının yerine)

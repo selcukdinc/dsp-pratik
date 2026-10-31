@@ -1,5 +1,7 @@
 // Ders içindeki MatStudio kutusu: düzenlenebilir kod, Çalıştır, komut çıktısı ve
 // şekil. Her çalıştırma temiz bir çalışma alanıyla başlar; her şey tarayıcıda.
+// Çalıştırmalar bir geçmişte tutulur: son çıktı, seçilen önceki bir çıktıyla
+// yan yana görünür, böylece bir değeri değiştirince öncekini not etmek gerekmez.
 
 import { useMemo, useState } from "react";
 import { BoyutluEditor } from "./BoyutluEditor";
@@ -11,32 +13,53 @@ import { Yorumlayici } from "../matlab/yorumla";
 import type { Cizim } from "../matlab/cizim";
 import type { MiniMatlab as Veri } from "../dersler/tipler";
 import { useMiniYan } from "../lib/miniDuzen";
+import { kodFarki } from "../lib/kodFarki";
 
-interface Sonuc {
+export interface Calistirma {
+  n: number;
+  kod: string;
   cikti: string;
   hata: { mesaj: string; satir: number | null } | null;
   cizim: Cizim;
-  n: number;
+  // Bir önceki çalıştırmaya (ilkinde örneğe) göre koddaki değişiklik
+  fark: string;
 }
+
+// Geçmişte en çok bu kadar çalıştırma tutulur; eskiler düşer
+export const GECMIS_SINIRI = 8;
 
 export function MiniMatlab({ veri }: { veri: Veri }) {
   const [kod, setKod] = useState(veri.kod);
-  const [sonuc, setSonuc] = useState<Sonuc | null>(null);
+  const [gecmis, setGecmis] = useState<Calistirma[]>([]);
+  // Karşılaştırılan önceki çalıştırmanın numarası; null ise bir önceki
+  const [hedefNo, setHedefNo] = useState<number | null>(null);
+  const [karsilastir, setKarsilastir] = useState(true);
   const [yan, setYan] = useMiniYan();
+
+  const son = gecmis[gecmis.length - 1] ?? null;
+  const onceki = gecmis.length > 1 ? (gecmis.find((c) => c.n === hedefNo && c !== son) ?? gecmis[gecmis.length - 2]!) : null;
 
   const calistir = () => {
     // Örnekler her seferinde aynı rastgele sayıları üretsin (rng ile değiştirilebilir)
     const y = new Yorumlayici({ tohum: 0, sure: 3000 });
     const r = y.calistir(kod);
-    setSonuc({ cikti: y.cikti, hata: r.hata, cizim: y.cizim, n: (sonuc?.n ?? 0) + 1 });
+    setGecmis((g) => {
+      const n = (g[g.length - 1]?.n ?? 0) + 1;
+      const yeni: Calistirma = { n, kod, cikti: y.cikti, hata: r.hata, cizim: y.cizim, fark: kodFarki(g[g.length - 1]?.kod ?? veri.kod, kod) };
+      return [...g, yeni].slice(-GECMIS_SINIRI);
+    });
+    setHedefNo(null);
   };
+  // Örneğe dön yalnızca kodu geri getirir; çıktı geçmişi kalır
+  const ornegeDon = () => setKod(veri.kod);
+  // Sıfırla çıktı geçmişini temizler
   const sifirla = () => {
-    setKod(veri.kod);
-    setSonuc(null);
+    setGecmis([]);
+    setHedefNo(null);
   };
 
-  const marks = useMemo<EditorMark[]>(() => (sonuc?.hata?.satir ? [{ line: sonuc.hata.satir, severity: "error" }] : []), [sonuc]);
-  const sekiller = sonuc?.cizim.sekiller.filter((s) => s.eksenler.length) ?? [];
+  const marks = useMemo<EditorMark[]>(() => (son?.hata?.satir ? [{ line: son.hata.satir, severity: "error" }] : []), [son]);
+  const yanYana = karsilastir && onceki !== null;
 
   return (
     <div className={`mini-sim mini-matlab${yan ? " yan" : ""}`}>
@@ -46,7 +69,7 @@ export function MiniMatlab({ veri }: { veri: Veri }) {
         </BoyutluEditor>
         <div className="kod-dugmeler">
           <button className="primary" onClick={calistir} title="Ctrl+Enter">▶ Çalıştır</button>
-          <button onClick={sifirla} disabled={kod === veri.kod && !sonuc}>Örneğe dön</button>
+          <button onClick={ornegeDon} disabled={kod === veri.kod} title="Kodu örnekteki haline getirir; çıktılar kalır">Örneğe dön</button>
           <button className="baglanti-dugme" onClick={() => matlabdaAc(kod)}>MatStudio'da aç</button>
           <span className="mini-duzen" role="group" aria-label="Çıktının yeri">
             <button className="cip" aria-pressed={!yan} onClick={() => setYan(false)} title="Çıktı kodun altında">Alt alta</button>
@@ -59,21 +82,80 @@ export function MiniMatlab({ veri }: { veri: Veri }) {
           </div>
         )}
       </div>
-      <div className="mini-sonuc" aria-live="polite">
-        {sonuc && (sonuc.cikti || sonuc.hata) && (
-          <pre className={`mini-cikti${sonuc.hata ? " hatali" : ""}`}>
-            {sonuc.cikti}
-            {sonuc.hata && <span className="bad">{`Hata${sonuc.hata.satir ? ` (satır ${sonuc.hata.satir})` : ""}: ${sonuc.hata.mesaj}`}</span>}
-          </pre>
-        )}
-        {sekiller.map((s) => (
-          <div className="mini-sekil" key={`${sonuc!.n}-${s.no}`}>
-            <SekilKutusu sekil={s} oran={s.eksenler.some((e) => e.m > 1) ? 0.75 : 0.55} />
+      <div className="mini-sonuc">
+        {son && (
+          <div className="mini-gecmis">
+            <span className="mini-gecmis-ad">Çalıştırmalar</span>
+            {gecmis.length > 1 && (
+              <span className="mini-gecmis-liste" role="group" aria-label="Karşılaştırılacak önceki çalıştırma">
+                {gecmis.slice(0, -1).map((c) => (
+                  <button
+                    key={c.n}
+                    className="cip"
+                    aria-pressed={yanYana && onceki?.n === c.n}
+                    onClick={() => {
+                      setHedefNo(c.n);
+                      setKarsilastir(true);
+                    }}
+                    title={`${c.n}. çalıştırma: ${c.fark}`}
+                  >
+                    #{c.n}
+                  </button>
+                ))}
+                <span className="cip mini-gecmis-simdi" title={`${son.n}. çalıştırma: ${son.fark}`}>#{son.n} şimdi</span>
+              </span>
+            )}
+            <span className="mini-gecmis-dugmeler">
+              {gecmis.length > 1 && (
+                <button className="cip" aria-pressed={karsilastir} onClick={() => setKarsilastir((k) => !k)} title="Önceki çıktıyı yanda göster">
+                  Karşılaştır
+                </button>
+              )}
+              <button className="cip" onClick={sifirla} title="Çıktı geçmişini temizler">Sıfırla</button>
+            </span>
           </div>
-        ))}
-        {sonuc && !sonuc.cikti && !sonuc.hata && !sekiller.length && <p className="hint">Kod çalıştı; çıktı yok (satırların sonunda ; var).</p>}
-        {!sonuc && yan && <p className="hint mini-bos">▶ Çalıştır'a bastığında çıktı ve grafikler burada görünür.</p>}
+        )}
+        <div className={yanYana ? "mini-karsi" : undefined} aria-live="polite">
+          {yanYana && <CiktiSutunu c={onceki!} baslik={`Önceki · #${onceki!.n}`} esi={son!} soluk />}
+          {son && <CiktiSutunu c={son} baslik={yanYana ? `Şimdi · #${son.n}` : null} esi={yanYana ? onceki : null} />}
+        </div>
+        {!son && yan && <p className="hint mini-bos">▶ Çalıştır'a bastığında çıktı ve grafikler burada görünür.</p>}
       </div>
+    </div>
+  );
+}
+
+// Bir çalıştırmanın çıktısı ve şekilleri. esi verilirse ondan farklı satırlar vurgulanır.
+function CiktiSutunu({ c, baslik, esi, soluk = false }: { c: Calistirma; baslik: string | null; esi: Calistirma | null; soluk?: boolean }) {
+  const sekiller = c.cizim.sekiller.filter((s) => s.eksenler.length);
+  const satirlar = c.cikti.replace(/\n$/, "").split("\n");
+  const esiSatirlar = esi ? esi.cikti.replace(/\n$/, "").split("\n") : null;
+  return (
+    <div className={`mini-sutun${soluk ? " onceki" : ""}`}>
+      {baslik && (
+        <div className="mini-sutun-baslik">
+          <b>{baslik}</b>
+          <span className="hint" title={c.fark}>{c.fark}</span>
+        </div>
+      )}
+      {(c.cikti || c.hata) && (
+        <pre className={`mini-cikti${c.hata ? " hatali" : ""}`}>
+          {c.cikti &&
+            satirlar.map((s, i) => (
+              <span key={i} className={esiSatirlar && esiSatirlar[i] !== s ? "farkli" : undefined}>
+                {s}
+                {"\n"}
+              </span>
+            ))}
+          {c.hata && <span className="bad">{`Hata${c.hata.satir ? ` (satır ${c.hata.satir})` : ""}: ${c.hata.mesaj}`}</span>}
+        </pre>
+      )}
+      {sekiller.map((s) => (
+        <div className="mini-sekil" key={`${c.n}-${s.no}`}>
+          <SekilKutusu sekil={s} oran={s.eksenler.some((e) => e.m > 1) ? 0.75 : 0.55} />
+        </div>
+      ))}
+      {!c.cikti && !c.hata && !sekiller.length && <p className="hint">Kod çalıştı; çıktı yok (satırların sonunda ; var).</p>}
     </div>
   );
 }

@@ -23,7 +23,7 @@ export const KAVRAMLAR: Record<string, Kavram> = {
   "vektor-olusturma": { ad: "Vektör oluşturma: aralık ve linspace" },
   indeksleme: { ad: "Vektör indeksleme" },
   "matris-indeks": { ad: "Matris indeksleme ve doğrusal indeks" },
-  "eleman-islem": { ad: "Eleman eleman ve matris işlemleri" },
+  "eleman-islem": { ad: "Eleman bazında ve matris işlemleri" },
   mantiksal: { ad: "İlişkisel ve mantıksal işleçler" },
   "fonksiyon-tanim": { ad: "MatStudio'da fonksiyon yazmak" },
   "rastgele-uretim": { ad: "rand, randn, randi ve randperm" },

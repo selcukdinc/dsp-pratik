@@ -253,7 +253,7 @@ export const hafta7: Soru[] = [
         "h(n) ile x(n)'in N noktalı dairesel konvolüsyonu",
         "h(n) ile x(n)'in doğrusal konvolüsyonu",
         "h(n) ile x(n)'in çapraz korelasyonu",
-        "h(n) ile x(n)'in örnek örnek çarpımı",
+        "h(n) ile x(n)'in örnek bazında çarpımı",
       ],
       dogru: 0,
       aciklama: "DFT'lerin çarpımı dairesel konvolüsyona karşılık gelir; doğrusal konvolüsyon için sıfır doldurmak gerekir.",
@@ -299,7 +299,7 @@ export const hafta7: Soru[] = [
       soru: "DFT ile doğrusal konvolüsyon hesaplanırken ilk adım hangisidir?",
       secenekler: [
         "Dizileri N ≥ N₁ + N₂ − 1 boyuna sıfırla doldurmak",
-        "İki dizinin DFT'lerini örnek örnek çarpmak",
+        "İki dizinin DFT'lerini örnek bazında çarpmak",
         "Çarpımın ters DFT'sini alıp sonucu yazmak",
         "Sonucun ilk N₁ − 1 örneğini atıp saklamak",
       ],

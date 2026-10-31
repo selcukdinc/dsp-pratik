@@ -186,11 +186,11 @@ Bütün histogram değerlerinin toplamı sinyaldeki örnek sayısına eşittir:
 
 $$N = \\sum_{i=0}^{M-1} H_i$$
 
-Histogramdan ortalama ve standart sapma da hesaplanabilir. Aynı değerdeki örnekleri tek tek toplamak yerine değeri adediyle çarparız:
+Histogramdan ortalama ve standart sapma da hesaplanabilir. Aynı değerdeki her örneği ayrıca toplamak yerine değeri adediyle çarparız:
 
 $$\\mu = \\frac{1}{N}\\sum_{i=0}^{M-1} i\\,H_i \\qquad \\sigma^2 = \\frac{1}{N-1}\\sum_{i=0}^{M-1} (i-\\mu)^2 H_i$$
 
-Milyonlarca örnekte bu, her örneği ayrı ayrı toplamaktan çok daha hızlıdır.
+Milyonlarca örnekte bu, her örneği sırayla toplamaktan çok daha hızlıdır.
 
 [[G-H1-05]]
 
@@ -202,7 +202,29 @@ Az örnekle çıkarılan histogram pürüzlüdür. Ortalamada olduğu gibi histo
 
 [[G-H1-06]]
 
-**Kayan noktalı veri ve kutulama.** Kayan nokta gösterimindeki bir sinyalde 3 ile 4 arasında milyonlarca olası değer vardır; her değer için ayrı bir sayaç tutmak hem imkânsıza yakın hem de anlamsızdır, çünkü sayaçların neredeyse hepsi sıfır kalır. Çözüm **kutulamadır** (*binning*): histogramın uzunluğu (örneğin 1000 nokta) seçilir ve her **kutu** (*bin*) belirli bir aralıktaki değerleri sayar. 0,0 ile 10,0 arasında değer alan bir sinyal ve 1000 kutulu bir histogramda kutu genişliği 0,01'dir: kutu 0, 0 ile 0,01 arasındaki örnekleri; kutu 1, 0,01 ile 0,02 arasındakileri sayar; son kutu 999 da 9,99 ile 10,0 arasındakileri. Bir değerin kutusu, değerin kutu genişliğine bölünüp aşağı yuvarlanmasıyla bulunur.
+**Kayan noktalı veri ve kutulama.** 8 bitlik bir ADC'nin yalnızca 256 olası değeri vardır; her biri için bir sayaç tutmak kolaydır. Kayan nokta gösterimindeki bir sinyalde ise 3 ile 4 arasında bile milyonlarca olası değer vardır. Her değer için ayrı bir sayaç tutmak hem imkânsıza yakın hem de anlamsızdır: iki örnek neredeyse hiç tam aynı değeri almaz, sayaçların neredeyse hepsi sıfır kalır. Çözüm **kutulamadır** (*binning*): değer aralığı eşit genişlikte **kutulara** (*bin*) bölünür ve her kutu kendi aralığına düşen örnekleri sayar. Histogramın uzunluğu artık olası değer sayısı değil, seçilen kutu sayısıdır (örneğin 1000 nokta).
+
+Kutulama üç adımdır:
+
+1. **Aralığı ve kutu sayısını seç.** Sinyal a ile b arasında değer alıyorsa ve M kutu kullanılacaksa kutu genişliği $w = (b - a)/M$ olur.
+2. **Her örneğin kutusunu bul.** Değerden alt sınır çıkarılır, sonuç kutu genişliğine bölünür ve aşağı yuvarlanır: $k = \\lfloor (x - a)/w \\rfloor$. Kutu k, $a + k\\,w$ ile $a + (k+1)\\,w$ arasındaki değerleri sayar; alt kenar kutuya dahildir, üst kenar bir sonraki kutuya aittir. Tam b değerindeki bir örnek için formül M verir, böyle bir kutu olmadığından o örnek son kutuya (M − 1) yazılır.
+3. **Sayacı artır.** $H_k$ bir artırılır. Bütün örnekler sayılınca yine $\\sum_k H_k = N$ olur.
+
+0,0 ile 10,0 arasında değer alan bir sinyal ve 1000 kutulu bir histogramda kutu genişliği 0,01'dir: kutu 0, 0 ile 0,01 arasındaki örnekleri; kutu 1, 0,01 ile 0,02 arasındakileri sayar; son kutu 999 da 9,99 ile 10,0 arasındakileri. Bir değerin kutusu, değerin kutu genişliğine bölünüp aşağı yuvarlanmasıyla bulunur: 3,14159 / 0,01 = 314,159 olduğundan bu örnek kutu 314'e düşer.
+
+Alt sınır sıfır değilse önce onu çıkarmak gerekir. −2 ile 2 arasında değer alan bir sinyal 200 kutuya bölünürse w = 4 / 200 = 0,02 olur. 0,5 değeri (0,5 − (−2)) / 0,02 = 125 ile kutu 125'e düşer. Alt sınır çıkarılmasaydı 25 bulunurdu; oysa kutu 25, −1,5 çevresindeki değerleri sayar.
+
+**Kaç kutu?** Kutu sayısı bir uzlaşmadır. Az kutu histogramı düzgün gösterir ama ayrıntıyı siler: birbirine yakın iki tepe tek bir yığına karışır. Çok kutu ayrıntıyı korur ama her kutuya az örnek düşer; histogram pürüzlenir ve kutuların çoğu boş kalır. Kutu başına ortalama N / M örnek düşer, bu yüzden örnek sayısı az olan bir sinyalde kutu sayısı da az tutulur. İlk deneme için $M \\approx \\sqrt{N}$ yaygın bir seçimdir: 10 000 örnek için yaklaşık 100 kutu.
+
+**Kutulu histogramdan pdf'e.** Kutulu histogram, sürekli sinyalin pdf'ine bir yaklaşımdır. Ama $H_k$ bir adet olduğu için yüksekliği hem N'ye hem de kutu genişliğine bağlıdır: kutuları iki kat genişletmek her kutuya yaklaşık iki kat örnek düşürür. pdf ile karşılaştırmak için her kutu $N\\,w$'ye bölünür:
+
+$$p_k = \\frac{H_k}{N\\,w}$$
+
+Böylece çubukların toplam alanı $\\sum_k p_k\\,w = 1$ olur, tıpkı pdf'in altındaki alan gibi. pmf'te yalnızca N'ye bölmek yeterliydi, çünkü orada her değerin genişliği 1'di.
+
+[[G-H1-10]]
+
+MatStudio'da ~histcounts(x, kenarlar)~ verilen kenarlarla sayar, ~histogram(x, M)~ M kutuyla çizer. ~histogram(x, M, 'Normalization', 'pdf')~ sayıları $N\\,w$'ye bölerek yoğunluk gösterir. İndisler 1'den başladığı için kutu numarası elle ~k = floor((x - a) / w) + 1~ ile bulunur.
 
 > **Çözümlü örnek:** 3 bitlik bir sinyalin histogramı: değer 2'den 3 örnek, değer 3'ten 4 örnek, değer 5'ten 1 örnek var; diğer değerler hiç yok. N, μ ve P(x = 3) nedir?
 >
@@ -337,13 +359,13 @@ xlabel('toplam')`,
 Bir sonar sistemiyle 1000 metre uzaklıktaki bir hedefin mesafesini defalarca ölçtüğümüzü düşünelim. Ölçümler her seferinde biraz farklı çıkar ve histogramları çan biçiminde olur. Bu dağılımdan iki ayrı nitelik okunur:
 
 - **Doğruluk** (*accuracy*): ölçümlerin **ortalamasının gerçek değere** ne kadar yakın olduğu. Ortalama 1003 m çıkıyorsa sistemde 3 m'lik bir **sistematik hata** vardır. Doğruluğu kötü bir sistemin çaresi **kalibrasyondur**.
-- **Kesinlik** (*precision*): aynı büyüklük tekrar tekrar ölçüldüğünde sonuçların **birbirine ne kadar yakın** olduğu, yani dağılımın genişliği (standart sapması). Kesinliği kötü bir ölçüm **rastgele hata** içerir ve elektronik gürültü gibi rastgele etkilerden gelir. Çaresi çok sayıda ölçümün **ortalamasını almaktır**: N ölçümün ortalamasının rastgele hatası √N kat küçülür.
+- **Kesinlik** (*precision*): aynı büyüklük defalarca ölçüldüğünde sonuçların **birbirine ne kadar yakın** olduğu, yani dağılımın genişliği (standart sapması). Kesinliği kötü bir ölçüm **rastgele hata** içerir ve elektronik gürültü gibi rastgele etkilerden gelir. Çaresi çok sayıda ölçümün **ortalamasını almaktır**: N ölçümün ortalamasının rastgele hatası √N kat küçülür.
 
 Ortalama almak rastgele hatayı azaltır ama sistematik hatayı hiç değiştirmez; kalibrasyon sistematik hatayı giderir ama ölçümlerin saçılmasını değiştirmez.
 
 [[G-H1-09]]
 
-Kesin ama doğru olmayan bir sistem her seferinde neredeyse aynı yanlış sonucu verir. Doğru ama kesin olmayan bir sistemin tek tek ölçümleri dağınıktır ama ortalamaları gerçek değere yakındır.
+Kesin ama doğru olmayan bir sistem her seferinde neredeyse aynı yanlış sonucu verir. Doğru ama kesin olmayan bir sistemin her bir ölçümü dağınıktır ama ortalamaları gerçek değere yakındır.
 
 > **Çözümlü örnek:** Bir terazi 2,000 kg'lık bir ağırlığı beş kez tartıp 2,051; 2,049; 2,050; 2,052; 2,048 kg gösteriyor. Hangi sorun var?
 >

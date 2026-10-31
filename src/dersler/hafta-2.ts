@@ -3,14 +3,14 @@ import { md, type Ders } from "./tipler";
 export const HAFTA_2: Ders = {
   hafta: 2,
   baslik: "MatStudio ile çalışmak",
-  ozet: "Betik yazmayı, vektör ve matris kurmayı, indekslemeyi, eleman eleman ve matris işlemlerini, ilişkisel ve mantıksal işleçleri, fonksiyon yazmayı, rastgele sayı üretmeyi, dizileri birleştirmeyi ve mean, std, var, median, corrcoef gibi istatistik fonksiyonlarını boyutlarıyla kullanmayı öğren.",
+  ozet: "Betik yazmayı, vektör ve matris kurmayı, indekslemeyi, eleman bazında ve matris işlemlerini, ilişkisel ve mantıksal işleçleri, fonksiyon yazmayı, rastgele sayı üretmeyi, dizileri birleştirmeyi ve mean, std, var, median, corrcoef gibi istatistik fonksiyonlarını boyutlarıyla kullanmayı öğren.",
   bolumler: [
     {
       baslik: "Betik, yorum ve komut penceresi",
       metin: md(`
 **Neden önemli?** Dersin geri kalanında her konuyu MatStudio'da deneyeceğiz. Önce bir betiğin nasıl düzenlendiğini ve çıktının nereye düştüğünü bilmek gerekiyor.
 
-MatStudio'da komutlar ya **komut penceresine** tek tek yazılır ya da bir **betiğe** (~.m~ uzantılı dosya) toplanıp birlikte çalıştırılır. Ekranda soldaki editörde betik, altta komut penceresi, sağda şekiller ve çalışma alanı (*workspace*) vardır.
+MatStudio'da komutlar ya **komut penceresine** birer komut olarak yazılır ya da bir **betiğe** (~.m~ uzantılı dosya) toplanıp birlikte çalıştırılır. Ekranda soldaki editörde betik, altta komut penceresi, sağda şekiller ve çalışma alanı (*workspace*) vardır.
 
 Betiklerin başına çoğunlukla şu üç satır yazılır:
 
@@ -55,13 +55,13 @@ who`,
 
 **Vektör kurmanın yolları:**
 
-- Köşeli parantezle eleman eleman: ~x = [2 3.5 6 7]~ (boşluk ya da virgül eleman ayırır).
+- Köşeli parantezle, elemanları sırayla yazarak: ~x = [2 3.5 6 7]~ (boşluk ya da virgül eleman ayırır).
 - **İki nokta üst üste** ile aralık: ~ilk:artış:son~. ~2:3:17~ ifadesi 2'den başlar, 3'er artar, 17'yi geçmeden durur. Artış yazılmazsa 1'dir: ~1:5~. Artış negatif olabilir: ~18:-2:-4~ geriye sayar.
 - **linspace(a, b, n):** a ile b arasında (ikisi dahil) eşit aralıklı n değer. ~linspace(-4, 4, 5)~ → ~[-4 -2 0 2 4]~. Aralık yerine eleman sayısını bildiğinde kullanılır.
 - **zeros(1, n)** ve **ones(1, n):** n elemanlı sıfır ya da bir vektörü.
 - **Devrik:** ~x'~ ya da ~transpose(x)~ satır vektörünü sütun vektörüne çevirir.
 
-Eleman eleman matematik fonksiyonları vektörün her elemanına uygulanır: ~exp(x)~, ~sin(x)~, ~abs(x)~.
+Matematik fonksiyonları vektörün her elemanına ayrı uygulanır: ~exp(x)~, ~sin(x)~, ~abs(x)~.
 
 **İndeksleme.** ~x(k)~ vektörün k'ıncı elemanıdır. MatStudio'da **indisler 1'den başlar**; ~x(0)~ hatadır. ~end~ son indisi gösterir. İndis yerine bir vektör yazılırsa birden çok eleman alınır:
 
@@ -103,7 +103,7 @@ Matrisler satırları noktalı virgülle ayırarak yazılır: ~A = [1 2 3; 4 5 6
 - ~A(:, 3)~: 3. sütunun tamamı (sütun vektörü).
 - ~A(1:2, :)~: ilk iki satır.
 
-**Doğrusal indeks.** MatStudio elemanları bellekte **sütun sütun** saklar: önce 1. sütunun elemanları yukarıdan aşağı, sonra 2. sütun ve böyle sürer. Matrise tek bir indisle erişilirse bu sıra kullanılır. 3×3'lük ~A~'da ~A(6)~ 2. sütunun en altıdır. ~A(:)~ bütün elemanları bu sırayla tek bir sütuna dizer. r satırlı bir matriste (i, j) konumunun doğrusal indeksi $(j-1)\\,r + i$'dir.
+**Doğrusal indeks.** MatStudio elemanları bellekte **sütun sırasıyla** saklar: önce 1. sütunun elemanları yukarıdan aşağı, sonra 2. sütun ve böyle sürer. Matrise tek bir indisle erişilirse bu sıra kullanılır. 3×3'lük ~A~'da ~A(6)~ 2. sütunun en altıdır. ~A(:)~ bütün elemanları bu sırayla tek bir sütuna dizer. r satırlı bir matriste (i, j) konumunun doğrusal indeksi $(j-1)\\,r + i$'dir.
 
 **find** koşulu sağlayan elemanların **doğrusal indekslerini** döndürür. ~find(A == 5)~ değeri 5 olan konumları, ~find(A > 5)~ 5'ten büyük olanları verir.
 
@@ -115,7 +115,7 @@ Matrisler satırları noktalı virgülle ayırarak yazılır: ~A = [1 2 3; 4 5 6
 > 2. Sütun sırası: 5, 8, 4, 0, 7, 5. Dördüncüsü 0'dır: ~B(4)~ = 0.
 > 3. 5 değeri bu sırada 1. ve 6. konumda: ~find(B == 5)~ = ~[1; 6]~.
 
-> **Sık hata:** Doğrusal indeksi satır satır saymak. MatStudio'da sıra sütun sütundur; ~A(2)~, 1. satırın 2. elemanı değil 2. satırın 1. elemanıdır.
+> **Sık hata:** Doğrusal indeksi satırlara göre saymak. MatStudio'da sayım sütunlara göre ilerler; ~A(2)~, 1. satırın 2. elemanı değil 2. satırın 1. elemanıdır.
 `),
       matlab: {
         kod: `A = [1 2 3; 4 5 6; 7 8 9];
@@ -135,18 +135,18 @@ find(B <= 4)'`,
     {
       baslik: "Matris işlemleri",
       metin: md(`
-**Neden önemli?** DSP'de çoğu işlem eleman eleman yapılır: bir sinyali bir pencereyle çarpmak, her örneğin karesini almak. Matris çarpımıyla eleman eleman çarpımı karıştırmak MatStudio'daki en yaygın hatadır.
+**Neden önemli?** DSP'de çoğu işlem eleman bazında yapılır: bir sinyali bir pencereyle çarpmak, her örneğin karesini almak. Matris çarpımıyla eleman bazında çarpımı karıştırmak MatStudio'daki en yaygın hatadır.
 
 MatStudio'da işleçlerin iki türü vardır:
 
-- **Eleman eleman** işleçler başında nokta taşır: ~.*~, ~./~, ~.^~. Aynı konumdaki elemanlar arasında çalışır; iki işlenen aynı boyutta olmalı (ya da biri skaler olmalı).
+- **Eleman bazında** işleçler başında nokta taşır: ~.*~, ~./~, ~.^~. Aynı konumdaki elemanlar arasında çalışır; iki işlenen aynı boyutta olmalı (ya da biri skaler olmalı).
 - **Matris** işleçleri doğrusal cebir işlemidir: ~*~ matris çarpımı (satır · sütun), ~^~ matris kuvveti, ~/~ ve ~\\~ denklem çözümü. ~A * B~ için A'nın sütun sayısı B'nin satır sayısına eşit olmalı.
 
 Skalerle işlemde fark yoktur: ~2*A~, ~A/2~, ~A + 1~ her elemana uygulanır. ~3.^A~ ise 3'ün A'daki her elemana kuvvetini alır.
 
 [[G-H2-03]]
 
-Doğrusal cebir fonksiyonları: ~inv(A)~ ters matris, ~det(A)~ determinant, ~A'~ devrik. Matematik fonksiyonları (~exp~, ~sin~, ~cos~, ~sqrt~, ~abs~) her zaman eleman eleman çalışır.
+Doğrusal cebir fonksiyonları: ~inv(A)~ ters matris, ~det(A)~ determinant, ~A'~ devrik. Matematik fonksiyonları (~exp~, ~sin~, ~cos~, ~sqrt~, ~abs~) her zaman eleman bazında çalışır.
 
 **Karmaşık matrisler** iki gerçek matristen kurulabilir: ~a = [1 2; 3 4] + 1j*[5 6; 7 8]~. ~real~, ~imag~, ~abs~, ~angle~ ve ~conj~ her elemana uygulanır. Dikkat: ~'~ karmaşık matrislerde **eşlenik** devrik alır; yalnızca devirmek için ~.'~ kullanılır.
 
@@ -155,12 +155,12 @@ Doğrusal cebir fonksiyonları: ~inv(A)~ ters matris, ~det(A)~ determinant, ~A'~
 > 1. ~P.*Q~ = [1·2 0·1; 2·1 3·2] = ~[2 0; 2 6]~.
 > 2. ~P*Q~: 1. satır · 1. sütun = 1·2 + 0·1 = 2; 1. satır · 2. sütun = 1·1 + 0·2 = 1; 2. satır · 1. sütun = 2·2 + 3·1 = 7; 2. satır · 2. sütun = 2·1 + 3·2 = 8. Sonuç ~[2 1; 7 8]~.
 
-> **Sık hata:** Bir sinyalin karesini ~x^2~ ile almak. Vektörde ~x^2~ matris kuvvetidir ve hata verir; eleman eleman kare ~x.^2~'dir.
+> **Sık hata:** Bir sinyalin karesini ~x^2~ ile almak. Vektörde ~x^2~ matris kuvvetidir ve hata verir; eleman bazında kare ~x.^2~'dir.
 `),
       matlab: {
         kod: `A = [1 2; 3 4];
 B = [5 6; 7 8];
-A .* B        % eleman eleman
+A .* B        % eleman bazında
 A * B         % matris çarpımı
 A .^ 2
 3 .^ A
@@ -180,7 +180,7 @@ A * inv(A)    % birim matris (yuvarlama hatasıyla)`,
 
 Mantıksal işleçler:
 
-- ~&~ eleman eleman VE, ~|~ eleman eleman VEYA, ~¬~ DEĞİL.
+- ~&~ eleman bazında VE, ~|~ eleman bazında VEYA, ~¬~ DEĞİL.
 - ~&&~ ve ~||~ **kısa devre** işleçleridir: yalnızca skalerlerle çalışır ve sol taraf sonucu belirliyorsa sağ tarafı hiç hesaplamaz. ~if~ ve ~while~ koşullarında kullanılır.
 
 Mantıksal vektörler sayılarla hesaba girer: ~sum(x > 3)~ 3'ten büyük eleman **sayısını**, ~x(x > 3)~ bu elemanların **kendilerini**, ~sum(x(x > 3))~ toplamlarını verir. ~x(x < 0) = 0~ negatif elemanları sıfırlar.
@@ -356,7 +356,7 @@ Bir **vektöre** uygulanınca ~mean~, ~median~, ~std~, ~var~, ~sum~, ~max~, ~min
 
 > **Sık hata:** ~std(A, 2)~ yazıp satırların standart sapmasını beklemek. std'de ikinci argüman ağırlıktır ve yalnızca 0 ya da 1 olabilir; satırlar için ~std(A, 0, 2)~ yaz.
 
-**Histogram ve normal dağılım grafiği.** ~histogram(x)~ kutu sayısını kendisi seçer; ~histogram(x, 25)~ 25 kutu kullanır. Normal dağılımın eğrisini çizmek için 1. haftadaki formül eleman eleman işleçlerle yazılır: ~Px = exp(-(x-mu).^2/(2*sig^2)) / (sqrt(2*pi)*sig)~. (Gerçek MatStudio'daki ~makedist~ ve ~pdf~ bu sitenin MatStudio'da yok.)
+**Histogram ve normal dağılım grafiği.** ~histogram(x)~ kutu sayısını kendisi seçer; ~histogram(x, 25)~ 25 kutu kullanır. Normal dağılımın eğrisini çizmek için 1. haftadaki formül eleman bazında işleçlerle yazılır: ~Px = exp(-(x-mu).^2/(2*sig^2)) / (sqrt(2*pi)*sig)~. (Gerçek MatStudio'daki ~makedist~ ve ~pdf~ bu sitenin MatStudio'da yok.)
 `),
       matlab: {
         kod: `A = [0 1 1; 2 3 2; 1 3 2; 4 2 2];

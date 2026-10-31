@@ -131,7 +131,7 @@ function Genel() {
         <ul className="sayilar">
           <li><strong>{o.soru.yayinda}</strong> yayında soru</li>
           <li><strong>{o.soru.taslak}</strong> taslak</li>
-          <li><strong>{o.soru.gizli}</strong> tek tek gizlenmiş</li>
+          <li><strong>{o.soru.gizli}</strong> tekil olarak gizlenmiş</li>
           <li><strong>{o.uye}</strong> üye</li>
           <li><strong>{o.misafir}</strong> misafir</li>
           <li><strong>{o.deneme}</strong> cevap denemesi</li>

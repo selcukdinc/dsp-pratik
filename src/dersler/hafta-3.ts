@@ -222,10 +222,10 @@ x2 = x(1:2:end)`,
       metin: md(`
 **Neden önemli?** Sistemler toplayıcı, çarpıcı ve geciktiricilerden kurulur. Enerji ve güç ise bir sinyalin "ne kadar büyük" olduğunu tek sayıyla söyler.
 
-Ayrık sinyallerle yapılan temel işlemler örnek örnek tanımlanır:
+Ayrık sinyallerle yapılan temel işlemler örnek bazında tanımlanır:
 
 - **Toplama:** $y(n) = x_1(n) + x_2(n)$.
-- **Çarpma:** $y(n) = x_1(n)\\,x_2(n)$ (örnek örnek; ~.*~).
+- **Çarpma:** $y(n) = x_1(n)\\,x_2(n)$ (örnek bazında; ~.*~).
 - **Sabitle çarpma:** $y(n) = c\\,x(n)$.
 - **Birim gecikme:** $y(n) = x(n - 1)$. Blok diyagramında $z^{-1}$ yazılı bir kutuyla gösterilir.
 

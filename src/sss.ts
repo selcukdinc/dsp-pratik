@@ -117,7 +117,7 @@ export const SSS: SssBolumu[] = [
       {
         soru: "MatStudio nedir?",
         cevap:
-          "Tarayıcıda çalışan, açık kaynaklı küçük bir sayısal hesap ortamıdır. `.m` betik sözdizimini kullanır ve ders için gereken kadarını destekler: vektörler ve matrisler, indeksleme, aralıklar (`0:0.1:1`), eleman eleman işlemler (`.*`, `./`, `.^`), `for`, `while`, `if`, temel fonksiyonlar (`sum`, `mean`, `std`, `conv`, `fft`, `abs`, `angle` gibi) ve `plot`, `stem`, `histogram`, `bar`, `subplot` ile çizim. Desteklenmeyen bir fonksiyon kullanırsan komut penceresi bunu açıkça söyler. Ödevlerini dersin istediği masaüstü yazılımda ya da GNU Octave ile de denemelisin.",
+          "Tarayıcıda çalışan, açık kaynaklı küçük bir sayısal hesap ortamıdır. `.m` betik sözdizimini kullanır ve ders için gereken kadarını destekler: vektörler ve matrisler, indeksleme, aralıklar (`0:0.1:1`), eleman bazında işlemler (`.*`, `./`, `.^`), `for`, `while`, `if`, temel fonksiyonlar (`sum`, `mean`, `std`, `conv`, `fft`, `abs`, `angle` gibi) ve `plot`, `stem`, `histogram`, `bar`, `subplot` ile çizim. Desteklenmeyen bir fonksiyon kullanırsan komut penceresi bunu açıkça söyler. Ödevlerini dersin istediği masaüstü yazılımda ya da GNU Octave ile de denemelisin.",
       },
       {
         soru: "Ders içindeki editör çok kısa. Büyütebilir miyim?",

@@ -1,7 +1,7 @@
 // Etkileşimli ders şekilleri: Gorsel.etkilesim alanındaki adla seçilir
 import type { ComponentType } from "react";
 import type { Gorsel } from "../../gorseller/tip";
-import { Adc, Gauss, Histogram, Istatistik, RndToplam } from "./Hafta1";
+import { Adc, Gauss, Histogram, Istatistik, Kutulama, RndToplam } from "./Hafta1";
 import { Indeksleme, IstatBoyutu, MatrisIndeks } from "./Hafta2";
 import { Donusum, KarmasikUstel, Sistem, TemelDiziler, Ustel } from "./Hafta3";
 import { Dogrudan, GrafikYontem, HareketliOrtalama, Kaydirma, Korelasyon, Superpozisyon, Tablo, Zar } from "./Hafta4";
@@ -15,6 +15,7 @@ export const ETKILESIMLER: Record<string, ComponentType<{ g: Gorsel }>> = {
   adc: Adc,
   istatistik: Istatistik,
   histogram: Histogram,
+  kutulama: Kutulama,
   gauss: Gauss,
   rndtoplam: RndToplam,
   indeksleme: Indeksleme,

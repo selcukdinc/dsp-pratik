@@ -30,7 +30,7 @@ describe("sözcükleyici", () => {
 });
 
 describe("yorumlayıcı: temel yapılar", () => {
-  it("aralık, eleman eleman işlemler ve indeksleme", () => {
+  it("aralık, eleman bazında işlemler ve indeksleme", () => {
     expect(dizi("x = 0:2:8;")).toEqual([0, 2, 4, 6, 8]);
     expect(dizi("n = 1:4; x = n.^2;")).toEqual([1, 4, 9, 16]);
     expect(dizi("v = 10:10:50; x = v(2:end);")).toEqual([20, 30, 40, 50]);

@@ -22,7 +22,7 @@ ciftler = x(mod(x, 2) == 0)   % mantıksal indeksleme
 
 A = [1 2; 3 4]                % 2x2 matris
 At = A'                       % devrik
-B = A .* A                    % eleman eleman çarpım
+B = A .* A                    % eleman bazında çarpım
 C = A * A                     % matris çarpımı
 
 toplam = 0;

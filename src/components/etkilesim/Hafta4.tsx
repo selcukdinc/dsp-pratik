@@ -24,7 +24,7 @@ export function Superpozisyon({ g }: { g: Gorsel }) {
         </Kaydiricilar>
         <p aria-live="polite">
           Giriş x = {dizi(SUP_X)} ve dürtü yanıtı h = {dizi(SUP_H)} (ikisi de n = 0'dan başlıyor). k. giriş örneği x(k)·h(n − k) katkısını üretir.{" "}
-          {adet === 3 ? `Üç katkı toplanınca y(n) = ${dizi(r.y.slice(1, 6))} (n = 0..4) çıkar; bu, x * h'nin kendisidir.` : "Kaydırıcıyı artırıp katkıları tek tek ekle."}
+          {adet === 3 ? `Üç katkı toplanınca y(n) = ${dizi(r.y.slice(1, 6))} (n = 0..4) çıkar; bu, x * h'nin kendisidir.` : "Kaydırıcıyı artırıp katkıları sırayla ekle."}
         </p>
       </Denetim>
     </>
@@ -74,7 +74,7 @@ export function GrafikYontem({ g }: { g: Gorsel }) {
             y(n) sıfırdan farklı olabilir: n = {r.yBas}..{r.ySon} (uzunluk {r.uzunluk})
           </span>
         </Olcumler>
-        <p>h(k)'yi ters çevir (h(−k)), n kadar kaydır (h(n − k)); n &gt; 0 sağa, n &lt; 0 sola. x(k) ile örnek örnek çarp ve topla. Diziler örtüşmüyorsa y(n) = 0'dır.</p>
+        <p>h(k)'yi ters çevir (h(−k)), n kadar kaydır (h(n − k)); n &gt; 0 sağa, n &lt; 0 sola. x(k) ile örnek bazında çarp ve topla. Diziler örtüşmüyorsa y(n) = 0'dır.</p>
       </Denetim>
     </>
   );

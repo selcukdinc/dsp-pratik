@@ -14,6 +14,17 @@ export interface Yenilik {
 
 export const YENILIKLER: Yenilik[] = [
   {
+    pr: 15,
+    tarih: "2026-10-31",
+    baslik: "Çalıştırma çiplerini düzenleme",
+    maddeler: [
+      "Ders kod kutularındaki her çalıştırma çipinin bir × düğmesi var. Hatalı bir çalıştırmayı tek başına silebilir, öncekileri koruyabilirsin.",
+      "Bir çipe sağ tıklayınca menü açılıyor: karşılaştır, o çalıştırmanın kodunu editöre yükle, adını değiştir (örneğin \"kare dalga\"), sola ya da sağa taşı, sil.",
+      "Çipleri tutup sürükleyerek sıralarını değiştirebilirsin. Karşılaştırma varsayılan olarak şimdiki çipin solundakiyle yapılıyor.",
+      "Klavyeyle de çalışıyor: Delete siler, Alt+← ve Alt+→ taşır, F2 adını değiştirir.",
+    ],
+  },
+  {
     pr: 14,
     tarih: "2026-10-31",
     baslik: "Ders kodlarında çıktı karşılaştırma",

@@ -52,4 +52,14 @@ export const KAVRAMLAR: Record<string, Kavram> = {
   "olasilik-konvolusyon": { ad: "Olasılık dağılımlarının konvolüsyonu" },
   "hareketli-ortalama": { ad: "Hareketli ortalama" },
   korelasyon: { ad: "Korelasyon ve otokorelasyon" },
+  // Hafta 5
+  "sinus-cember": { ad: "Çember üzerinde dönen nokta ve sinüs" },
+  "sinus-parametre": { ad: "Genlik, frekans, periyot ve faz" },
+  "sinus-toplam": { ad: "Sinüslerin toplamı" },
+  "fourier-serisi": { ad: "Fourier serisi ve harmonikler" },
+  spektrum: { ad: "Frekans spektrumu" },
+  "sarma-kutle-merkezi": { ad: "Sarma makinesi ve kütle merkezi" },
+  "euler-formulu": { ad: "Euler formülü" },
+  "fourier-donusum": { ad: "Fourier dönüşümü" },
+  "fourier-dogrusallik": { ad: "Fourier dönüşümünün doğrusallığı" },
 };

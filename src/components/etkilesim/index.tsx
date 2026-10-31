@@ -5,6 +5,7 @@ import { Adc, Gauss, Histogram, Istatistik, RndToplam } from "./Hafta1";
 import { Indeksleme, IstatBoyutu, MatrisIndeks } from "./Hafta2";
 import { Donusum, KarmasikUstel, Sistem, TemelDiziler, Ustel } from "./Hafta3";
 import { Dogrudan, GrafikYontem, HareketliOrtalama, Kaydirma, Korelasyon, Superpozisyon, Tablo, Zar } from "./Hafta4";
+import { Cember, Darbe, FourierSerisi, Sarma, Sinus, SinusToplam, Sure } from "./Hafta5";
 
 export const ETKILESIMLER: Record<string, ComponentType<{ g: Gorsel }>> = {
   adc: Adc,
@@ -28,4 +29,11 @@ export const ETKILESIMLER: Record<string, ComponentType<{ g: Gorsel }>> = {
   zar: Zar,
   hareketliortalama: HareketliOrtalama,
   korelasyon: Korelasyon,
+  cember: Cember,
+  sinus: Sinus,
+  sinustoplam: SinusToplam,
+  fourierserisi: FourierSerisi,
+  darbe: Darbe,
+  sarma: Sarma,
+  sure: Sure,
 };

@@ -53,6 +53,17 @@ export const KAVRAM_BOLUMU: Record<number, Record<string, number>> = {
     "hareketli-ortalama": 7,
     korelasyon: 8,
   },
+  5: {
+    "sinus-cember": 0,
+    "sinus-parametre": 1,
+    "sinus-toplam": 2,
+    "fourier-serisi": 3,
+    spektrum: 4,
+    "sarma-kutle-merkezi": 5,
+    "euler-formulu": 5,
+    "fourier-donusum": 6,
+    "fourier-dogrusallik": 6,
+  },
 };
 
 export interface SoruBolumu {

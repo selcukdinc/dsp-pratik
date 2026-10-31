@@ -14,6 +14,16 @@ export interface Yenilik {
 
 export const YENILIKLER: Yenilik[] = [
   {
+    pr: 7,
+    tarih: "2026-10-31",
+    baslik: "5. hafta: Fourier analizi",
+    maddeler: [
+      "**5. hafta dersi** açıldı. Konular: sinüsün dönen bir noktanın izdüşümü olması; genlik, frekans ve faz; sinüslerin toplamı; kare, üçgen ve testere dalganın Fourier serisi ve Gibbs olayı; periyodik olmayan sinyallerin spektrumu; sarma makinesi, Euler formülü ve Fourier dönüşümü.",
+      "Etkileşimli şekillerin bazıları: çember üzerinde noktayı döndürüp sinüsü çizme, harmonik ekleyerek kare ve üçgen dalga kurma, darbe süresiyle spektrumun genişliğini değiştirme ve **sarma makinesi**: sarma frekansını değiştirip kütle merkezinin sinyalin frekansında nasıl sıçradığını görme.",
+      "Soru havuzuna 5. hafta için 40 soru eklendi; tekrarda çıkacak 12 ek soru da hazır.",
+    ],
+  },
+  {
     pr: 6,
     tarih: "2026-10-31",
     baslik: "4. hafta: konvolüsyon",

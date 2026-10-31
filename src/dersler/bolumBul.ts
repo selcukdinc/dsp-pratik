@@ -97,6 +97,18 @@ export const KAVRAM_BOLUMU: Record<number, Record<string, number>> = {
     "ortusme-ekleme": 7,
     "ortusme-kaydetme": 7,
   },
+  8: {
+    "fft-islem-yuku": 0,
+    "zamanda-seyreltme": 1,
+    "bolum-carpani": 1,
+    kelebek: 2,
+    "fft-asama": 3,
+    "bit-ters": 3,
+    "frekansta-seyreltme": 4,
+    "karma-n": 5,
+    "fft-kullanim": 6,
+    "ters-fft": 6,
+  },
 };
 
 export interface SoruBolumu {

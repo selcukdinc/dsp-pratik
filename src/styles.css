@@ -343,10 +343,11 @@ code { background: var(--code-bg); padding: 0 3px; border-radius: 3px; }
   .duzen-alani, .duzen-satir { flex-direction: column; flex: none !important; gap: 4px; }
   .duzen-ayirici, .duzen-bos-satir { display: none; }
   .duzen-satir > .panel { flex: none !important; }
-  .duzen-satir > .sources { height: auto; max-height: 220px; }
   .duzen-satir > .editor { height: 420px; }
-  .duzen-satir > .waves { height: 320px; }
-  .duzen-satir > .bottom { height: 220px; }
+  .duzen-satir > .figure { height: 360px; }
+  .duzen-satir > .command { height: 260px; }
+  .duzen-satir > .workspace { height: auto; max-height: 260px; }
+  .toolbar-ipucu { display: none; }
   .tutamak-izi, .panel-menu { display: none; }
   .questions, .progress, .about { padding: 12px 16px 40px; }
 }
@@ -797,6 +798,27 @@ polygon.g-renk-b { fill: var(--error); }
 .g-bant-1 { fill: var(--tag-bg); stroke: var(--muted); stroke-width: 1; }
 .g-bant-2 { fill: var(--section-header); stroke: var(--section-text); stroke-width: 1; }
 .g-bant-3 { fill: var(--tag-original-bg); stroke: var(--tag-original-text); stroke-width: 1; }
+.g-seri-c { fill: none; stroke: var(--green); stroke-width: 2.5; }
+.g-seri-d { fill: none; stroke: var(--warning); stroke-width: 2.5; }
+.g-ince { stroke-width: 1.4; }
+.g-eksen { stroke: var(--muted); stroke-width: 1.1; }
+.g-izgara { fill: none; stroke: var(--border-soft); stroke-width: 1; }
+.g-stem { stroke-width: 1.6; }
+.g-stem-a { stroke: var(--link); fill: var(--link); }
+.g-stem-b { stroke: var(--error); fill: var(--error); }
+.g-stem-c { stroke: var(--green); fill: var(--green); }
+.g-stem-d { stroke: var(--warning); fill: var(--warning); }
+.g-stem-uc { stroke-width: 1; }
+.g-cubuk-a { fill: var(--section-header); stroke: var(--link); stroke-width: 1; }
+.g-cubuk-b { fill: var(--mark-error); stroke: var(--error); stroke-width: 1; }
+.g-dolgu-a { fill: var(--link); opacity: .18; stroke: none; }
+.g-dolgu-b { fill: var(--error); opacity: .18; stroke: none; }
+.g-dolgu-c { fill: var(--green); opacity: .18; stroke: none; }
+.etkilesim-kaydiricilar { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 10px 18px; margin-top: 8px; }
+.etkilesim-kaydiricilar label { display: flex; flex-direction: column; gap: 2px; font-size: 12px; color: var(--muted); }
+.etkilesim-kaydiricilar label b { color: var(--text); font-family: var(--mono); font-weight: 600; }
+.etkilesim-kaydiricilar input[type=range] { width: 100%; }
+.etkilesim-olcumler { display: flex; flex-wrap: wrap; gap: 6px 16px; margin-top: 8px; font-family: var(--mono); font-size: 12.5px; }
 .g-dalga { fill: none; stroke: var(--text); stroke-width: 1.6; stroke-linejoin: round; }
 .g-dalga.g-renk-a-cizgi { stroke: var(--link); }
 .g-dalga.g-renk-b-cizgi { stroke: var(--error); }
@@ -824,6 +846,32 @@ polygon.g-renk-b { fill: var(--error); }
 .ders-test .question { max-width: 100%; }
 .ders-gezinti { display: flex; justify-content: space-between; gap: 12px; margin-top: 28px; padding-top: 12px; border-top: 1px solid var(--border); flex-wrap: wrap; }
 @media (max-width: 700px) { .ders-icindekiler ol { columns: 1; } .mini-editor { height: 240px; } }
+
+/* ---- MATLAB alanı: paneller ---- */
+.betik-sekmeleri { overflow-x: auto; scrollbar-width: thin; }
+.betik-sekmeleri button { white-space: nowrap; font-family: var(--mono); font-size: 12px; padding: 3px 10px; }
+.betik-sekmeleri .icon { border-right: 0; font-family: inherit; }
+.figure .sekil-alani { flex: 1; min-height: 0; position: relative; overflow: hidden; background: #fff; }
+.sekil-kutusu { width: 100%; }
+.sekil-kutusu svg { display: block; }
+.komut-penceresi { flex: 1; min-height: 0; display: flex; flex-direction: column; font-family: var(--mono); font-size: calc(12.5px * var(--yazi-olcek, 1)); cursor: text; }
+.komut-gecmisi { flex: 1; min-height: 0; overflow: auto; padding: 6px 8px 0; }
+.komut-gecmisi pre { margin: 0 0 2px; white-space: pre-wrap; word-break: break-word; font: inherit; }
+.komut-girdi { color: var(--muted); }
+.komut-hata { color: var(--error); }
+.komut-bilgi { color: var(--muted); font-family: var(--sans, inherit); }
+.komut-satiri { display: flex; gap: 6px; align-items: center; padding: 4px 8px 6px; }
+.komut-satiri span { color: var(--muted); }
+.komut-satiri input { flex: 1; min-width: 0; border: 0; outline: 0; background: transparent; color: var(--text); font: inherit; padding: 2px 0; }
+.workspace { overflow: auto; }
+.calisma-alani { border-collapse: collapse; width: 100%; font-size: 12px; }
+.calisma-alani th { position: sticky; top: 0; background: var(--tab-bar); text-align: left; font-weight: 600; }
+.calisma-alani th, .calisma-alani td { padding: 3px 8px; border-bottom: 1px solid var(--border-soft); white-space: nowrap; max-width: 180px; overflow: hidden; text-overflow: ellipsis; }
+.mini-matlab .mini-cikti { margin: 0; padding: 8px 10px; max-height: 260px; overflow: auto; background: var(--input, var(--panel)); border: 1px solid var(--border); border-radius: 4px; font-size: 12.5px; white-space: pre-wrap; }
+.mini-matlab .mini-sekil { border: 1px solid var(--border); border-radius: 4px; overflow: hidden; background: #fff; }
+.mini-gorev p { margin: 0; }
+.kayit-kodu { height: 320px; }
+.etiketli > .etiket { font-weight: 600; }
 
 /* ---- MATLAB alanı: pencere düzeni ---- */
 .toolbar-bosluk { flex: 1; }

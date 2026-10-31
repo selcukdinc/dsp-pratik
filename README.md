@@ -57,8 +57,13 @@ sonra migration'ları uygula ve yayımla:
 
 ```sh
 npx wrangler d1 migrations apply dsp-pratik --remote
-npx wrangler deploy
+npm run deploy
 ```
+
+`npm run deploy` önce `vite build` çalıştırır; Cloudflare eklentisi derlenen
+dosyaların yerini (`assets.directory`) yayın ayarına o sırada ekler. Derlemeden
+doğrudan `npx wrangler deploy` çalıştırılırsa "`assets` property ... missing the
+required `directory` property" hatası alınır.
 
 ## Lisans
 

@@ -14,6 +14,51 @@ export interface Yenilik {
 
 export const YENILIKLER: Yenilik[] = [
   {
+    pr: 5,
+    tarih: "2026-10-31",
+    baslik: "3. hafta: ayrık zamanlı sinyaller ve sistemler",
+    maddeler: [
+      "**3. hafta dersi** açıldı. Konular: birim dürtü, basamak ve rampa; üstel, karmaşık üstel ve sinüzoidal diziler ve periyodiklik; çift ve tek kısımlar; kaydırma, ters çevirme ve ölçekleme; enerji ve güç; diziyi dürtülerle yazma; sistem özellikleri ve LTI sistemler.",
+      "Etkileşimli şekillerin bazıları: temel dizileri kaydırma, aⁿ dizisini a ile değiştirme, karmaşık üstelde σ ve ω₀ ile oynama ve y(n) = x(kn − n₀) dönüşümünü adım adım görme. Bir de **sistem tezgâhı** var: sekiz örnek sistemden birini seçince hangi özellikleri neden sağladığını gösteriyor.",
+      "Soru havuzuna 3. hafta için 40 soru eklendi; tekrarda çıkacak 19 ek soru da hazır.",
+    ],
+  },
+  {
+    pr: 4,
+    tarih: "2026-10-31",
+    baslik: "2. hafta: MATLAB ile çalışmak",
+    maddeler: [
+      "**2. hafta dersi** açıldı. Konular: betik yazma, vektör ve matris kurma, indeksleme ve doğrusal indeks, eleman eleman ve matris işlemleri, ilişkisel ve mantıksal işleçler, fonksiyon yazma, rastgele sayılar, dizi birleştirme ve istatistik fonksiyonları.",
+      "Etkileşimli şekillerde bir indeksleme ifadesi seçip vektörden ya da matristen hangi elemanların alındığını görebilirsin. `mean`, `median`, `std` ve `var` için boyutu ve ağırlığı değiştirip sonucu karşılaştırabilirsin.",
+      "MATLAB alanına yeni fonksiyonlar eklendi: `cat`, `vertcat`, `corrcoef`, `randperm`, `who` ve `whos`. `mean`, `std`, `var`, `median`, `sum`, `max` ve `min` artık `'all'` seçeneğini de kabul ediyor.",
+      "Soru havuzuna 2. hafta için 46 soru eklendi; tekrarda çıkacak 20 ek soru da hazır.",
+    ],
+  },
+  {
+    pr: 3,
+    tarih: "2026-10-31",
+    baslik: "1. hafta: sinyaller ve istatistik",
+    maddeler: [
+      "**1. hafta dersi** açıldı: dijital sinyal işlemenin neden kullanıldığı, örnekleme ve niceleme, ortalama, standart sapma ve rms, histogram, pmf ve pdf, normal dağılım, rastgele sayılarla gürültü üretme, kesinlik ve doğruluk.",
+      "Dersteki dokuz şeklin beşi etkileşimli. Bit sayısını ve örnekleme hızını değiştirerek ADC'yi deneyebilirsin. Dalga biçimini ve DC'yi değiştirerek μ, σ ve rms'i karşılaştırabilirsin. Örnek sayısını artırınca histogramın nasıl düzeldiğini, Gauss eğrisinin altındaki alanları ve rastgele sayıları toplayınca çan eğrisinin nasıl oluştuğunu görebilirsin.",
+      "Her bölümde sayfanın içinde çalışan bir MATLAB örneği ve üzerinde deneyeceğin küçük bir görev var.",
+      "Soru havuzuna 1. hafta için 43 soru eklendi; tekrarda çıkacak 19 ek soru da hazır. Çoğu sayısal: sonucu kendin hesaplayıp yazıyorsun.",
+      "Düzeltme: Aynı sayfadaki birden çok MATLAB şeklinde eğrilerin ve çubukların bir kısmı kesik görünüyordu.",
+    ],
+  },
+  {
+    pr: 2,
+    tarih: "2026-10-31",
+    baslik: "MATLAB alanı açıldı",
+    maddeler: [
+      "**MATLAB alanı** tarayıcında çalışıyor: editör, şekil penceresi, komut penceresi ve çalışma alanı. Pencereleri sürükleyip boyutlandırabilir, düzenini kaydedebilirsin.",
+      "Vektörler, matrisler, indeksleme, `for`, `while`, `if`, `switch`, kendi fonksiyonların ve anonim fonksiyonlar destekleniyor. `sum`, `mean`, `std`, `conv`, `filter`, `fft`, `freqz` gibi fonksiyonlarla `plot`, `stem`, `histogram`, `bar` ve `subplot` ile çizim var.",
+      "Hatalar Türkçe ve satır numarasıyla gösteriliyor; ör. `x(0)` yazınca MATLAB'da indislerin 1'den başladığını hatırlatıyor.",
+      "**Örnekler** menüsünde sinüs çizimi, histogram, örtüşme, konvolüsyon, hareketli ortalama, Fourier serisi, FFT ve frekans yanıtı hazır betikleri var. Betiklerini `.m` dosyası olarak indirip yükleyebilirsin.",
+      "Derslerdeki MATLAB örnekleri sayfanın içinde çalışıyor; laboratuvar kayıtlarını tek tıkla MATLAB alanında açabiliyorsun.",
+    ],
+  },
+  {
     pr: 1,
     tarih: "2026-10-31",
     baslik: "DSP Pratik açılıyor",

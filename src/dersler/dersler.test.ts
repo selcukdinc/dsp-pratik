@@ -3,6 +3,7 @@ import { DERSLER } from "./index";
 import { sorular } from "../../content/sorular/index";
 import { gorselBul } from "../gorseller";
 import { KAVRAM_BOLUMU, soruBolumu } from "./bolumBul";
+import { Yorumlayici } from "../matlab/yorumla";
 
 describe("dersler", () => {
   const kimlikler = new Map(sorular.map((s) => [s.id, s]));
@@ -29,10 +30,13 @@ describe("dersler", () => {
         }
     }
   });
-  it("her MATLAB örneğinin kodu dolu", () => {
+  it("her MATLAB örneği tarayıcıdaki yorumlayıcıda hatasız çalışır", () => {
     for (const d of DERSLER)
-      for (const b of d.bolumler)
-        if (b.matlab) expect(b.matlab.kod.trim(), `${d.hafta}. hafta, ${b.baslik}`).not.toBe("");
+      for (const b of d.bolumler) {
+        if (!b.matlab) continue;
+        const y = new Yorumlayici({ tohum: 0 });
+        expect(y.calistir(b.matlab.kod).hata, `${d.hafta}. hafta, ${b.baslik}`).toBeNull();
+      }
   });
 
   // Ders bir diziyi çözdüyse aynı dizi soruda sorulmaz: öğrenci kuralı uygulamalı,

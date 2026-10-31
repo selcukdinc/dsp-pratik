@@ -4,7 +4,44 @@
 import { DERSLER } from "./index";
 
 // Hafta -> kavram -> bölümün sırası (0'dan). Kavramlar shared/kavramlar.ts'de.
-export const KAVRAM_BOLUMU: Record<number, Record<string, number>> = {};
+export const KAVRAM_BOLUMU: Record<number, Record<string, number>> = {
+  1: {
+    "dsp-giris": 0,
+    "adc-niceleme": 1,
+    "sinyal-eksen": 1,
+    "ortalama-sapma": 2,
+    rms: 3,
+    "histogram-pmf": 4,
+    "normal-dagilim": 5,
+    "gurultu-uretimi": 6,
+    "kesinlik-dogruluk": 7,
+  },
+  2: {
+    "matlab-temel": 0,
+    "vektor-olusturma": 1,
+    indeksleme: 1,
+    "matris-indeks": 2,
+    "eleman-islem": 3,
+    mantiksal: 4,
+    "fonksiyon-tanim": 5,
+    "rastgele-uretim": 6,
+    birlestirme: 7,
+    "istatistik-boyut": 8,
+  },
+  3: {
+    "dizi-gosterim": 0,
+    "temel-diziler": 1,
+    "ustel-sinuzoidal": 2,
+    periyodiklik: 2,
+    simetri: 3,
+    "sinyal-donusum": 4,
+    "enerji-guc": 5,
+    "durtu-ayristirma": 6,
+    dogrusallik: 7,
+    "sistem-ozellik": 7,
+    lti: 8,
+  },
+};
 
 export interface SoruBolumu {
   hafta: number;

@@ -2,7 +2,8 @@
 // sunumları depoya girmez.
 //
 // Metinlerde ` yerine ~ yazılır (şablon dizgilerinde ters tırnak kaçış
-// gerektirdiği için); md() ~ karakterlerini ` ile değiştirir.
+// gerektirdiği için); md() ~ karakterlerini ` ile değiştirir. MATLAB'ın ~=
+// ve ~ işleçleri için ¬ yazılır; md() ¬ karakterini ~ yapar.
 // Formüller $...$ (satır içi) ve $$...$$ (ayrı satır) arasında TeX olarak yazılır.
 
 export interface MiniMatlab {
@@ -30,4 +31,4 @@ export interface Ders {
   test: string[];
 }
 
-export const md = (s: string) => s.replace(/~/g, "`").trim();
+export const md = (s: string) => s.replace(/~/g, "`").replace(/¬/g, "~").trim();

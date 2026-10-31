@@ -14,7 +14,8 @@ if (!hedef) {
   process.exit(1);
 }
 
-const md = (s: string) => s.replace(/~/g, "`");
+// MATLAB'ın ~ işleci için ¬ yazılır
+const md = (s: string) => s.replace(/~/g, "`").replace(/¬/g, "~");
 const q = (s: string | null) => (s === null ? "NULL" : `'${s.replace(/'/g, "''")}'`);
 
 function payload(s: Soru): object {

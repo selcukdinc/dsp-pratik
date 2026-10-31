@@ -14,6 +14,16 @@ export interface Yenilik {
 
 export const YENILIKLER: Yenilik[] = [
   {
+    pr: 9,
+    tarih: "2026-10-31",
+    baslik: "7. hafta: ayrık Fourier dönüşümü (DFT)",
+    maddeler: [
+      "**7. hafta dersi** açıldı. Konular: ayrık Fourier serisi, DFT ve ters DFT, DFT'nin DTFT'nin örnekleri olması, frekans ekseni ve sıfır doldurma, doğrusallık, eşlenik simetri ve Parseval, dairesel kaydırma, dairesel konvolüsyon ve doğrusal konvolüsyonla ilişkisi, DFT ile konvolüsyon, örtüşme-ekleme ve örtüşme-kaydetme.",
+      "Etkileşimli şekillerin bazıları: sıfır doldurdukça DFT noktalarının aynı DTFT eğrisi üzerinde sıklaşmasını görme, taban üstelleri birim çemberde döndürme, diziyi çember üzerinde dairesel kaydırma, iç içe iki çemberle dairesel konvolüsyonu adım adım hesaplama, N'yi değiştirip zamanda örtüşmenin nasıl kaybolduğunu izleme.",
+      "Soru havuzuna 7. hafta için 45 soru eklendi; tekrarda çıkacak 14 ek soru da hazır.",
+    ],
+  },
+  {
     pr: 8,
     tarih: "2026-10-31",
     baslik: "6. hafta: frekans yanıtı ve DTFT",

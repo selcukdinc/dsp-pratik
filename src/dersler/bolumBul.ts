@@ -81,6 +81,22 @@ export const KAVRAM_BOLUMU: Record<number, Record<string, number>> = {
     parseval: 6,
     "ters-sistem": 7,
   },
+  7: {
+    dfs: 0,
+    "dft-dtft": 0,
+    "dft-hesap": 1,
+    "ters-dft": 1,
+    "dft-frekans": 2,
+    "sifir-doldurma": 2,
+    "dft-ozellik": 3,
+    "dft-simetri": 3,
+    "dairesel-kaydirma": 4,
+    "dairesel-konv": 5,
+    "dairesel-dogrusal": 6,
+    "dft-ile-konvolusyon": 6,
+    "ortusme-ekleme": 7,
+    "ortusme-kaydetme": 7,
+  },
 };
 
 export interface SoruBolumu {

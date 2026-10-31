@@ -7,6 +7,7 @@ import { Donusum, KarmasikUstel, Sistem, TemelDiziler, Ustel } from "./Hafta3";
 import { Dogrudan, GrafikYontem, HareketliOrtalama, Kaydirma, Korelasyon, Superpozisyon, Tablo, Zar } from "./Hafta4";
 import { Cember, Darbe, FourierSerisi, Sarma, Sinus, SinusToplam, Sure } from "./Hafta5";
 import { Baglanti, DikdortgenDtft, DogrusalFaz, FrekansYaniti, KonvTeorem, Modulasyon, Ozfonksiyon } from "./Hafta6";
+import { DaireselDogrusal, DaireselKaydirma, DaireselKonv, DftOrnek, DftSimetri, DftTaban } from "./Hafta7";
 
 export const ETKILESIMLER: Record<string, ComponentType<{ g: Gorsel }>> = {
   adc: Adc,
@@ -44,4 +45,10 @@ export const ETKILESIMLER: Record<string, ComponentType<{ g: Gorsel }>> = {
   dikdortgendtft: DikdortgenDtft,
   modulasyon: Modulasyon,
   konvteorem: KonvTeorem,
+  dftornek: DftOrnek,
+  dfttaban: DftTaban,
+  dftsimetri: DftSimetri,
+  daireselkaydirma: DaireselKaydirma,
+  daireselkonv: DaireselKonv,
+  daireseldogrusal: DaireselDogrusal,
 };

@@ -47,7 +47,7 @@ export interface Program {
 }
 
 // "hold on", "grid off", "close all" gibi komut sözdizimi kullanılan adlar
-const KOMUTLAR = new Set(["hold", "grid", "close", "clear", "clc", "format", "axis", "figure", "clf", "more", "warning", "disp", "box", "pkg", "rng", "legend"]);
+const KOMUTLAR = new Set(["hold", "grid", "close", "clear", "clc", "format", "axis", "figure", "clf", "more", "warning", "disp", "box", "pkg", "rng", "legend", "who", "whos"]);
 
 export function ayristir(kaynak: string): Program {
   const s = sozcukle(kaynak);

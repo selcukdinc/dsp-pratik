@@ -14,6 +14,17 @@ export interface Yenilik {
 
 export const YENILIKLER: Yenilik[] = [
   {
+    pr: 4,
+    tarih: "2026-10-31",
+    baslik: "2. hafta: MATLAB ile çalışmak",
+    maddeler: [
+      "**2. hafta dersi** açıldı. Konular: betik yazma, vektör ve matris kurma, indeksleme ve doğrusal indeks, eleman eleman ve matris işlemleri, ilişkisel ve mantıksal işleçler, fonksiyon yazma, rastgele sayılar, dizi birleştirme ve istatistik fonksiyonları.",
+      "Etkileşimli şekillerde bir indeksleme ifadesi seçip vektörden ya da matristen hangi elemanların alındığını görebilirsin. `mean`, `median`, `std` ve `var` için boyutu ve ağırlığı değiştirip sonucu karşılaştırabilirsin.",
+      "MATLAB alanına yeni fonksiyonlar eklendi: `cat`, `vertcat`, `corrcoef`, `randperm`, `who` ve `whos`. `mean`, `std`, `var`, `median`, `sum`, `max` ve `min` artık `'all'` seçeneğini de kabul ediyor.",
+      "Soru havuzuna 2. hafta için 46 soru eklendi; tekrarda çıkacak 20 ek soru da hazır.",
+    ],
+  },
+  {
     pr: 3,
     tarih: "2026-10-31",
     baslik: "1. hafta: sinyaller ve istatistik",

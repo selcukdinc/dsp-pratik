@@ -78,6 +78,21 @@ describe("yorumlayıcı: sinyal işleme fonksiyonları", () => {
     expect(dizi("x = std([2 4 4 4 5 5 7 9]);")[0]).toBeCloseTo(2.138, 3);
     expect(dizi("x = sum([1 2; 3 4]);")).toEqual([4, 6]);
   });
+  it("'all' seçeneği, ağırlık ve boyut; corrcoef, cat, vertcat, randperm", () => {
+    const A = "A = [0 1 1; 2 3 2; 1 3 2; 4 2 2];";
+    expect(dizi(`${A} x = mean(A, 'all');`)[0]).toBeCloseTo(1.9167, 4);
+    expect(dizi(`${A} x = std(A, 1, 'all');`)[0]).toBeCloseTo(1.0375, 4);
+    expect(dizi(`${A} x = var(A, 1, 2);`).map((v) => +v.toFixed(4))).toEqual([0.2222, 0.2222, 0.6667, 0.8889]);
+    expect(dizi(`${A} x = median(A, 'all');`)).toEqual([2]);
+    expect(dizi(`${A} x = sum(A, 'all');`)).toEqual([23]);
+    expect(dizi(`${A} B = [1 5 7; 2 4 3; 4 3 5; 4 0 2]; R = corrcoef(A, B); x = R(1, 2);`)[0]).toBeCloseTo(0.0145, 4);
+    expect(dizi(`${A} R = corrcoef(A); x = R(2, 3);`)[0]).toBeCloseTo(0.8704, 4);
+    expect(deger("x = cat(1, ones(2), zeros(2));")).toMatchObject({ r: 4, c: 2 });
+    expect(dizi("x = vertcat([1 2], [3 4]);")).toEqual([1, 3, 2, 4]);
+    expect([...dizi("x = randperm(6);")].sort()).toEqual([1, 2, 3, 4, 5, 6]);
+    expect(dizi("x = randperm(6, 4);")).toHaveLength(4);
+    expect(calis("a = 1; bb = 2;\nwho").cikti).toContain("a  bb");
+  });
   it("fft ve ifft (2'nin kuvveti ve değil)", () => {
     const X = deger("x = fft([1 0 0 0]);");
     expect(X.re).toEqual([1, 1, 1, 1]);

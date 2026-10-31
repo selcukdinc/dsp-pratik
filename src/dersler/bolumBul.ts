@@ -16,6 +16,18 @@ export const KAVRAM_BOLUMU: Record<number, Record<string, number>> = {
     "gurultu-uretimi": 6,
     "kesinlik-dogruluk": 7,
   },
+  2: {
+    "matlab-temel": 0,
+    "vektor-olusturma": 1,
+    indeksleme: 1,
+    "matris-indeks": 2,
+    "eleman-islem": 3,
+    mantiksal: 4,
+    "fonksiyon-tanim": 5,
+    "rastgele-uretim": 6,
+    birlestirme: 7,
+    "istatistik-boyut": 8,
+  },
 };
 
 export interface SoruBolumu {

@@ -9,6 +9,7 @@ import { Cember, Darbe, FourierSerisi, Sarma, Sinus, SinusToplam, Sure } from ".
 import { Baglanti, DikdortgenDtft, DogrusalFaz, FrekansYaniti, KonvTeorem, Modulasyon, Ozfonksiyon } from "./Hafta6";
 import { DaireselDogrusal, DaireselKaydirma, DaireselKonv, DftOrnek, DftSimetri, DftTaban } from "./Hafta7";
 import { FftAkis, FftIslem, KarmaN, Kelebek, Spektrum } from "./Hafta8";
+import { FiltreAilesi } from "./Proje";
 
 export const ETKILESIMLER: Record<string, ComponentType<{ g: Gorsel }>> = {
   adc: Adc,
@@ -57,4 +58,5 @@ export const ETKILESIMLER: Record<string, ComponentType<{ g: Gorsel }>> = {
   fftakis: FftAkis,
   karman: KarmaN,
   spektrum: Spektrum,
+  filtreailesi: FiltreAilesi,
 };

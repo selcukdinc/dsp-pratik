@@ -4,6 +4,7 @@
 import { useMemo, useState } from "react";
 import { GORSELLER } from "../gorseller";
 import { gorselKullanimlari } from "../gorseller/kullanim";
+import { haftaEtiketi } from "../dersler";
 import { Sekil } from "../components/Sekil";
 import { href } from "../lib/router";
 
@@ -49,7 +50,7 @@ export function GorselListesi() {
                 <span key={i}>
                   {i > 0 && ", "}
                   <a href={`${href({ page: "ders", hafta: y.hafta })}#sekil-${g.kod}`}>
-                    {y.hafta}. hafta, {y.bolum}. bölüm ({y.bolumBasligi})
+                    {haftaEtiketi(y.hafta)}, {y.bolum}. bölüm ({y.bolumBasligi})
                   </a>
                 </span>
               ))}

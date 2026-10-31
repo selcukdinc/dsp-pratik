@@ -3,9 +3,9 @@
 
 import {
   boyutDenetle, hata, mantik, mat, matris, metin, metinMi, metneCevir, numel, sayi, skaler, tamsayi, type Deger, type Fonk,
-  type Matris, satirVektor, vektorMu, bos,
+  type Matris, satirVektor, vektorMu, bos, boyutYazisi, sinifAdi,
 } from "./deger";
-import { devrik, elemanEleman, ikiliIslem, indeksle, matrisCarp, yatayBirlestir } from "./islem";
+import { devrik, dikeyBirlestir, elemanEleman, ikiliIslem, indeksle, matrisCarp, yatayBirlestir } from "./islem";
 import { adliYaz, degerYaz, mat2str, num2str, sprintf, kacisCoz } from "./gosterim";
 import { fftKarmasik } from "./fft";
 import {
@@ -86,7 +86,11 @@ function ikiliGercek(f: (a: number, b: number) => number, ad: string): Yerlesik 
 // ---- İndirgeme (sum, mean, max ...) ----
 
 // Varsayılan boyut: ilk 1'den büyük boyut (satır vektöründe 2)
+// 0: 'all' (bütün elemanlar), 1: sütunlar, 2: satırlar
 function boyutSec(a: Matris, args: Deger[], i: number): number {
+  const secenekler = args.slice(1).filter((x) => metinMi(x)).map((x) => metneCevir(x).toLowerCase());
+  if (secenekler.includes("omitnan")) hata("'omitnan' desteklenmiyor; NaN'ları önce ayıkla: x(~isnan(x)).");
+  if (secenekler.includes("all")) return 0;
   if (args[i] !== undefined && !metinMi(args[i]!)) {
     const d = tamsayi(args[i]!, "Boyut");
     if (d !== 1 && d !== 2) hata("Boyut 1 ya da 2 olmalı.");
@@ -97,6 +101,10 @@ function boyutSec(a: Matris, args: Deger[], i: number): number {
 
 // Her sütun (dim 1) ya da satır (dim 2) için f çağrılır
 function indirge(a: Matris, dim: number, f: (re: number[], im: number[] | null) => [number, number]): Matris {
+  if (dim === 0) {
+    a = mat(numel(a), 1, a.re, a.im);
+    dim = 1;
+  }
   if (numel(a) === 0 && a.r === 0 && a.c === 0) {
     const [x, y] = f([], null);
     return mat(1, 1, [x], [y]);
@@ -572,6 +580,18 @@ export const YERLESIKLER: Record<string, Yerlesik> = {
   ones: doldur(() => 1, "ones"),
   rand: doldur((y) => y.rastgele(), "rand"),
   randn: doldur((y) => y.normal(), "randn"),
+  randperm: (y, args) => {
+    const n = tamsayi(args[0]!, "randperm n");
+    const k = args[1] ? tamsayi(args[1], "randperm k") : n;
+    if (n < 0 || k < 0 || k > n) hata("randperm(n, k): 0 ≤ k ≤ n olmalı.");
+    boyutDenetle(1, n);
+    const d = Array.from({ length: n }, (_, i) => i + 1);
+    for (let i = 0; i < k; i++) {
+      const j = i + Math.floor(y.rastgele() * (n - i));
+      [d[i], d[j]] = [d[j]!, d[i]!];
+    }
+    return [mat(1, k, d.slice(0, k))];
+  },
   randi: (y, args) => {
     const s = M(args[0], "randi üst sınırı");
     const [lo, hi] = numel(s) >= 2 ? [s.re[0]!, s.re[1]!] : [1, s.re[0]!];
@@ -840,6 +860,29 @@ export const YERLESIKLER: Record<string, Yerlesik> = {
   },
   transpose: (_y, args) => [devrik(M(args[0]), false)],
   horzcat: (_y, args) => [yatayBirlestir(args.map((a) => M(a)))],
+  vertcat: (_y, args) => [dikeyBirlestir(args.map((a) => M(a)))],
+  cat: (_y, args) => {
+    const d = tamsayi(args[0]!, "cat boyutu");
+    if (d !== 1 && d !== 2) hata("cat yalnızca 1 (dikey) ve 2 (yatay) boyutunu destekler.");
+    const parcalar = args.slice(1).map((a) => M(a));
+    return [d === 1 ? dikeyBirlestir(parcalar) : yatayBirlestir(parcalar)];
+  },
+  corrcoef: (_y, args) => {
+    // Her sütun bir değişken; iki argümanda ikisi de tek sütuna açılır
+    let a = M(args[0], "corrcoef verisi");
+    if (args[1]) {
+      const b = M(args[1], "corrcoef verisi");
+      if (numel(a) !== numel(b)) hata("corrcoef: iki verinin eleman sayısı aynı olmalı.");
+      a = mat(numel(a), 2, [...a.re, ...b.re]);
+    } else if (a.r === 1) a = mat(a.c, 1, a.re);
+    const n = a.r, k = a.c;
+    const sut = Array.from({ length: k }, (_, j) => a.re.slice(j * n, j * n + n));
+    const ort = sut.map((x) => x.reduce((t, v) => t + v, 0) / n);
+    const kov = (i: number, j: number) => sut[i]!.reduce((t, v, m) => t + (v - ort[i]!) * (sut[j]![m]! - ort[j]!), 0);
+    const re = new Array<number>(k * k);
+    for (let i = 0; i < k; i++) for (let j = 0; j < k; j++) re[j * k + i] = i === j ? 1 : kov(i, j) / Math.sqrt(kov(i, i) * kov(j, j));
+    return [mat(k, k, re)];
+  },
 
   // Sinyal işleme
   conv: (_y, args) => {
@@ -1022,6 +1065,20 @@ export const YERLESIKLER: Record<string, Yerlesik> = {
     const adlar = args.map((a) => metneCevir(a));
     if (!adlar.length || adlar.includes("all") || adlar.includes("variables")) kapsam.clear();
     else for (const a of adlar) kapsam.delete(a);
+    return [];
+  },
+  who: (y, _args, _n, kapsam) => {
+    const adlar = [...kapsam.keys()].filter((a) => a !== "ans" || kapsam.has("ans")).sort();
+    y.cikti += adlar.length ? `Değişkenler:\n\n${adlar.join("  ")}\n\n` : "";
+    return [];
+  },
+  whos: (y, _args, _n, kapsam) => {
+    const adlar = [...kapsam.keys()].sort();
+    if (!adlar.length) return [];
+    const en = Math.max(4, ...adlar.map((a) => a.length));
+    y.cikti += `  ${"Ad".padEnd(en)}  ${"Boyut".padEnd(9)}  Sınıf\n\n`;
+    for (const a of adlar) y.cikti += `  ${a.padEnd(en)}  ${boyutYazisi(kapsam.get(a)!).padEnd(9)}  ${sinifAdi(kapsam.get(a)!)}\n`;
+    y.cikti += "\n";
     return [];
   },
   exist: (y, args, _n, kapsam) => {

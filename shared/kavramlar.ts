@@ -18,4 +18,15 @@ export const KAVRAMLAR: Record<string, Kavram> = {
   "normal-dagilim": { ad: "Normal dağılım" },
   "gurultu-uretimi": { ad: "Rastgele sayılarla gürültü üretimi" },
   "kesinlik-dogruluk": { ad: "Kesinlik ve doğruluk" },
+  // Hafta 2
+  "matlab-temel": { ad: "MATLAB betikleri, çıktı ve özel değerler" },
+  "vektor-olusturma": { ad: "Vektör oluşturma: aralık ve linspace" },
+  indeksleme: { ad: "Vektör indeksleme" },
+  "matris-indeks": { ad: "Matris indeksleme ve doğrusal indeks" },
+  "eleman-islem": { ad: "Eleman eleman ve matris işlemleri" },
+  mantiksal: { ad: "İlişkisel ve mantıksal işleçler" },
+  "fonksiyon-tanim": { ad: "MATLAB'da fonksiyon yazmak" },
+  "rastgele-uretim": { ad: "rand, randn, randi ve randperm" },
+  birlestirme: { ad: "Dizi birleştirme" },
+  "istatistik-boyut": { ad: "İstatistik fonksiyonları ve boyut" },
 };

@@ -5,10 +5,11 @@
 
 import type { Gorsel } from "./tip";
 import { HAFTA_1_GORSELLERI } from "./hafta-1";
+import { HAFTA_2_GORSELLERI } from "./hafta-2";
 
 export type { Gorsel } from "./tip";
 
-export const GORSELLER: Gorsel[] = [...HAFTA_1_GORSELLERI];
+export const GORSELLER: Gorsel[] = [...HAFTA_1_GORSELLERI, ...HAFTA_2_GORSELLERI];
 
 export const gorselBul = (kod: string) => GORSELLER.find((g) => g.kod === kod);
 

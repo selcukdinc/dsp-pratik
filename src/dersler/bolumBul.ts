@@ -28,6 +28,19 @@ export const KAVRAM_BOLUMU: Record<number, Record<string, number>> = {
     birlestirme: 7,
     "istatistik-boyut": 8,
   },
+  3: {
+    "dizi-gosterim": 0,
+    "temel-diziler": 1,
+    "ustel-sinuzoidal": 2,
+    periyodiklik: 2,
+    simetri: 3,
+    "sinyal-donusum": 4,
+    "enerji-guc": 5,
+    "durtu-ayristirma": 6,
+    dogrusallik: 7,
+    "sistem-ozellik": 7,
+    lti: 8,
+  },
 };
 
 export interface SoruBolumu {

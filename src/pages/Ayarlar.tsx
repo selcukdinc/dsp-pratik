@@ -151,7 +151,7 @@ function GorunumAyari() {
       </label>
       <p className="hint">
         Seçim hemen uygulanır ve hesabına kaydedilir; başka bir cihazda giriş yaptığında da aynı boyut gelir. Üst çubuktaki
-        A− ve A+ düğmeleri de aynı ayarı değiştirir. MATLAB alanında editör ve komut penceresi yazıları büyür, panel düzeni
+        A− ve A+ düğmeleri de aynı ayarı değiştirir. MatStudio'da editör ve komut penceresi yazıları büyür, panel düzeni
         olduğu gibi kalır.
       </p>
     </Bolum>

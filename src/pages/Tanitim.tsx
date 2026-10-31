@@ -17,8 +17,8 @@ const KITLELER = [
     metin: "Konvolüsyon, örnekleme, Fourier serisi ve DFT gibi konular etkileşimli şekillerle anlatılır: bir değeri değiştir, sinyalin ve spektrumun nasıl değiştiğini hemen gör.",
   },
   {
-    baslik: "MATLAB'a yeni başlayanlar",
-    metin: "Hiçbir şey kurmadan tarayıcında MATLAB yaz: vektörler, döngüler, grafik ve histogram çizimi. Derslerdeki örnekleri değiştirip çalıştırabilir, beğendiğin betiği laboratuvar kaydı olarak paylaşabilirsin.",
+    baslik: "MatStudio'ya yeni başlayanlar",
+    metin: "Hiçbir şey kurmadan tarayıcında MatStudio yaz: vektörler, döngüler, grafik ve histogram çizimi. Derslerdeki örnekleri değiştirip çalıştırabilir, beğendiğin betiği laboratuvar kaydı olarak paylaşabilirsin.",
   },
   {
     baslik: "Eğitmenler ve asistanlar",
@@ -30,7 +30,7 @@ const ADIMLAR = [
   {
     gorsel: "ders",
     baslik: "1. Konuyu Dersler'den oku",
-    metin: "Her hafta için kısa bir anlatım, içindekiler listesi ve etkileşimli şekiller var. Terimlerin İngilizcesi parantez içinde yazar. Dersteki MATLAB örneklerini değiştirip çalıştırabilirsin. Dersin sonunda kısa bir test seni bekler.",
+    metin: "Her hafta için kısa bir anlatım, içindekiler listesi ve etkileşimli şekiller var. Terimlerin İngilizcesi parantez içinde yazar. Dersteki MatStudio örneklerini değiştirip çalıştırabilirsin. Dersin sonunda kısa bir test seni bekler.",
     bag: { page: "ders" } as const,
     bagMetni: "Derslere git",
   },
@@ -50,10 +50,10 @@ const ADIMLAR = [
   },
   {
     gorsel: "pratik",
-    baslik: "4. MATLAB alanında serbest çalış",
+    baslik: "4. MatStudio'da serbest çalış",
     metin: "Betik yaz, çalıştır; grafikler şekil penceresinde, çıktılar komut penceresinde, değişkenler çalışma alanında görünür. Hazır örneklerle başlayabilir, pencereleri sürükleyip düzenini kurabilirsin.",
     bag: { page: "pratik" } as const,
-    bagMetni: "MATLAB alanına git",
+    bagMetni: "MatStudio'ya git",
   },
   {
     gorsel: "ilerleme",
@@ -79,12 +79,12 @@ export function Tanitim() {
         <p>
           DSP Pratik, sayısal sinyal işleme dersine hazırlanmak için ücretsiz ve açık kaynaklı bir çalışma alanı. Etkileşimli
           şekilli haftalık dersler, haftalara ayrılmış soru havuzu, yanlışlar için aralıklı tekrar ve tarayıcında çalışan bir
-          MATLAB alanı tek yerde. Kurulum gerekmez; yazdığın kod bilgisayarından çıkmaz.
+          MatStudio tek yerde. Kurulum gerekmez; yazdığın kod bilgisayarından çıkmaz.
         </p>
         <div className="tanitim-dugmeler">
           <a className="buton primary" href={href({ page: "ders" })}>Derslerle başla</a>
           <a className="buton" href={href({ page: "sorular" })}>Sorulara geç</a>
-          <a className="buton" href={href({ page: "pratik" })}>MATLAB alanı</a>
+          <a className="buton" href={href({ page: "pratik" })}>MatStudio</a>
         </div>
       </header>
 
@@ -118,7 +118,7 @@ export function Tanitim() {
       <section className="tanitim-alt">
         <h3>Senin için ne değişir?</h3>
         <ul>
-          <li><strong>Kurulum yok:</strong> MATLAB kurmadan, herhangi bir bilgisayarda ya da telefonda çalışabilirsin.</li>
+          <li><strong>Kurulum yok:</strong> MatStudio kurmadan, herhangi bir bilgisayarda ya da telefonda çalışabilirsin.</li>
           <li><strong>Hemen geri bildirim:</strong> cevabının doğru olup olmadığını ve nedenini aynı anda görürsün.</li>
           <li><strong>Unutmadan pekiştirme:</strong> yanlışların, unutmaya başladığın aralıklarla yeniden karşına çıkar.</li>
           <li><strong>Gizlilik:</strong> reklam ve takip çerezi yok; kodun sen paylaşmadıkça tarayıcında kalır.</li>

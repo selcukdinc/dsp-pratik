@@ -1,4 +1,4 @@
-// MATLAB alanındaki hazır örnekler. Hepsi src/matlab/ornekler.test.ts'te
+// MatStudio'daki hazır örnekler. Hepsi src/matlab/ornekler.test.ts'te
 // hatasız çalıştırılır.
 
 export interface Ornek {

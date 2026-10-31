@@ -4,19 +4,19 @@ Sayısal sinyal işleme (DSP) dersi için açık kaynaklı, ücretsiz bir pratik
 
 **Site:** [dsp.selcukdinc.dev](https://dsp.selcukdinc.dev)
 
-Kurulum yok, üyelik zorunlu değil. Siteyi aç, dersi oku, şekillerle oyna, soruları çöz, MATLAB yaz.
+Kurulum yok, üyelik zorunlu değil. Siteyi aç, dersi oku, şekillerle oyna, soruları çöz, MatStudio yaz.
 
 ## Neler var?
 
 - **Haftalık etkileşimli dersler:** Ders sunularının konu sırasını izleyen kısa anlatımlar; değerini değiştirip
-  sonucu hemen gördüğün şekiller (örnekleme, konvolüsyon, Fourier serisi, DFT...) ve dersin içinde çalışan MATLAB örnekleri.
+  sonucu hemen gördüğün şekiller (örnekleme, konvolüsyon, Fourier serisi, DFT...) ve dersin içinde çalışan MatStudio örnekleri.
 - **Haftalara göre soru havuzu:** Doğru/yanlış, şıklı, boşluk doldurma ve sayısal sorular. Sayısal sorularda
   `0,5`, `1/2`, `pi/4` ya da `[1 2 -1]` gibi yazımlar kabul edilir. Sunumdaki örneklere dayanan sorular `Orijinal`,
   aynı konudan türetilenler `Türetilmiş` etiketlidir.
 - **Aralıklı tekrar:** Yanlış yaptığın sorular unutmaya başladığın aralıklarla yeniden karşına çıkar.
-- **MATLAB alanı:** Tarayıcıda çalışan bir MATLAB alt kümesi: vektörler, matrisler, döngüler, `conv`, `fft`
+- **MatStudio:** Tarayıcıda çalışan bir MatStudio alt kümesi: vektörler, matrisler, döngüler, `conv`, `fft`
   ve `plot`, `stem`, `histogram`, `subplot` ile çizim.
-- **Laboratuvar kayıtları:** Üyeler kısa MATLAB betiklerini paylaşır, beğenir, MATLAB alanında açar.
+- **Laboratuvar kayıtları:** Üyeler kısa MatStudio betiklerini paylaşır, beğenir, MatStudio'da açar.
 - **Konu bazlı ilerleme** ve **misafir kullanım**.
 
 ## Gizlilik
@@ -24,7 +24,7 @@ Kurulum yok, üyelik zorunlu değil. Siteyi aç, dersi oku, şekillerle oyna, so
 - Reklam yok.
 - Analitik ya da takip çerezi yok.
 - Yalnızca ilk cevabını gönderdiğinde ilerlemeni tutmak için tek bir oturum çerezi yazılır.
-- Yazdığın MATLAB kodu, sen laboratuvar kaydı olarak paylaşmadıkça tarayıcından çıkmaz.
+- Yazdığın MatStudio kodu, sen laboratuvar kaydı olarak paylaşmadıkça tarayıcından çıkmaz.
 
 ## Katkıda bulun
 

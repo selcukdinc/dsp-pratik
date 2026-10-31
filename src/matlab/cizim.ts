@@ -49,7 +49,7 @@ export interface Cizim {
   aktif: number;
 }
 
-// MATLAB'ın varsayılan renk sırası
+// MatStudio'nun varsayılan renk sırası
 export const RENKLER = ["#0072BD", "#D95319", "#EDB120", "#7E2F8E", "#77AC30", "#4DBEEE", "#A2142F"];
 const HARF_RENK: Record<string, string> = {
   r: "#FF0000", g: "#00A000", b: "#0000FF", c: "#00BFBF", m: "#BF00BF", y: "#D4C000", k: "#000000", w: "#FFFFFF",

@@ -5,7 +5,7 @@ export const ekHafta2: Soru[] = [
   ...turet(2, "matlab-temel", "matlab-temel", [
     {
       id: "t2-inf", zorluk: 1, tip: "fill", yedek: true,
-      soru: "MATLAB'da ~1/0~ işleminin sonucu nedir?",
+      soru: "MatStudio'da ~1/0~ işleminin sonucu nedir?",
       bosluklar: [["Inf"]],
       aciklama: "Sıfıra bölme sonsuzluk verir: ~Inf~. ~0/0~ ise ~NaN~'dır.",
     },

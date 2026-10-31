@@ -308,13 +308,13 @@ fark = max(abs(X - fft(x)))`,
     {
       baslik: "FFT'nin kullanımı",
       metin: md(`
-**Neden önemli?** MATLAB'daki ~fft~ fonksiyonu, Python'daki ~numpy.fft~ ve ses kartlarındaki spektrum göstergeleri bu algoritmaları kullanır. Doğru uzunluğu seçmek ve sonucu doğru okumak, FFT'yi kullanmanın asıl becerisidir.
+**Neden önemli?** MatStudio'daki ~fft~ fonksiyonu, Python'daki ~numpy.fft~ ve ses kartlarındaki spektrum göstergeleri bu algoritmaları kullanır. Doğru uzunluğu seçmek ve sonucu doğru okumak, FFT'yi kullanmanın asıl becerisidir.
 
 **Spektrum.** $f_s$ ile örneklenmiş N örneklik bir kaydın FFT'sinde k. katsayının frekansı $f_k = k\\,f_s/N$'dir. Gerçel bir sinyalde yalnızca 0..N/2 aralığı yeni bilgi taşır. Bir sinüsün genliği yaklaşık $(2/N)|X(k)|$ olarak okunur.
 
 [[G-H8-07]]
 
-**Uzunluk seçimi.** MATLAB'da ~fft(x, N)~, x N'den kısaysa sonuna sıfır ekler, uzunsa keser. Radix-2 FFT için N genellikle 2'nin bir kuvveti seçilir.
+**Uzunluk seçimi.** MatStudio'da ~fft(x, N)~, x N'den kısaysa sonuna sıfır ekler, uzunsa keser. Radix-2 FFT için N genellikle 2'nin bir kuvveti seçilir.
 
 **Hızlı konvolüsyon.** Geçen haftaki dört adımın (sıfır doldur, DFT al, çarp, ters DFT al) DFT'leri FFT ile hesaplanınca konvolüsyon çok hızlanır. N₁ ve N₂ örneklik iki dizi için FFT uzunluğu, $N_1 + N_2 - 1$'den küçük olmayan ilk 2 kuvveti seçilir.
 

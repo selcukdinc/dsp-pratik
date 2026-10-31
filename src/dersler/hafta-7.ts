@@ -50,7 +50,7 @@ z-dönüşümüyle söylersek: X(k), X(z)'nin **birim çember** üzerinde eşit 
         kod: `x = [1 2 1 0];
 N = length(x);
 n = 0:N-1;
-X = fft(x)                         % MATLAB'da DFT = fft
+X = fft(x)                         % MatStudio'da DFT = fft
 
 wk = 2*pi*(0:N-1)/N;               % DFT frekansları
 Xd = x * exp(-1j * n' * wk)        % DTFT'yi aynı noktalarda hesapla
@@ -67,7 +67,7 @@ stem(m, xp), title('x((n)) mod 4')`,
     {
       baslik: "DFT ve ters DFT hesabı",
       metin: md(`
-**Neden önemli?** Küçük bir DFT'yi elle hesaplayabilmek, MATLAB'ın verdiği sonucu yorumlamayı ve sınavda kısa yoldan sonuca gitmeyi sağlar.
+**Neden önemli?** Küçük bir DFT'yi elle hesaplayabilmek, MatStudio'nun verdiği sonucu yorumlamayı ve sınavda kısa yoldan sonuca gitmeyi sağlar.
 
 Kısaltma için $W_N = e^{-j2\\pi/N}$ yazılır. Böylece DFT ve ters DFT:
 
@@ -242,7 +242,7 @@ $|W_N^{kn_0}| = 1$ olduğundan **büyüklük değişmez**, yalnızca faz değiş
 > 2. y(0) = x(3) = 4, y(1) = x(0) = 1, y(2) = x(1) = 2, y(3) = x(2) = 3.
 > 3. Sondaki örnek başa geçti: 4, 1, 2, 3.
 
-> **Sık hata:** Negatif sayının modülosunu negatif bırakmak. $((n))_N$ her zaman 0 ile N − 1 arasındadır; MATLAB'da ~mod~ da böyle çalışır, ~rem~ ise işareti korur.
+> **Sık hata:** Negatif sayının modülosunu negatif bırakmak. $((n))_N$ her zaman 0 ile N − 1 arasındadır; MatStudio'da ~mod~ da böyle çalışır, ~rem~ ise işareti korur.
 `),
       matlab: {
         kod: `x = [1 2 3 4];

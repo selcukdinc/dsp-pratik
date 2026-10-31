@@ -31,7 +31,7 @@ function normalize(s: string): string {
 //
 // Öğrenci tek değerde ondalık için virgül ya da nokta, kesir (3/4), pi ve
 // karekök (sqrt(2)) yazabilir. Dizilerde elemanlar boşlukla, noktalı virgülle
-// ya da virgülle ayrılır (MATLAB'daki gibi); bu yüzden dizide ondalık için
+// ya da virgülle ayrılır (MatStudio'daki gibi); bu yüzden dizide ondalık için
 // nokta kullanılır. Köşeli parantez isteğe bağlıdır.
 
 export interface SayiBelirtimi {

@@ -271,7 +271,7 @@ export const hafta8: Soru[] = [
     },
     {
       id: "h8-matlab-fft", zorluk: 1, tip: "mcq",
-      soru: "x 10 örnekliyse MATLAB'daki ~fft(x, 16)~ ne yapar?",
+      soru: "x 10 örnekliyse MatStudio'daki ~fft(x, 16)~ ne yapar?",
       secenekler: [
         "x'i 16 örneğe sıfırla doldurup 16 noktalı DFT alır",
         "x'in ilk 16 örneğini alıp 16 noktalı DFT hesaplar",

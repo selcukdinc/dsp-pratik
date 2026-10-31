@@ -1,4 +1,4 @@
-// MATLAB kodu için CodeMirror editörü. Hatalı satır kırmızı zeminle
+// MatStudio kodu için CodeMirror editörü. Hatalı satır kırmızı zeminle
 // işaretlenir; Ctrl+Enter (ya da F5) kodu çalıştırır.
 
 import { useEffect, useRef } from "react";
@@ -43,7 +43,7 @@ interface Props {
   etiket?: string;
 }
 
-export function MatlabEditor({ value, onChange, marks = [], gotoLine, readOnly = false, onRun, etiket = "MATLAB kodu" }: Props) {
+export function MatlabEditor({ value, onChange, marks = [], gotoLine, readOnly = false, onRun, etiket = "MatStudio kodu" }: Props) {
   const host = useRef<HTMLDivElement>(null);
   const view = useRef<EditorView | null>(null);
   const onChangeRef = useRef(onChange);

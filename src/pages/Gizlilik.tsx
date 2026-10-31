@@ -18,7 +18,7 @@ export function Gizlilik() {
       <ul>
         <li>
           <strong>Misafir olarak:</strong> İlk cevabını gönderdiğinde rastgele bir kimlik oluşturulur ve tarayıcına tek
-          bir oturum çerezi yazılır. Hangi soruyu ne zaman, hangi cevapla denediğin bu kimlikle saklanır. MATLAB alanında ve derslerde yazdığın kod tarayıcında çalışır; sen bir laboratuvar kaydı olarak paylaşmadıkça sunucuya gönderilmez. Bir soruyu cevapladıktan sonra gösterilen doğru oranı ve şık dağılımı, herkesin ilk denemesinden hesaplanan anonim toplamlardır; kimin ne cevap verdiği görünmez. Aralıklı tekrar için yanlış yaptığın soruların hangi kutuda olduğu ve ne zaman yeniden sorulacağı da bu kimlikle saklanır; hesabını silince bunlar da silinir.
+          bir oturum çerezi yazılır. Hangi soruyu ne zaman, hangi cevapla denediğin bu kimlikle saklanır. MatStudio'da ve derslerde yazdığın kod tarayıcında çalışır; sen bir laboratuvar kaydı olarak paylaşmadıkça sunucuya gönderilmez. Bir soruyu cevapladıktan sonra gösterilen doğru oranı ve şık dağılımı, herkesin ilk denemesinden hesaplanan anonim toplamlardır; kimin ne cevap verdiği görünmez. Aralıklı tekrar için yanlış yaptığın soruların hangi kutuda olduğu ve ne zaman yeniden sorulacağı da bu kimlikle saklanır; hesabını silince bunlar da silinir.
         </li>
         <li>
           <strong>Hesap açarsan:</strong> kullanıcı adın, e-posta adresin, parolanın geri çevrilemez özeti (parolanın
@@ -31,7 +31,7 @@ export function Gizlilik() {
         </li>
         <li>
           <strong>Topluluk özelliklerini kullanırsan:</strong> paylaştığın laboratuvar kayıtları (başlık,
-          açıklama ve MATLAB kodu), beğenilerin ve gönderdiğin bildirimler. Laboratuvar kayıtların herkese görünür;
+          açıklama ve MatStudio kodu), beğenilerin ve gönderdiğin bildirimler. Laboratuvar kayıtların herkese görünür;
           bildirimlerini yalnızca yönetici görür.
         </li>
         <li>
@@ -50,7 +50,7 @@ export function Gizlilik() {
       <h3>Çerezler ve takip</h3>
       <p>
         Sitede reklam, analitik ya da üçüncü taraf takip çerezi yoktur. Kullanılan tek çerez oturum çerezidir ve
-        sitenin çalışması için zorunludur. Tema tercihin, MATLAB alanındaki betiklerin ve pencere düzenin yalnızca
+        sitenin çalışması için zorunludur. Tema tercihin, MatStudio'daki betiklerin ve pencere düzenin yalnızca
         senin tarayıcında (localStorage) durur, sunucuya gönderilmez. Giriş yapmışken adıyla kaydettiğin pencere
         düzenleri (yalnızca panellerin yeri ve boyutu) hesabında saklanır. Derslerde bitirdiğin bölümler, kaldığın
         yer ve günlük tekrar sayın misafirken tarayıcında, giriş yapmışken hesabında tutulur.

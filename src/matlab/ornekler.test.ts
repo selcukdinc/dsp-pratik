@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import { ORNEKLER } from "./ornekler";
 import { Yorumlayici } from "./yorumla";
 
-describe("MATLAB alanı örnekleri", () => {
+describe("MatStudio örnekleri", () => {
   for (const o of ORNEKLER)
     it(`${o.ad} hatasız çalışır`, () => {
       const y = new Yorumlayici({ tohum: 1 });

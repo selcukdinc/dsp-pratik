@@ -1,4 +1,4 @@
-// MATLAB alanının "Düzen" menüsü: varsayılana dönme, düzeni adıyla kaydetme
+// MatStudio'nun "Düzen" menüsü: varsayılana dönme, düzeni adıyla kaydetme
 // ve kayıtlı düzenleri uygulama. Misafirin düzenleri bu tarayıcıda, üyeninkiler
 // hesabında saklanır. O anki düzen her durumda bu tarayıcıda hatırlanır.
 

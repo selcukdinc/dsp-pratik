@@ -20,9 +20,9 @@ $$x(n) = \\{\\,\\ldots,\\ 0,\\ 2,\\ \\underset{\\uparrow}{1},\\ -1,\\ 3,\\ 0,\\ 
 
 Burada $x(0) = 1$, $x(-1) = 2$, $x(1) = -1$, $x(2) = 3$'tür. Ok yoksa ilk elemanın n = 0 olduğu kabul edilir.
 
-**Sonlu ve sonsuz uzunluk.** Yalnızca $N_1 \\le n \\le N_2$ aralığında tanımlı bir dizinin uzunluğu $N_2 - N_1 + 1$'dir. MATLAB'da bir dizi iki vektörle tutulur: değerler (~x~) ve onların n konumları (~n~). Böylece n = 0'ın nerede olduğu kaybolmaz.
+**Sonlu ve sonsuz uzunluk.** Yalnızca $N_1 \\le n \\le N_2$ aralığında tanımlı bir dizinin uzunluğu $N_2 - N_1 + 1$'dir. MatStudio'da bir dizi iki vektörle tutulur: değerler (~x~) ve onların n konumları (~n~). Böylece n = 0'ın nerede olduğu kaybolmaz.
 
-> **Sık hata:** MATLAB vektörünün indisini n sanmak. ~x(1)~ vektörün ilk elemanıdır; o elemanın n değeri ~n(1)~'dir ve −3 ya da 5 olabilir.
+> **Sık hata:** MatStudio vektörünün indisini n sanmak. ~x(1)~ vektörün ilk elemanıdır; o elemanın n değeri ~n(1)~'dir ve −3 ya da 5 olabilir.
 `),
       dene: ["h3-dizi-okuma"],
     },
@@ -61,7 +61,7 @@ Bu diziler birbirine bağlıdır:
 
 > **Sık hata:** $u(n - 2)$'nin sola kaydığını sanmak. $n - n_0$ ifadesinde $n_0 > 0$ ise dizi **sağa** kayar (gecikme): basamak artık n = 2'de başlar.
 
-MATLAB'da bu diziler mantıksal ifadelerle kurulur: ~(n == 0)~ dürtü, ~(n >= 0)~ basamak verir.
+MatStudio'da bu diziler mantıksal ifadelerle kurulur: ~(n == 0)~ dürtü, ~(n >= 0)~ basamak verir.
 `),
       matlab: {
         kod: `n = -5:10;
@@ -247,7 +247,7 @@ Gücü sonlu ve sıfırdan farklı olan dizilere **güç sinyali** denir; birim 
 >
 > $E = \\sum_{n=0}^{\\infty} (0{,}25)^n = 1/(1 - 0{,}25) = 4/3 \\approx 1{,}333$.
 
-> **Sık hata:** Karmaşık bir dizinin enerjisini $x^2(n)$'nin toplamı diye hesaplamak. Kare alınan şey büyüklüktür: $|x(n)|^2 = x(n)\\,x^*(n)$. MATLAB'da ~sum(abs(x).^2)~.
+> **Sık hata:** Karmaşık bir dizinin enerjisini $x^2(n)$'nin toplamı diye hesaplamak. Kare alınan şey büyüklüktür: $|x(n)|^2 = x(n)\\,x^*(n)$. MatStudio'da ~sum(abs(x).^2)~.
 `),
       matlab: {
         kod: `% Enerji ve güç

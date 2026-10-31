@@ -1,4 +1,4 @@
-// /topluluk: laboratuvar kayıtları. Üyelerin paylaştığı MATLAB betikleri:
+// /topluluk: laboratuvar kayıtları. Üyelerin paylaştığı MatStudio betikleri:
 // liste, kayıt sayfası ve yeni kayıt. Betikler tarayıcıda çalışır; resmi
 // ilerlemeye sayılmaz.
 
@@ -64,8 +64,8 @@ export function Topluluk({ konu }: { konu?: string }) {
   return (
     <div className="topluluk">
       <p>
-        Üyelerin paylaştığı MATLAB betikleri: bir sinyali çizen, bir filtreyi deneyen ya da bir sonucu doğrulayan kısa
-        çalışmalar. Birini aç, MATLAB alanında çalıştır ve değiştir. Betikler senin tarayıcında çalışır; resmi ilerlemene
+        Üyelerin paylaştığı MatStudio betikleri: bir sinyali çizen, bir filtreyi deneyen ya da bir sonucu doğrulayan kısa
+        çalışmalar. Birini aç, MatStudio'da çalıştır ve değiştir. Betikler senin tarayıcında çalışır; resmi ilerlemene
         sayılmaz.
       </p>
       <div className="filtreler">
@@ -151,7 +151,7 @@ function KayitSayfasi({ id }: { id: string }) {
       {k.description && <Markdown text={k.description} />}
       <KodGoster kod={k.kod} />
       <div className="form-dugmeler">
-        <button className="primary" onClick={() => matlabdaAc(k.kod)}>MATLAB alanında aç</button>
+        <button className="primary" onClick={() => matlabdaAc(k.kod)}>MatStudio'da aç</button>
       </div>
       <FormHatasi hata={hata} />
     </div>
@@ -227,7 +227,7 @@ function KayitYeni() {
     <div className="tb-yeni soru-form">
       <p><a href="/topluluk">← Laboratuvar kayıtları</a></p>
       <p>
-        Kısa bir MATLAB betiği paylaş ve ne yaptığını açıklamaya yaz. Ödevlerin hazır çözümünü paylaşma; böyle kayıtlar
+        Kısa bir MatStudio betiği paylaş ve ne yaptığını açıklamaya yaz. Ödevlerin hazır çözümünü paylaşma; böyle kayıtlar
         bildirilip kaldırılır.
       </p>
       <div className="etiketli">
@@ -247,7 +247,7 @@ function KayitYeni() {
       <KodYaz kod={t.kod} onChange={(kod) => ayarla({ kod })} />
       <p className="hint">{t.kod.length} / {KOD_SINIRI} karakter</p>
       <div className="form-dugmeler">
-        <button onClick={() => matlabdaAc(t.kod)}>MATLAB alanında dene</button>
+        <button onClick={() => matlabdaAc(t.kod)}>MatStudio'da dene</button>
         <button className="primary" onClick={yayimla} disabled={mesgul || !t.title.trim()}>Yayımla</button>
       </div>
       <FormHatasi hata={hata} />

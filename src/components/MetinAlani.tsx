@@ -46,7 +46,7 @@ export function bicimle(m: string, bas: number, son: number, b: Bicim): Duzenlem
     const yeniOnce = once.slice(0, -4);
     return { metin: yeniOnce + parca + sonra.slice(4), bas: yeniOnce.length, son: yeniOnce.length + parca.length };
   }
-  const icerik = parca || "% MATLAB kodu";
+  const icerik = parca || "% MatStudio kodu";
   const basa = once && !once.endsWith("\n\n") ? (once.endsWith("\n") ? "\n" : "\n\n") : "";
   const yeni = `${basa}\`\`\`\n${icerik}\n\`\`\``;
   return { metin: once + yeni + sonra, bas: once.length + basa.length + 4, son: once.length + basa.length + 4 + icerik.length };

@@ -79,7 +79,7 @@ function Genel() {
       <section className="ayar-bolum">
         <h3>Laboratuvar kayıtları</h3>
         <p>
-          Üyelerin yeni MATLAB betiği paylaşması şu an{" "}
+          Üyelerin yeni MatStudio betiği paylaşması şu an{" "}
           <strong className={o.kayitPaylasimi ? "ok" : "bad"}>{o.kayitPaylasimi ? "açık" : "kapalı"}</strong>. Proje ve sınav
           döneminde hazır çözüm paylaşılmasın diye kapatabilirsin; yayımlanmış kayıtlar görünmeye devam eder.
         </p>

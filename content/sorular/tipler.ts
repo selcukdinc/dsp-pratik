@@ -2,7 +2,7 @@
 // migrations/ altındaki SQL'i üretir.
 //
 // Metinlerde ` yerine ~ yazılır (TypeScript şablon dizgilerinde ters tırnak
-// kaçış gerektirdiği için). Üretici ~ karakterlerini ` ile değiştirir; MATLAB'ın
+// kaçış gerektirdiği için). Üretici ~ karakterlerini ` ile değiştirir; MatStudio'nun
 // ~ işleci (~=, ~x) için ¬ yazılır.
 
 import { KAVRAMLAR } from "../../shared/kavramlar.ts";

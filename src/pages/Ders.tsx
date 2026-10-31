@@ -1,5 +1,5 @@
 // /ders: haftaların ders sayfaları. Anlatım, etkileşimli şekiller, tarayıcıda
-// çalışan MATLAB örnekleri ve soru havuzundan seçilmiş konu sonu testi.
+// çalışan MatStudio örnekleri ve soru havuzundan seçilmiş konu sonu testi.
 
 import { useEffect, useRef, useState } from "react";
 import { api } from "../lib/api";
@@ -58,7 +58,7 @@ function DersListesi() {
                 <span className="hint">{d.ozet}</span>
                 <span className="ders-etiketler">
                   <span className="tag">{d.bolumler.length} bölüm</span>
-                  {matlab > 0 && <span className="tag">{matlab} MATLAB örneği</span>}
+                  {matlab > 0 && <span className="tag">{matlab} MatStudio örneği</span>}
                   {d.test.length > 0 && <span className="tag">{d.test.length} soruluk test</span>}
                 </span>
                 {biten > 0 && <IlerlemeCubugu biten={biten} toplam={d.bolumler.length} />}

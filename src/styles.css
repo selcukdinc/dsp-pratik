@@ -572,7 +572,7 @@ a.buton.primary { border-color: var(--btn-primary-border); background: linear-gr
   .mesajlar > li { max-width: 100%; }
 }
 
-/* ---- MATLAB alanı: proje işlemleri ---- */
+/* ---- MatStudio: proje işlemleri ---- */
 .toolbar-ayrac { width: 1px; align-self: stretch; background: var(--border); margin: 0 4px; }
 .sources li > button.icon { opacity: 0; padding: 0 6px; }
 .sources li:hover > button.icon, .sources li.active > button.icon, .sources li > button.icon:focus-visible { opacity: 1; }
@@ -847,7 +847,7 @@ polygon.g-renk-b { fill: var(--error); }
 .ders-gezinti { display: flex; justify-content: space-between; gap: 12px; margin-top: 28px; padding-top: 12px; border-top: 1px solid var(--border); flex-wrap: wrap; }
 @media (max-width: 700px) { .ders-icindekiler ol { columns: 1; } .mini-editor { height: 240px; } }
 
-/* ---- MATLAB alanı: paneller ---- */
+/* ---- MatStudio: paneller ---- */
 .betik-sekmeleri { overflow-x: auto; scrollbar-width: thin; }
 .betik-sekmeleri button { white-space: nowrap; font-family: var(--mono); font-size: 12px; padding: 3px 10px; }
 .betik-sekmeleri .icon { border-right: 0; font-family: inherit; }
@@ -873,7 +873,7 @@ polygon.g-renk-b { fill: var(--error); }
 .kayit-kodu { height: 320px; }
 .etiketli > .etiket { font-weight: 600; }
 
-/* ---- MATLAB alanı: pencere düzeni ---- */
+/* ---- MatStudio: pencere düzeni ---- */
 .toolbar-bosluk { flex: 1; }
 .duzen-alani { flex: 1; min-height: 0; display: flex; flex-direction: column; }
 .duzen-satir { display: flex; min-height: 0; flex-basis: 0; }
@@ -1106,12 +1106,12 @@ body.boyutlaniyor-dikey { cursor: ns-resize; user-select: none; }
 
 /* ---- Metin boyutu ve ortalanmış düzen ---- */
 :root { --yazi-olcek: 1; }
-/* MATLAB alanı dışındaki sayfalar seçilen oranla ölçeklenir ve ortalanır */
+/* MatStudio dışındaki sayfalar seçilen oranla ölçeklenir ve ortalanır */
 .sayfa-olcek { zoom: var(--yazi-olcek); }
 .sayfa-olcek > :not(.sayfa-tut), .sayfa-olcek > .sayfa-tut > *, .yonetim > .panel-genel { margin-inline: auto; }
 .sayfa-olcek > .empty { text-align: center; }
 .tekrar { max-width: 860px; padding: 8px 16px 40px; }
-/* MATLAB alanında düzen sabit kalır, yalnızca editör ve mesaj yazıları büyür */
+/* MatStudio'da düzen sabit kalır, yalnızca editör ve mesaj yazıları büyür */
 .sandbox .matlab-editor .cm-editor { font-size: calc(13px * var(--yazi-olcek)); }
 .sandbox .log { font-size: calc(12px * var(--yazi-olcek)); }
 

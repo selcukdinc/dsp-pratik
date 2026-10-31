@@ -1,4 +1,4 @@
-// MATLAB yorumlayıcısının değer türleri. Matrisler MATLAB'daki gibi sütun
+// MatStudio yorumlayıcısının değer türleri. Matrisler MatStudio'daki gibi sütun
 // sırasıyla (column-major) saklanır: (i, j) elemanı re[j * r + i].
 
 export class MatlabHatasi extends Error {

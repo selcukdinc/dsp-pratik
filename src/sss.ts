@@ -17,7 +17,7 @@ export const SSS: SssBolumu[] = [
       {
         soru: "Kullanmak için hesap açmam gerekiyor mu?",
         cevap:
-          "Hayır. Dersleri okuyabilir, soruları çözebilir ve MATLAB alanını hesapsız kullanabilirsin. Hesap açarsan ilerlemen her cihazda seninle gelir; ayrıca soru önerebilir ve laboratuvar kaydı paylaşabilirsin.",
+          "Hayır. Dersleri okuyabilir, soruları çözebilir ve MatStudio'yu hesapsız kullanabilirsin. Hesap açarsan ilerlemen her cihazda seninle gelir; ayrıca soru önerebilir ve laboratuvar kaydı paylaşabilirsin.",
       },
       {
         soru: "Sorular nereden geliyor?",
@@ -37,7 +37,7 @@ export const SSS: SssBolumu[] = [
       {
         soru: "Metindeki parantez içindeki İngilizce kelimeler ne?",
         cevap:
-          "Ders ve sorularda geçen terimlerin İngilizcesi, MATLAB belgelerinde ve kaynaklarda o adla karşına çıkacağı için her kullanımda parantez içinde yazılır: \"örtüşme (aliasing)\" gibi. Hepsinin listesi ve kısa anlamları **Terimler** sayfasındadır; Türkçe ya da İngilizce arayabilirsin.",
+          "Ders ve sorularda geçen terimlerin İngilizcesi, MatStudio belgelerinde ve kaynaklarda o adla karşına çıkacağı için her kullanımda parantez içinde yazılır: \"örtüşme (aliasing)\" gibi. Hepsinin listesi ve kısa anlamları **Terimler** sayfasındadır; Türkçe ya da İngilizce arayabilirsin.",
       },
       {
         soru: "Yazılar çok küçük ya da çok büyük. Nasıl değiştiririm?",
@@ -107,17 +107,17 @@ export const SSS: SssBolumu[] = [
     ],
   },
   {
-    baslik: "MATLAB alanı",
+    baslik: "MatStudio",
     sorular: [
       {
         soru: "Kodum bir sunucuya gönderiliyor mu?",
         cevap:
-          "Hayır. MATLAB alanı ve derslerdeki örnekler senin tarayıcında çalışan küçük bir yorumlayıcıyla çalışır. Kodun yalnızca sen bir laboratuvar kaydı olarak paylaşırsan sunucuya gider.",
+          "Hayır. MatStudio ve derslerdeki örnekler senin tarayıcında çalışan küçük bir yorumlayıcıyla çalışır. Kodun yalnızca sen bir laboratuvar kaydı olarak paylaşırsan sunucuya gider.",
       },
       {
-        soru: "Bu gerçek MATLAB mı?",
+        soru: "MatStudio nedir?",
         cevap:
-          "Hayır. Ders için gereken kadarını destekleyen bir alt kümedir: vektörler ve matrisler, indeksleme, aralıklar (`0:0.1:1`), eleman eleman işlemler (`.*`, `./`, `.^`), `for`, `while`, `if`, temel fonksiyonlar (`sum`, `mean`, `std`, `conv`, `fft`, `abs`, `angle` gibi) ve `plot`, `stem`, `histogram`, `bar`, `subplot` ile çizim. Desteklenmeyen bir fonksiyon kullanırsan komut penceresi bunu açıkça söyler. Ödevlerini gerçek MATLAB ya da GNU Octave ile de denemelisin.",
+          "Tarayıcıda çalışan, açık kaynaklı küçük bir sayısal hesap ortamıdır. `.m` betik sözdizimini kullanır ve ders için gereken kadarını destekler: vektörler ve matrisler, indeksleme, aralıklar (`0:0.1:1`), eleman eleman işlemler (`.*`, `./`, `.^`), `for`, `while`, `if`, temel fonksiyonlar (`sum`, `mean`, `std`, `conv`, `fft`, `abs`, `angle` gibi) ve `plot`, `stem`, `histogram`, `bar`, `subplot` ile çizim. Desteklenmeyen bir fonksiyon kullanırsan komut penceresi bunu açıkça söyler. Ödevlerini dersin istediği masaüstü yazılımda ya da GNU Octave ile de denemelisin.",
       },
       {
         soru: "Ders içindeki editör çok kısa. Büyütebilir miyim?",
@@ -125,14 +125,14 @@ export const SSS: SssBolumu[] = [
           "Evet. Editörün alt kenarını aşağı sürükle (klavyeyle odaklanıp ↑ ve ↓ da olur); en fazla kodun tamamı görünecek kadar uzar. **Tümünü göster** tek tıkla bu boya getirir, alt kenara çift tıklamak varsayılan boya döndürür.",
       },
       {
-        soru: "MATLAB alanındaki betiklerim nerede saklanıyor?",
+        soru: "MatStudio'daki betiklerim nerede saklanıyor?",
         cevap:
           "Bu tarayıcıda saklanır. Başka bir cihaza taşımak için betiği `.m` dosyası olarak indirebilir, sonra orada yükleyebilirsin.",
       },
       {
         soru: "Pencereleri karıştırdım, eski düzene nasıl dönerim?",
         cevap:
-          "MATLAB alanında Düzen menüsünden \"Varsayılan düzene dön\"e bas. Beğendiğin bir düzeni aynı menüden adıyla kaydedebilirsin; giriş yaptıysan hesabına kaydedilir.",
+          "MatStudio'da Düzen menüsünden \"Varsayılan düzene dön\"e bas. Beğendiğin bir düzeni aynı menüden adıyla kaydedebilirsin; giriş yaptıysan hesabına kaydedilir.",
       },
     ],
   },

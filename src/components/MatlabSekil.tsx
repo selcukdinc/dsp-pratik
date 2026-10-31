@@ -1,7 +1,7 @@
 // MATLAB şekil penceresi: yorumlayıcının şekil modelini SVG olarak çizer.
 // MATLAB'daki gibi beyaz zemin üzerinde çizilir; temadan etkilenmez.
 
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import { useEffect, useId, useRef, useState, type ReactNode } from "react";
 import type { Eksen, Sekil, Seri } from "../matlab/cizim";
 
 const YAZI = "#262626";
@@ -274,6 +274,9 @@ function EksenCiz({ e, x0, y0, en, boy, id }: { e: Eksen; x0: number; y0: number
 
 export function SekilCiz({ sekil, en, boy }: { sekil: Sekil; en: number; boy: number }) {
   const ustBaslik = sekil.ad ? 22 : 0;
+  // Sayfada birden çok şekil olabilir (ders sayfasındaki örnekler): kırpma
+  // alanlarının kimlikleri çakışmasın
+  const tekil = useId().replace(/:/g, "");
   return (
     <svg className="matlab-sekil" width={en} height={boy} viewBox={`0 0 ${en} ${boy}`} role="img" aria-label={`Şekil ${sekil.no}${sekil.ad ? `: ${sekil.ad}` : ""}`}>
       <rect width={en} height={boy} fill="#fff" />
@@ -284,7 +287,7 @@ export function SekilCiz({ sekil, en, boy }: { sekil: Sekil; en: number; boy: nu
         const s0 = Math.min(...satirlar), s1 = Math.max(...satirlar) + 1;
         const t0 = Math.min(...sutunlar), t1 = Math.max(...sutunlar) + 1;
         const h = (boy - ustBaslik) / e.m, w = en / e.n;
-        return <EksenCiz key={i} id={`${sekil.no}-${i}`} e={e} x0={t0 * w} y0={ustBaslik + s0 * h} en={(t1 - t0) * w} boy={(s1 - s0) * h} />;
+        return <EksenCiz key={i} id={`${tekil}-${sekil.no}-${i}`} e={e} x0={t0 * w} y0={ustBaslik + s0 * h} en={(t1 - t0) * w} boy={(s1 - s0) * h} />;
       })}
     </svg>
   );

@@ -4,10 +4,11 @@
 // değiştirilmez, silinen bir şeklin kodu yeniden kullanılmaz.
 
 import type { Gorsel } from "./tip";
+import { HAFTA_1_GORSELLERI } from "./hafta-1";
 
 export type { Gorsel } from "./tip";
 
-export const GORSELLER: Gorsel[] = [];
+export const GORSELLER: Gorsel[] = [...HAFTA_1_GORSELLERI];
 
 export const gorselBul = (kod: string) => GORSELLER.find((g) => g.kod === kod);
 

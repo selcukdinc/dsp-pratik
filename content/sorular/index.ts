@@ -5,6 +5,8 @@ import { hafta2 } from "./hafta-2.ts";
 import { ekHafta2 } from "./ek-hafta-2.ts";
 import { hafta3 } from "./hafta-3.ts";
 import { ekHafta3 } from "./ek-hafta-3.ts";
+import { hafta4 } from "./hafta-4.ts";
+import { ekHafta4 } from "./ek-hafta-4.ts";
 
 // Konular haftalara bölünür; her hafta kendi konularını ve soru dosyalarını ekler.
 export const konular: Konu[] = [
@@ -19,7 +21,10 @@ export const konular: Konu[] = [
   { id: "ayrik-diziler", baslik: "Temel diziler, üstel ve sinüzoidal diziler", hafta: 3, sira: 1 },
   { id: "sinyal-islemleri", baslik: "Simetri, dönüşümler, enerji ve güç", hafta: 3, sira: 2 },
   { id: "ayrik-sistemler", baslik: "Ayrık zamanlı sistemler ve LTI", hafta: 3, sira: 3 },
+  { id: "konvolusyon-temel", baslik: "Konvolüsyon toplamı, özellikleri ve doğrudan hesap", hafta: 4, sira: 1 },
+  { id: "konvolusyon-hesap", baslik: "Uzunluk, grafik yöntem, kaydırma kuralı ve polinomlar", hafta: 4, sira: 2 },
+  { id: "konvolusyon-uygulama", baslik: "Zarlar, hareketli ortalama ve korelasyon", hafta: 4, sira: 3 },
 ];
 
 // ek-* dosyaları türetilen sorulardır; yedek olanlar havuzda görünmez, tekrarda gelir
-export const sorular: Soru[] = [...hafta1, ...hafta2, ...hafta3, ...ekHafta1, ...ekHafta2, ...ekHafta3];
+export const sorular: Soru[] = [...hafta1, ...hafta2, ...hafta3, ...hafta4, ...ekHafta1, ...ekHafta2, ...ekHafta3, ...ekHafta4];

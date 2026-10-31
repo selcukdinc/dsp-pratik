@@ -41,6 +41,23 @@ export const BENZERLER: string[][] = [
   ["h3-guc", "t3-guc-cos"],
   ["h3-dogrusal", "t3-dogrusal-degil"],
   ["h3-lti-durtu", "t3-lti-durtu-2"],
+  ["h4-durtu-kaydir", "t4-durtu-kaydir-2"],
+  ["h4-ilk-ornek", "t4-ilk-ornek-2"],
+  ["h4-kaskat-hesap", "t4-kaskat-hesap-2"],
+  ["h4-paralel-hesap", "t4-paralel-hesap-2"],
+  ["h4-geometrik", "t4-geometrik-2"],
+  ["h4-ustel-basamak", "t4-ustel-basamak-2"],
+  ["h4-ustel-limit", "t4-ustel-limit-2"],
+  ["h4-uzunluk", "t4-uzunluk-2"],
+  ["h4-aralik", "t4-aralik-2"],
+  ["h4-grafik-hesap", "t4-grafik-hesap-2"],
+  ["h4-kaydirma-tum", "t4-kaydirma-2"],
+  ["h4-polinom-2", "t4-polinom-3"],
+  ["h4-zar-4", "t4-zar-10", "t4-zar-2"],
+  ["h4-ma-katsayi", "t4-ma-katsayi-2"],
+  ["h4-ma-gecikme", "t4-ma-gecikme-2"],
+  ["h4-otokor-0", "t4-otokor-0-2"],
+  ["h4-otokor-ustel", "t4-otokor-ustel-2"],
 ];
 
 const GRUP = new Map(BENZERLER.flatMap((g, i) => g.map((id) => [id, i] as const)));

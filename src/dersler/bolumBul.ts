@@ -41,6 +41,18 @@ export const KAVRAM_BOLUMU: Record<number, Record<string, number>> = {
     "sistem-ozellik": 7,
     lti: 8,
   },
+  4: {
+    "konvolusyon-toplam": 0,
+    "konvolusyon-ozellik": 1,
+    "dogrudan-hesap": 2,
+    "konvolusyon-uzunluk": 3,
+    "grafik-yontem": 4,
+    "kaydirma-kurali": 5,
+    "polinom-carpim": 5,
+    "olasilik-konvolusyon": 6,
+    "hareketli-ortalama": 7,
+    korelasyon: 8,
+  },
 };
 
 export interface SoruBolumu {

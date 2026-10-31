@@ -1221,7 +1221,6 @@ body.boyutlaniyor-dikey { cursor: ns-resize; user-select: none; }
 .mini-gecmis { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; font-size: 12px; }
 .mini-gecmis-ad { color: var(--muted); font-weight: 600; }
 .mini-gecmis-liste { display: inline-flex; flex-wrap: wrap; gap: 4px; }
-.mini-gecmis-simdi { border-style: dashed; cursor: default; }
 .mini-gecmis-dugmeler { display: inline-flex; gap: 4px; margin-left: auto; }
 .mini-gecmis button.cip { cursor: pointer; font: inherit; font-size: 12px; }
 .mini-karsi { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 8px; align-items: start; }
@@ -1231,3 +1230,15 @@ body.boyutlaniyor-dikey { cursor: ns-resize; user-select: none; }
 .mini-sutun.onceki .mini-cikti { border-style: dashed; }
 .mini-sutun.onceki .mini-sekil { opacity: .85; }
 .mini-cikti .farkli { background: var(--mark-warning-satir); border-radius: 2px; }
+.mini-cip { display: inline-flex; align-items: center; gap: 2px; padding: 0 2px 0 0; touch-action: none; user-select: none; cursor: grab; }
+.mini-cip .cip-ad { border: 0; background: none; color: inherit; font: inherit; font-size: 12px; padding: 2px 4px 2px 10px; cursor: inherit; border-radius: 12px; }
+.mini-cip .cip-ad small { color: var(--muted); font-size: 11px; }
+.mini-cip .cip-sil { border: 0; background: none; color: var(--muted); font: inherit; font-size: 13px; line-height: 1; width: 18px; height: 18px; padding: 0; border-radius: 50%; cursor: pointer; }
+.mini-cip .cip-sil:hover, .mini-cip .cip-sil:focus-visible { background: var(--mark-error); color: var(--error); }
+.mini-cip.simdi { border-style: dashed; }
+.mini-cip.secili { background: var(--active); border-color: var(--btn-primary-border); font-weight: 600; }
+.mini-cip .cip-girdi { font: inherit; font-size: 12px; border: 0; outline: 0; background: transparent; color: var(--text); padding: 2px 4px 2px 10px; min-width: 4ch; }
+.mini-gecmis-liste.surukleniyor, .mini-gecmis-liste.surukleniyor .mini-cip { cursor: grabbing; }
+.mini-cip.suruklenen { opacity: .45; }
+.mini-cip.birak-once { box-shadow: -3px 0 0 var(--link); }
+.mini-cip.birak-sonra { box-shadow: 3px 0 0 var(--link); }

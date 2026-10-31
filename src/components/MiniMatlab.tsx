@@ -14,6 +14,8 @@ import type { Cizim } from "../matlab/cizim";
 import type { MiniMatlab as Veri } from "../dersler/tipler";
 import { useMiniYan } from "../lib/miniDuzen";
 import { kodFarki } from "../lib/kodFarki";
+import { ekle, enSon, karsilastirilan, sil, tasi } from "../lib/gecmisSira";
+import { CalistirmaCipleri, cipAdi } from "./CalistirmaCipleri";
 
 export interface Calistirma {
   n: number;
@@ -21,12 +23,14 @@ export interface Calistirma {
   cikti: string;
   hata: { mesaj: string; satir: number | null } | null;
   cizim: Cizim;
+  // Kullanıcının verdiği ad (sağ tık → Adını değiştir)
+  ad?: string;
   // Bir önceki çalıştırmaya (ilkinde örneğe) göre koddaki değişiklik
   fark: string;
 }
 
 // Geçmişte en çok bu kadar çalıştırma tutulur; eskiler düşer
-export const GECMIS_SINIRI = 8;
+export const GECMIS_SINIRI = 10;
 
 export function MiniMatlab({ veri }: { veri: Veri }) {
   const [kod, setKod] = useState(veri.kod);
@@ -36,17 +40,17 @@ export function MiniMatlab({ veri }: { veri: Veri }) {
   const [karsilastir, setKarsilastir] = useState(true);
   const [yan, setYan] = useMiniYan();
 
-  const son = gecmis[gecmis.length - 1] ?? null;
-  const onceki = gecmis.length > 1 ? (gecmis.find((c) => c.n === hedefNo && c !== son) ?? gecmis[gecmis.length - 2]!) : null;
+  const son = enSon(gecmis);
+  const onceki = karsilastirilan(gecmis, hedefNo);
 
   const calistir = () => {
     // Örnekler her seferinde aynı rastgele sayıları üretsin (rng ile değiştirilebilir)
     const y = new Yorumlayici({ tohum: 0, sure: 3000 });
     const r = y.calistir(kod);
     setGecmis((g) => {
-      const n = (g[g.length - 1]?.n ?? 0) + 1;
-      const yeni: Calistirma = { n, kod, cikti: y.cikti, hata: r.hata, cizim: y.cizim, fark: kodFarki(g[g.length - 1]?.kod ?? veri.kod, kod) };
-      return [...g, yeni].slice(-GECMIS_SINIRI);
+      const onceki = enSon(g);
+      const yeni: Calistirma = { n: (onceki?.n ?? 0) + 1, kod, cikti: y.cikti, hata: r.hata, cizim: y.cizim, fark: kodFarki(onceki?.kod ?? veri.kod, kod) };
+      return ekle(g, yeni, GECMIS_SINIRI);
     });
     setHedefNo(null);
   };
@@ -86,25 +90,22 @@ export function MiniMatlab({ veri }: { veri: Veri }) {
         {son && (
           <div className="mini-gecmis">
             <span className="mini-gecmis-ad">Çalıştırmalar</span>
-            {gecmis.length > 1 && (
-              <span className="mini-gecmis-liste" role="group" aria-label="Karşılaştırılacak önceki çalıştırma">
-                {gecmis.slice(0, -1).map((c) => (
-                  <button
-                    key={c.n}
-                    className="cip"
-                    aria-pressed={yanYana && onceki?.n === c.n}
-                    onClick={() => {
-                      setHedefNo(c.n);
-                      setKarsilastir(true);
-                    }}
-                    title={`${c.n}. çalıştırma: ${c.fark}`}
-                  >
-                    #{c.n}
-                  </button>
-                ))}
-                <span className="cip mini-gecmis-simdi" title={`${son.n}. çalıştırma: ${son.fark}`}>#{son.n} şimdi</span>
-              </span>
-            )}
+            <CalistirmaCipleri
+              cipler={gecmis}
+              simdi={son.n}
+              secili={yanYana ? onceki!.n : null}
+              sec={(n) => {
+                setHedefNo(n);
+                setKarsilastir(true);
+              }}
+              sil={(n) => setGecmis((g) => sil(g, n))}
+              tasi={(n, h) => setGecmis((g) => tasi(g, n, h))}
+              adlandir={(n, ad) => setGecmis((g) => g.map((c) => (c.n === n ? { ...c, ad: ad || undefined } : c)))}
+              koduYukle={(n) => {
+                const c = gecmis.find((c) => c.n === n);
+                if (c) setKod(c.kod);
+              }}
+            />
             <span className="mini-gecmis-dugmeler">
               {gecmis.length > 1 && (
                 <button className="cip" aria-pressed={karsilastir} onClick={() => setKarsilastir((k) => !k)} title="Önceki çıktıyı yanda göster">
@@ -116,8 +117,8 @@ export function MiniMatlab({ veri }: { veri: Veri }) {
           </div>
         )}
         <div className={yanYana ? "mini-karsi" : undefined} aria-live="polite">
-          {yanYana && <CiktiSutunu c={onceki!} baslik={`Önceki · #${onceki!.n}`} esi={son!} soluk />}
-          {son && <CiktiSutunu c={son} baslik={yanYana ? `Şimdi · #${son.n}` : null} esi={yanYana ? onceki : null} />}
+          {yanYana && <CiktiSutunu c={onceki!} baslik={`Önceki · ${cipAdi(onceki!)}`} esi={son!} soluk />}
+          {son && <CiktiSutunu c={son} baslik={yanYana ? `Şimdi · ${cipAdi(son)}` : null} esi={yanYana ? onceki : null} />}
         </div>
         {!son && yan && <p className="hint mini-bos">▶ Çalıştır'a bastığında çıktı ve grafikler burada görünür.</p>}
       </div>

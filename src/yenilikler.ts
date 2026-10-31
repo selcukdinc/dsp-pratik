@@ -14,6 +14,17 @@ export interface Yenilik {
 
 export const YENILIKLER: Yenilik[] = [
   {
+    pr: 10,
+    tarih: "2026-10-31",
+    baslik: "8. hafta: hızlı Fourier dönüşümü (FFT)",
+    maddeler: [
+      "**8. hafta dersi** açıldı. Konular: doğrudan DFT'nin işlem yükü ve FFT'nin kazancı, zamanda seyreltme ve bölüm çarpanları, kelebek, 8 noktalı radix-2 akış diyagramı ve bit ters sırası, frekansta seyreltme, 2'nin kuvveti olmayan uzunluklar için karma N algoritması, FFT ile spektrum, hızlı konvolüsyon ve ters DFT.",
+      "Etkileşimli şekillerin bazıları: N'yi büyütüp DFT ile FFT'nin çarpma sayılarını karşılaştırma, bölüm çarpanını değiştirip kelebeğin çıkışlarını karmaşık düzlemde görme, 8 noktalı FFT'nin ara değerlerini aşama aşama izleme, karma N tablolarını kurma, iki sinüsün spektrumunu farklı FFT uzunluklarında inceleme.",
+      "Derslerdeki MATLAB örnekleri arasında bit ters sıralı, yerinde çalışan bir radix-2 FFT de var; sonucunu `fft` ile karşılaştırabilirsin.",
+      "Soru havuzuna 8. hafta için 41 soru eklendi; tekrarda çıkacak 13 ek soru da hazır.",
+    ],
+  },
+  {
     pr: 9,
     tarih: "2026-10-31",
     baslik: "7. hafta: ayrık Fourier dönüşümü (DFT)",

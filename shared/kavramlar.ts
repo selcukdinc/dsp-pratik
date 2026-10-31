@@ -93,4 +93,15 @@ export const KAVRAMLAR: Record<string, Kavram> = {
   "dft-ile-konvolusyon": { ad: "DFT ile doğrusal konvolüsyon" },
   "ortusme-ekleme": { ad: "Örtüşme-ekleme yöntemi" },
   "ortusme-kaydetme": { ad: "Örtüşme-kaydetme yöntemi" },
+  // Hafta 8
+  "fft-islem-yuku": { ad: "DFT ve FFT'nin işlem yükü" },
+  "zamanda-seyreltme": { ad: "Zamanda seyreltmeli FFT" },
+  "bolum-carpani": { ad: "Bölüm çarpanları ve özellikleri" },
+  kelebek: { ad: "FFT kelebeği" },
+  "fft-asama": { ad: "FFT aşamaları ve işlem sayıları" },
+  "bit-ters": { ad: "Bit ters sırası" },
+  "frekansta-seyreltme": { ad: "Frekansta seyreltmeli FFT" },
+  "karma-n": { ad: "Karma N için FFT" },
+  "fft-kullanim": { ad: "FFT'nin kullanımı: spektrum ve hızlı konvolüsyon" },
+  "ters-fft": { ad: "FFT ile ters DFT" },
 };

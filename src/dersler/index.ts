@@ -2,7 +2,8 @@
 // tarayıcıda çalışan MATLAB örnekleri ve soru havuzundan seçilmiş bir konu sonu testi içerir.
 
 import type { Ders } from "./tipler";
+import { HAFTA_1 } from "./hafta-1";
 
-export const DERSLER: Ders[] = [];
+export const DERSLER: Ders[] = [HAFTA_1];
 
 export const dersBul = (hafta: number) => DERSLER.find((d) => d.hafta === hafta);

@@ -3,7 +3,21 @@
 // gelen. Böylece "az önce bunu cevapladım" denen ikizler art arda çıkmaz.
 // Aralıklı tekrar bu gruplara bakmaz; orada başka sayılı ikiz, kuralı yeniden
 // uygulatmak için işe yarar.
-export const BENZERLER: string[][] = [];
+export const BENZERLER: string[][] = [
+  // Hafta 1
+  ["h1-adc-seviye", "t1-adc-16bit"],
+  ["h1-adc-aralik", "t1-adc-fs"],
+  ["h1-adc-adim", "t1-adc-adim-12"],
+  ["h1-ortalama-hesap", "t1-ortalama-sapma-2"],
+  ["h1-varyans-toplam", "t1-varyans-uc"],
+  ["h1-rms-dc", "t1-rms-dc-sinus"],
+  ["h1-sinus-vrms", "t1-vp-vrms"],
+  ["h1-vpp-kare", "t1-ucgen-vpp"],
+  ["h1-binning", "t1-kutu-genislik"],
+  ["h1-gauss-68", "t1-gauss-95"],
+  ["h1-rnd-sigma", "t1-rnd-ortalama"],
+  ["h1-kesinlik", "t1-kesin-dogru-degil"],
+];
 
 const GRUP = new Map(BENZERLER.flatMap((g, i) => g.map((id) => [id, i] as const)));
 

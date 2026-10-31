@@ -2,7 +2,8 @@
 // migrations/ altındaki SQL'i üretir.
 //
 // Metinlerde ` yerine ~ yazılır (TypeScript şablon dizgilerinde ters tırnak
-// kaçış gerektirdiği için). Üretici ~ karakterlerini ` ile değiştirir.
+// kaçış gerektirdiği için). Üretici ~ karakterlerini ` ile değiştirir; MATLAB'ın
+// ~ işleci (~=, ~x) için ¬ yazılır.
 
 import { KAVRAMLAR } from "../../shared/kavramlar.ts";
 
@@ -48,4 +49,17 @@ export function turet(hafta: number, konu: string, kavram: string, liste: Tureti
   const k = KAVRAMLAR[kavram];
   if (!k) throw new Error(`bilinmeyen kavram: ${kavram}`);
   return liste.map((s) => ({ ...s, hafta, konu, kavram, kaynak: "derived", ref: `Hafta ${hafta}, ${k.ad}` }) as Soru);
+}
+
+// Bir konunun ve kavramın soruları; ref sunumdaki yerdir (ör. "Hafta 1, Histogram").
+// Sunumdaki bir örnekten yeniden yazılan sorular kaynak: "original" alır.
+export function grupla(
+  hafta: number,
+  konu: string,
+  kavram: string,
+  ref: string,
+  liste: (TuretilmisGovde & { kaynak?: "original" | "derived" })[],
+): Soru[] {
+  if (!KAVRAMLAR[kavram]) throw new Error(`bilinmeyen kavram: ${kavram}`);
+  return liste.map((s) => ({ kaynak: "derived", ...s, hafta, konu, kavram, ref }) as Soru);
 }

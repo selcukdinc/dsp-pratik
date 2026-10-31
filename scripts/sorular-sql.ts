@@ -14,7 +14,7 @@ if (!hedef) {
   process.exit(1);
 }
 
-// MATLAB'ın ~ işleci için ¬ yazılır
+// MatStudio'nun ~ işleci için ¬ yazılır
 const md = (s: string) => s.replace(/~/g, "`").replace(/¬/g, "~");
 const q = (s: string | null) => (s === null ? "NULL" : `'${s.replace(/'/g, "''")}'`);
 

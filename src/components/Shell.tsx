@@ -194,7 +194,7 @@ export function Shell({ route, currentWeek, title, status, duyuru, children }: P
   // Mobilde sayfa değişince menü kapanır
   useEffect(() => setMenuAcik(false), [route]);
 
-  // Açık tutulan sayfalara (soru havuzu, MATLAB alanı) dönüldüğünde kaldığın
+  // Açık tutulan sayfalara (soru havuzu, MatStudio) dönüldüğünde kaldığın
   // kaydırma yerine gidilir
   const govde = useRef<HTMLDivElement>(null);
   const kaydirmalar = useRef(new Map<string, number>());
@@ -246,7 +246,7 @@ export function Shell({ route, currentWeek, title, status, duyuru, children }: P
         </div>
 
         <div className="nav-section">PRATİK</div>
-        <NavLink to={{ page: "pratik" }} current={route} ikon="pratik">MATLAB alanı</NavLink>
+        <NavLink to={{ page: "pratik" }} current={route} ikon="pratik">MatStudio</NavLink>
 
         <div className="nav-section">ÇALIŞ</div>
         <NavLink to={{ page: "ders" }} current={route} ikon="ders">Dersler</NavLink>

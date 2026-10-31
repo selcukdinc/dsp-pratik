@@ -1,4 +1,4 @@
-// MATLAB alt kümesi yorumlayıcısı. Betik tarayıcıda çalışır; sonsuz döngüye
+// MatStudio alt kümesi yorumlayıcısı. Betik tarayıcıda çalışır; sonsuz döngüye
 // karşı adım ve süre sınırı vardır.
 
 import { ayristir, type FonkTanim, type Hedef, type Ifade, type Komut } from "./ayristir";
@@ -360,7 +360,7 @@ export class Yorumlayici {
     const benzer = Object.keys(YERLESIKLER).find((k) => k.toLowerCase() === ad.toLowerCase());
     return hata(
       `'${ad}' tanımlı değil.` +
-        (benzer ? ` '${benzer}' mi demek istedin? MATLAB büyük/küçük harfe duyarlıdır.` : " Değişkene kullanmadan önce bir değer ata ya da fonksiyon adını kontrol et; bu MATLAB alanında her fonksiyon bulunmayabilir."),
+        (benzer ? ` '${benzer}' mi demek istedin? MatStudio büyük/küçük harfe duyarlıdır.` : " Değişkene kullanmadan önce bir değer ata ya da fonksiyon adını kontrol et; MatStudio'da her fonksiyon bulunmayabilir."),
     );
   }
 

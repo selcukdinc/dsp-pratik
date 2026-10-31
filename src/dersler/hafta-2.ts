@@ -2,15 +2,15 @@ import { md, type Ders } from "./tipler";
 
 export const HAFTA_2: Ders = {
   hafta: 2,
-  baslik: "MATLAB ile çalışmak",
+  baslik: "MatStudio ile çalışmak",
   ozet: "Betik yazmayı, vektör ve matris kurmayı, indekslemeyi, eleman eleman ve matris işlemlerini, ilişkisel ve mantıksal işleçleri, fonksiyon yazmayı, rastgele sayı üretmeyi, dizileri birleştirmeyi ve mean, std, var, median, corrcoef gibi istatistik fonksiyonlarını boyutlarıyla kullanmayı öğren.",
   bolumler: [
     {
       baslik: "Betik, yorum ve komut penceresi",
       metin: md(`
-**Neden önemli?** Dersin geri kalanında her konuyu MATLAB'da deneyeceğiz. Önce bir betiğin nasıl düzenlendiğini ve çıktının nereye düştüğünü bilmek gerekiyor.
+**Neden önemli?** Dersin geri kalanında her konuyu MatStudio'da deneyeceğiz. Önce bir betiğin nasıl düzenlendiğini ve çıktının nereye düştüğünü bilmek gerekiyor.
 
-MATLAB'da komutlar ya **komut penceresine** tek tek yazılır ya da bir **betiğe** (~.m~ uzantılı dosya) toplanıp birlikte çalıştırılır. Bu sitedeki MATLAB alanı da böyle çalışır: soldaki editörde betik, altta komut penceresi, sağda şekiller ve çalışma alanı (*workspace*) vardır.
+MatStudio'da komutlar ya **komut penceresine** tek tek yazılır ya da bir **betiğe** (~.m~ uzantılı dosya) toplanıp birlikte çalıştırılır. Ekranda soldaki editörde betik, altta komut penceresi, sağda şekiller ve çalışma alanı (*workspace*) vardır.
 
 Betiklerin başına çoğunlukla şu üç satır yazılır:
 
@@ -21,11 +21,11 @@ close all;  % bütün şekil pencerelerini kapat
 ~~~
 
 - **Yorum:** ~%~ işaretinden sonra satırın geri kalanı çalıştırılmaz. Kodu açıklamak için kullanılır.
-- **Bölüm:** Satır başında ~%%~ ile yazılan yorum betiği bölümlere ayırır. MATLAB'da *Run Section* ile yalnızca imlecin bulunduğu bölüm çalıştırılabilir.
-- **Noktalı virgül:** Bir komutun sonunda ~;~ varsa sonuç yazılmaz. Noktalı virgül yoksa MATLAB sonucu ~x = ...~ biçiminde komut penceresine yazar. Adı verilmemiş bir sonuç ~ans~ değişkenine konur.
+- **Bölüm:** Satır başında ~%%~ ile yazılan yorum betiği bölümlere ayırır. Masaüstü yazılımlarda *Run Section* ile yalnızca imlecin bulunduğu bölüm çalıştırılabilir; MatStudio betiği bütün olarak çalıştırır.
+- **Noktalı virgül:** Bir komutun sonunda ~;~ varsa sonuç yazılmaz. Noktalı virgül yoksa MatStudio sonucu ~x = ...~ biçiminde komut penceresine yazar. Adı verilmemiş bir sonuç ~ans~ değişkenine konur.
 - **disp:** ~disp('Merhaba')~ ya da ~disp(x)~ değeri adını yazmadan gösterir.
-- **input:** ~r = input('Elma sayısını giriniz: ')~ kullanıcıdan sayı, ~input('Adın: ', 's')~ metin ister. Tarayıcıdaki MATLAB alanı girdi bekleyemediği için burada değeri doğrudan bir değişkene ata.
-- **Yardım:** ~help exp~ bir fonksiyonun açıklamasını, ~lookfor inverse~ açıklamasında "inverse" geçen fonksiyonları listeler (bunlar gerçek MATLAB'da çalışır).
+- **input:** ~r = input('Elma sayısını giriniz: ')~ kullanıcıdan sayı, ~input('Adın: ', 's')~ metin ister. MatStudio girdi bekleyemediği için burada değeri doğrudan bir değişkene ata.
+- **Yardım:** ~help exp~ bir fonksiyonun açıklamasını, ~lookfor inverse~ açıklamasında "inverse" geçen fonksiyonları listeler (bunlar masaüstü yazılımlarda çalışır, MatStudio'da yok).
 - **who / whos:** Çalışma alanındaki değişkenlerin adlarını (~who~) ya da adlarıyla boyut ve türlerini (~whos~) listeler.
 - **save / load:** ~save degiskenler A B~ değişkenleri ~.mat~ dosyasına yazar, ~load degiskenler~ geri yükler (tarayıcıda yok; betiklerini Dosya menüsünden indirebilirsin).
 
@@ -51,7 +51,7 @@ who`,
     {
       baslik: "Vektör oluşturma ve indeksleme",
       metin: md(`
-**Neden önemli?** Ayrık bir sinyal MATLAB'da bir vektördür. Zaman eksenini kurmak, bir sinyalin bir parçasını almak ya da örnekleri ters çevirmek hep vektör oluşturma ve indeksleme ile yapılır.
+**Neden önemli?** Ayrık bir sinyal MatStudio'da bir vektördür. Zaman eksenini kurmak, bir sinyalin bir parçasını almak ya da örnekleri ters çevirmek hep vektör oluşturma ve indeksleme ile yapılır.
 
 **Vektör kurmanın yolları:**
 
@@ -63,7 +63,7 @@ who`,
 
 Eleman eleman matematik fonksiyonları vektörün her elemanına uygulanır: ~exp(x)~, ~sin(x)~, ~abs(x)~.
 
-**İndeksleme.** ~x(k)~ vektörün k'ıncı elemanıdır. MATLAB'da **indisler 1'den başlar**; ~x(0)~ hatadır. ~end~ son indisi gösterir. İndis yerine bir vektör yazılırsa birden çok eleman alınır:
+**İndeksleme.** ~x(k)~ vektörün k'ıncı elemanıdır. MatStudio'da **indisler 1'den başlar**; ~x(0)~ hatadır. ~end~ son indisi gösterir. İndis yerine bir vektör yazılırsa birden çok eleman alınır:
 
 [[G-H2-01]]
 
@@ -95,7 +95,7 @@ ters = x(end:-1:1)`,
     {
       baslik: "Matrisler ve doğrusal indeks",
       metin: md(`
-**Neden önemli?** Bir görüntü, çok kanallı bir kayıt ya da bir filtre bankası matristir. Satır-sütun indekslemesini ve MATLAB'ın elemanları hangi sırayla sakladığını bilmek, ~find~ gibi fonksiyonların çıktısını doğru okumayı sağlar.
+**Neden önemli?** Bir görüntü, çok kanallı bir kayıt ya da bir filtre bankası matristir. Satır-sütun indekslemesini ve MatStudio'nun elemanları hangi sırayla sakladığını bilmek, ~find~ gibi fonksiyonların çıktısını doğru okumayı sağlar.
 
 Matrisler satırları noktalı virgülle ayırarak yazılır: ~A = [1 2 3; 4 5 6; 7 8 9]~. Bir eleman ~A(satır, sütun)~ ile alınır. **İki nokta üst üste** tek başına "o boyutun tamamı" demektir:
 
@@ -103,7 +103,7 @@ Matrisler satırları noktalı virgülle ayırarak yazılır: ~A = [1 2 3; 4 5 6
 - ~A(:, 3)~: 3. sütunun tamamı (sütun vektörü).
 - ~A(1:2, :)~: ilk iki satır.
 
-**Doğrusal indeks.** MATLAB elemanları bellekte **sütun sütun** saklar: önce 1. sütunun elemanları yukarıdan aşağı, sonra 2. sütun ve böyle sürer. Matrise tek bir indisle erişilirse bu sıra kullanılır. 3×3'lük ~A~'da ~A(6)~ 2. sütunun en altıdır. ~A(:)~ bütün elemanları bu sırayla tek bir sütuna dizer. r satırlı bir matriste (i, j) konumunun doğrusal indeksi $(j-1)\\,r + i$'dir.
+**Doğrusal indeks.** MatStudio elemanları bellekte **sütun sütun** saklar: önce 1. sütunun elemanları yukarıdan aşağı, sonra 2. sütun ve böyle sürer. Matrise tek bir indisle erişilirse bu sıra kullanılır. 3×3'lük ~A~'da ~A(6)~ 2. sütunun en altıdır. ~A(:)~ bütün elemanları bu sırayla tek bir sütuna dizer. r satırlı bir matriste (i, j) konumunun doğrusal indeksi $(j-1)\\,r + i$'dir.
 
 **find** koşulu sağlayan elemanların **doğrusal indekslerini** döndürür. ~find(A == 5)~ değeri 5 olan konumları, ~find(A > 5)~ 5'ten büyük olanları verir.
 
@@ -115,7 +115,7 @@ Matrisler satırları noktalı virgülle ayırarak yazılır: ~A = [1 2 3; 4 5 6
 > 2. Sütun sırası: 5, 8, 4, 0, 7, 5. Dördüncüsü 0'dır: ~B(4)~ = 0.
 > 3. 5 değeri bu sırada 1. ve 6. konumda: ~find(B == 5)~ = ~[1; 6]~.
 
-> **Sık hata:** Doğrusal indeksi satır satır saymak. MATLAB'da sıra sütun sütundur; ~A(2)~, 1. satırın 2. elemanı değil 2. satırın 1. elemanıdır.
+> **Sık hata:** Doğrusal indeksi satır satır saymak. MatStudio'da sıra sütun sütundur; ~A(2)~, 1. satırın 2. elemanı değil 2. satırın 1. elemanıdır.
 `),
       matlab: {
         kod: `A = [1 2 3; 4 5 6; 7 8 9];
@@ -135,9 +135,9 @@ find(B <= 4)'`,
     {
       baslik: "Matris işlemleri",
       metin: md(`
-**Neden önemli?** DSP'de çoğu işlem eleman eleman yapılır: bir sinyali bir pencereyle çarpmak, her örneğin karesini almak. Matris çarpımıyla eleman eleman çarpımı karıştırmak MATLAB'daki en yaygın hatadır.
+**Neden önemli?** DSP'de çoğu işlem eleman eleman yapılır: bir sinyali bir pencereyle çarpmak, her örneğin karesini almak. Matris çarpımıyla eleman eleman çarpımı karıştırmak MatStudio'daki en yaygın hatadır.
 
-MATLAB'da işleçlerin iki türü vardır:
+MatStudio'da işleçlerin iki türü vardır:
 
 - **Eleman eleman** işleçler başında nokta taşır: ~.*~, ~./~, ~.^~. Aynı konumdaki elemanlar arasında çalışır; iki işlenen aynı boyutta olmalı (ya da biri skaler olmalı).
 - **Matris** işleçleri doğrusal cebir işlemidir: ~*~ matris çarpımı (satır · sütun), ~^~ matris kuvveti, ~/~ ve ~\\~ denklem çözümü. ~A * B~ için A'nın sütun sayısı B'nin satır sayısına eşit olmalı.
@@ -226,7 +226,7 @@ end
 - Fonksiyonun içindeki değişkenler **yereldir**: çağıran betiğin değişkenlerini görmez, onlara dokunmaz. Değer yalnızca girişlerle girer, çıkışlarla döner.
 - Çağırırken çıkışlar köşeli parantezle alınır: ~[t, f] = toplamFark(5, 7)~. Tek değişkenle çağrılırsa yalnızca ilk çıkış alınır.
 
-**Yerel fonksiyonlar.** Bir betiğin **sonuna** fonksiyon tanımları eklenebilir; betik onları çağırabilir. Bu sitenin MATLAB alanında fonksiyonlarını böyle yazarsın.
+**Yerel fonksiyonlar.** Bir betiğin **sonuna** fonksiyon tanımları eklenebilir; betik onları çağırabilir. MatStudio'da fonksiyonlarını böyle yazarsın.
 
 **Anonim fonksiyonlar.** Tek satırlık bir ifade için dosya açmaya gerek yoktur: ~f = @(t) exp(-t) .* sin(2*pi*t)~ yazıp ~f(0.5)~ diye çağrılır.
 
@@ -262,7 +262,7 @@ end`,
     {
       baslik: "Rastgele sayı üretmek",
       metin: md(`
-**Neden önemli?** Gürültü eklemek, bir algoritmayı rastgele girişlerle denemek ya da veriyi karıştırmak için rastgele sayılar gerekir. 1. haftadaki gürültü üretimi burada MATLAB'a dökülür.
+**Neden önemli?** Gürültü eklemek, bir algoritmayı rastgele girişlerle denemek ya da veriyi karıştırmak için rastgele sayılar gerekir. 1. haftadaki gürültü üretimi burada MatStudio'ya dökülür.
 
 - **rand:** 0 ile 1 arasında **düzgün** dağılımlı sayılar. ~rand(5)~ 5×5'lik bir matris, ~rand(5, 3)~ 5×3'lük bir matris, ~rand(5, 1)~ 5 elemanlı bir sütun vektörü verir.
 - **randn:** ortalaması 0, standart sapması 1 olan **normal** dağılımlı sayılar. Boyut kuralları ~rand~ ile aynıdır. Ortalaması μ, standart sapması σ olan gürültü: ~mu + sigma*randn(1, N)~.
@@ -304,14 +304,14 @@ x = -2 + 5*rand(1, 10000);
 
 [[G-H2-04]]
 
-Gerçek MATLAB'da hücre dizileri (~{M1, M2}~) içindeki matrisler ~cat(1, C{:})~ ile tek seferde birleştirilebilir. Tarayıcıdaki MATLAB alanında hücre dizisi yok; aynı işi ~[M1; M2]~ yapar.
+Masaüstü yazılımlarda hücre dizileri (~{M1, M2}~) içindeki matrisler ~cat(1, C{:})~ ile tek seferde birleştirilebilir. MatStudio'da hücre dizisi yok; aynı işi ~[M1; M2]~ yapar.
 
 > **Çözümlü örnek:** ~P = ones(2)~ ve ~Q = zeros(2)~ için ~cat(1, P, Q)~ ve ~cat(2, P, Q)~ hangi boyuttadır?
 >
 > 1. ~cat(1, ...)~ alt alta: 2 + 2 = 4 satır, 2 sütun → 4×2.
 > 2. ~cat(2, ...)~ yan yana: 2 satır, 2 + 2 = 4 sütun → 2×4.
 
-> **Sık hata:** Boyutları uymayan matrisleri birleştirmek. 2×2'lik bir matrisin altına 1×3'lük bir satır eklenemez; MATLAB "boyutlar uyuşmuyor" hatası verir.
+> **Sık hata:** Boyutları uymayan matrisleri birleştirmek. 2×2'lik bir matrisin altına 1×3'lük bir satır eklenemez; MatStudio "boyutlar uyuşmuyor" hatası verir.
 `),
       matlab: {
         kod: `A = [1 2; 3 4];
@@ -332,7 +332,7 @@ size(cat(2, ones(3), zeros(3)))`,
     {
       baslik: "İstatistik fonksiyonları ve boyut",
       metin: md(`
-**Neden önemli?** 1. haftada elle hesapladığın ortalama, standart sapma ve varyans MATLAB'da tek fonksiyondur. Ama bir matrise uygulandığında sonucun neye göre hesaplandığını (sütun mu, satır mı, hepsi mi) bilmen gerekir.
+**Neden önemli?** 1. haftada elle hesapladığın ortalama, standart sapma ve varyans MatStudio'da tek fonksiyondur. Ama bir matrise uygulandığında sonucun neye göre hesaplandığını (sütun mu, satır mı, hepsi mi) bilmen gerekir.
 
 Bir **vektöre** uygulanınca ~mean~, ~median~, ~std~, ~var~, ~sum~, ~max~, ~min~ tek bir sayı verir. Bir **matrise** uygulanınca varsayılan olarak **her sütun için** ayrı hesaplanır ve sonuç bir satır vektörüdür. Boyut belirtilerek bu değiştirilir:
 
@@ -346,7 +346,7 @@ Bir **vektöre** uygulanınca ~mean~, ~median~, ~std~, ~var~, ~sum~, ~max~, ~min
 
 [[G-H2-05]]
 
-**corrcoef** (korelasyon katsayısı) iki değişkenin birlikte ne kadar doğrusal değiştiğini ölçer. Değeri −1 ile 1 arasındadır: **1** tam pozitif doğrusal ilişki (biri artınca öbürü de artar), **−1** tam negatif ilişki, **0** doğrusal ilişki yok demektir. ~corrcoef(A)~ her sütunu bir değişken sayar ve sütunlar arası katsayı matrisini verir; bu matris simetriktir ve köşegeni 1'dir. ~corrcoef(x, y)~ iki verinin 2×2'lik katsayı matrisini verir; köşegen dışındaki eleman aradığımız katsayıdır. Gerçek MATLAB'da ~[R, P] = corrcoef(A, B)~ ayrıca p-değerlerini de verir: 0'a yakın p, ilişkinin anlamlı olduğunu gösterir.
+**corrcoef** (korelasyon katsayısı) iki değişkenin birlikte ne kadar doğrusal değiştiğini ölçer. Değeri −1 ile 1 arasındadır: **1** tam pozitif doğrusal ilişki (biri artınca öbürü de artar), **−1** tam negatif ilişki, **0** doğrusal ilişki yok demektir. ~corrcoef(A)~ her sütunu bir değişken sayar ve sütunlar arası katsayı matrisini verir; bu matris simetriktir ve köşegeni 1'dir. ~corrcoef(x, y)~ iki verinin 2×2'lik katsayı matrisini verir; köşegen dışındaki eleman aradığımız katsayıdır. Gerçek MatStudio'da ~[R, P] = corrcoef(A, B)~ ayrıca p-değerlerini de verir: 0'a yakın p, ilişkinin anlamlı olduğunu gösterir.
 
 > **Çözümlü örnek:** ~M = [1 5; 3 7; 2 9]~ için ~mean(M)~, ~mean(M, 2)~ ve ~median(M, 'all')~ nedir?
 >
@@ -356,7 +356,7 @@ Bir **vektöre** uygulanınca ~mean~, ~median~, ~std~, ~var~, ~sum~, ~max~, ~min
 
 > **Sık hata:** ~std(A, 2)~ yazıp satırların standart sapmasını beklemek. std'de ikinci argüman ağırlıktır ve yalnızca 0 ya da 1 olabilir; satırlar için ~std(A, 0, 2)~ yaz.
 
-**Histogram ve normal dağılım grafiği.** ~histogram(x)~ kutu sayısını kendisi seçer; ~histogram(x, 25)~ 25 kutu kullanır. Normal dağılımın eğrisini çizmek için 1. haftadaki formül eleman eleman işleçlerle yazılır: ~Px = exp(-(x-mu).^2/(2*sig^2)) / (sqrt(2*pi)*sig)~. (Gerçek MATLAB'daki ~makedist~ ve ~pdf~ bu sitenin MATLAB alanında yok.)
+**Histogram ve normal dağılım grafiği.** ~histogram(x)~ kutu sayısını kendisi seçer; ~histogram(x, 25)~ 25 kutu kullanır. Normal dağılımın eğrisini çizmek için 1. haftadaki formül eleman eleman işleçlerle yazılır: ~Px = exp(-(x-mu).^2/(2*sig^2)) / (sqrt(2*pi)*sig)~. (Gerçek MatStudio'daki ~makedist~ ve ~pdf~ bu sitenin MatStudio'da yok.)
 `),
       matlab: {
         kod: `A = [0 1 1; 2 3 2; 1 3 2; 4 2 2];

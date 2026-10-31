@@ -28,7 +28,7 @@ import { haftaEtiketi } from "./dersler";
 
 function baslik(route: Route, topicTitle?: string): string {
   switch (route.page) {
-    case "pratik": return "PRATİK - MATLAB alanı";
+    case "pratik": return "PRATİK - MatStudio";
     case "sorular": return `SORU HAVUZU - ${topicTitle ?? (route.hafta ? `${route.hafta}. hafta` : "Tüm sorular")}`;
     case "ders": return route.hafta ? `DERS - ${haftaEtiketi(route.hafta)}` : "DERSLER";
     case "ilerleme": return "İLERLEME - Konu bazlı durum";
@@ -72,7 +72,7 @@ export function App() {
     );
   }, []);
 
-  // MATLAB alanı ve soru havuzu başka bir sayfaya geçilince kapanmaz, gizlenir:
+  // MatStudio ve soru havuzu başka bir sayfaya geçilince kapanmaz, gizlenir:
   // yazılan kod, dalga ekranı, soruların cevapları ve kaydırma yeri korunur
   const [pratikAcildi, setPratikAcildi] = useState(route.page === "pratik");
   const [sonSorular, setSonSorular] = useState<{ topic?: string; hafta?: number } | null>(null);

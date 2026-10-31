@@ -13,7 +13,7 @@ export function Terimler() {
   return (
     <div className="terimler">
       <p className="hint">
-        Ders ve sorularda bu terimlerin İngilizcesi her kullanımda parantez içinde gösterilir. MATLAB belgelerinde ve kaynaklarda çoğunlukla
+        Ders ve sorularda bu terimlerin İngilizcesi her kullanımda parantez içinde gösterilir. MatStudio belgelerinde ve kaynaklarda çoğunlukla
         İngilizceleri geçer.
       </p>
       <input type="search" aria-label="Terimlerde ara" placeholder="Türkçe ya da İngilizce ara" value={ara} onChange={(e) => setAra(e.target.value)} />

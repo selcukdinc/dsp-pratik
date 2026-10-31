@@ -1,4 +1,4 @@
-// MATLAB alanının yeniden boyutlandırılıp yeri değiştirilebilen panelleri.
+// MatStudio'nun yeniden boyutlandırılıp yeri değiştirilebilen panelleri.
 // Paneller başlıklarından sürüklenip başka bir panelin soluna ya da sağına
 // bırakılır; aradaki çizgiler sürüklenerek boyutlandırılır. Klavyeyle de aynı
 // işler panelin ⋯ menüsünden yapılır.

@@ -30,7 +30,7 @@ describe("dersler", () => {
         }
     }
   });
-  it("her MATLAB örneği tarayıcıdaki yorumlayıcıda hatasız çalışır", () => {
+  it("her MatStudio örneği tarayıcıdaki yorumlayıcıda hatasız çalışır", () => {
     for (const d of DERSLER)
       for (const b of d.bolumler) {
         if (!b.matlab) continue;

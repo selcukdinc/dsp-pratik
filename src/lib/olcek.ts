@@ -1,4 +1,4 @@
-// Metin boyutu: tüm sayfalar (MATLAB alanı dışında) bu oranla büyür ya da
+// Metin boyutu: tüm sayfalar (MatStudio dışında) bu oranla büyür ya da
 // küçülür. Seçim tarayıcıda saklanır; hesapla girildiyse hesaba da yazılır.
 // index.html'deki betik ilk çizimden önce aynı değeri uygular.
 

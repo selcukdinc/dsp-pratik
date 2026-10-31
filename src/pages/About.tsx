@@ -11,17 +11,17 @@ export function About() {
         ders sunularının konu sırasını izler; anlatımlar, şekiller ve sorular bu site için yeniden yazılmıştır. Sunumdaki bir
         örneğe dayanan sorular <strong>Orijinal</strong>, aynı konudan türetilenler <strong>Türetilmiş</strong> etiketi taşır.
       </p>
-      <h3>MATLAB kodu nerede çalışıyor?</h3>
+      <h3>MatStudio kodu nerede çalışıyor?</h3>
       <p>
-        MATLAB alanı ve derslerdeki örnekler senin tarayıcında çalışan küçük bir MATLAB yorumlayıcısıyla çalışır. Ders için
-        gereken temel yapıları ve çizim fonksiyonlarını destekler; gerçek MATLAB'ın yerine geçmez. Kodun, sen bir laboratuvar
+        MatStudio ve derslerdeki örnekler senin tarayıcında çalışan küçük bir yorumlayıcıyla çalışır. Ders için
+        gereken temel yapıları ve çizim fonksiyonlarını destekler; masaüstü sayısal hesap yazılımlarının yerine geçmez. Kodun, sen bir laboratuvar
         kaydı olarak paylaşmadıkça sunucuya gönderilmez.
       </p>
       <h3>Gizlilik</h3>
       <ul>
         <li>Reklam yok, analitik ya da takip çerezi yok.</li>
         <li>İlk cevabını gönderdiğinde ilerlemeni tutmak için tek bir oturum çerezi yazılır.</li>
-        <li>MATLAB alanındaki betiklerin yalnızca bu tarayıcıda saklanır.</li>
+        <li>MatStudio'daki betiklerin yalnızca bu tarayıcıda saklanır.</li>
       </ul>
       <p>
         Ayrıntılar <a href="/gizlilik">gizlilik metninde</a>.

@@ -1,4 +1,4 @@
-// Laboratuvar kayıtları (üyelerin paylaştığı MATLAB betikleri) ve bildirimler:
+// Laboratuvar kayıtları (üyelerin paylaştığı MatStudio betikleri) ve bildirimler:
 // istemci, Worker ve panel ortak tipleri.
 
 export interface KayitOzeti {

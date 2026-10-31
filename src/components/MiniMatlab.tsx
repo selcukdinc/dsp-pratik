@@ -1,4 +1,4 @@
-// Ders içindeki MATLAB kutusu: düzenlenebilir kod, Çalıştır, komut çıktısı ve
+// Ders içindeki MatStudio kutusu: düzenlenebilir kod, Çalıştır, komut çıktısı ve
 // şekil. Her çalıştırma temiz bir çalışma alanıyla başlar; her şey tarayıcıda.
 
 import { useMemo, useState } from "react";
@@ -42,12 +42,12 @@ export function MiniMatlab({ veri }: { veri: Veri }) {
     <div className={`mini-sim mini-matlab${yan ? " yan" : ""}`}>
       <div className="mini-kod">
         <BoyutluEditor sinif="mini-editor">
-          <MatlabEditor value={kod} onChange={setKod} marks={marks} onRun={calistir} etiket="Dersteki MATLAB örneği" />
+          <MatlabEditor value={kod} onChange={setKod} marks={marks} onRun={calistir} etiket="Dersteki MatStudio örneği" />
         </BoyutluEditor>
         <div className="kod-dugmeler">
           <button className="primary" onClick={calistir} title="Ctrl+Enter">▶ Çalıştır</button>
           <button onClick={sifirla} disabled={kod === veri.kod && !sonuc}>Örneğe dön</button>
-          <button className="baglanti-dugme" onClick={() => matlabdaAc(kod)}>MATLAB alanında aç</button>
+          <button className="baglanti-dugme" onClick={() => matlabdaAc(kod)}>MatStudio'da aç</button>
           <span className="mini-duzen" role="group" aria-label="Çıktının yeri">
             <button className="cip" aria-pressed={!yan} onClick={() => setYan(false)} title="Çıktı kodun altında">Alt alta</button>
             <button className="cip" aria-pressed={yan} onClick={() => setYan(true)} title="Çıktı kodun sağında">Yan yana</button>

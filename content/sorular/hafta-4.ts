@@ -229,7 +229,7 @@ export const hafta4: Soru[] = [
     },
     {
       id: "h4-matlab-conv", zorluk: 1, tip: "fill",
-      soru: "MATLAB'da iki polinomun katsayı vektörlerini çarpmak için kullanılan fonksiyon hangisidir?",
+      soru: "MatStudio'da iki polinomun katsayı vektörlerini çarpmak için kullanılan fonksiyon hangisidir?",
       bosluklar: [["conv"]],
       aciklama: "conv: polinom çarpımı, katsayı dizilerinin konvolüsyonudur.",
     },

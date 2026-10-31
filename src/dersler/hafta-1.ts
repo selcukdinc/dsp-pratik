@@ -107,7 +107,7 @@ $\\sigma^2$ terimine **varyans** denir. Standart sapma sinyalin ortalamadan ne k
 
 > **Sık hata:** Sapmaların karesini almadan ortalamasını almak. İşaretli sapmaların toplamı her zaman sıfırdır; kare almak hem işareti yok eder hem büyük sapmaları daha çok tartar.
 
-MATLAB'da ~mean~ ortalamayı, ~std~ N − 1'li standart sapmayı, ~var~ varyansı verir. ~std(x, 1)~ yazarsan N'ye böler.
+MatStudio'da ~mean~ ortalamayı, ~std~ N − 1'li standart sapmayı, ~var~ varyansı verir. ~std(x, 1)~ yazarsan N'ye böler.
 `),
       matlab: {
         kod: `% Ortalama ve standart sapmayı formülle ve hazır fonksiyonla hesapla
@@ -289,7 +289,7 @@ title('randn örnekleri ve normal pdf')`,
       metin: md(`
 **Neden önemli?** Bir filtrenin gürültüye nasıl tepki verdiğini denemek için çoğu zaman gürültüyü kendimiz üretiriz. Elimizdeki tek araç düzgün dağılımlı bir rastgele sayı üreteci olsa bile Gauss gürültü üretebiliriz.
 
-Programlama dillerinin çoğunda 0 ile 1 arasında **düzgün dağılımlı** sayılar üreten bir fonksiyon vardır; bunu RND diye adlandıralım (MATLAB'da ~rand~). Düzgün dağılımda aralıktaki her değerin olasılığı aynıdır, pdf'i 0 ile 1 arasında düz bir çizgidir. Ortalaması **0,5**, standart sapması $1/\\sqrt{12} \\approx$ **0,29**'dur.
+Programlama dillerinin çoğunda 0 ile 1 arasında **düzgün dağılımlı** sayılar üreten bir fonksiyon vardır; bunu RND diye adlandıralım (MatStudio'da ~rand~). Düzgün dağılımda aralıktaki her değerin olasılığı aynıdır, pdf'i 0 ile 1 arasında düz bir çizgidir. Ortalaması **0,5**, standart sapması $1/\\sqrt{12} \\approx$ **0,29**'dur.
 
 İki RND toplanınca sonuç 0 ile 2 arasında değişir ama artık düzgün değildir: 1 civarındaki toplamları veren birçok birleşim varken 0 ya da 2'yi veren çok az birleşim vardır. Toplamın pdf'i **üçgen** biçimlidir; ortalaması **1**, standart sapması $1/\\sqrt{6} \\approx 0{,}41$'dir.
 

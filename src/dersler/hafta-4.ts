@@ -34,7 +34,7 @@ Yani dürtü konvolüsyonun birim elemanıdır; kaydırılmış dürtüyle konvo
 
 > **Sık hata:** $x(n) * h(n)$'yi örnek örnek çarpım $x(n)\\,h(n)$ sanmak. Konvolüsyonda bir çıkış örneği birçok çarpımın toplamıdır.
 
-MATLAB'da ~conv(x, h)~ iki sonlu dizinin konvolüsyonunu verir. ~conv~ dizilerin n konumlarını bilmez; ikisi de ilk elemanından başlıyor kabul edilir.
+MatStudio'da ~conv(x, h)~ iki sonlu dizinin konvolüsyonunu verir. ~conv~ dizilerin n konumlarını bilmez; ikisi de ilk elemanından başlıyor kabul edilir.
 `),
       matlab: {
         kod: `x = [1 2 -1];        % n = 0, 1, 2
@@ -153,7 +153,7 @@ plot(n, sinir * ones(size(n)), '--'), title('Üstel dizi ile basamağın konvol�
     {
       baslik: "Çıkışın uzunluğu ve konumu",
       metin: md(`
-**Neden önemli?** Konvolüsyonu elle ya da MATLAB'da yaparken çıkışın kaç örnek süreceğini ve hangi n'den başlayacağını bilmek, sonucu doğru yere yazmayı sağlar.
+**Neden önemli?** Konvolüsyonu elle ya da MatStudio'da yaparken çıkışın kaç örnek süreceğini ve hangi n'den başlayacağını bilmek, sonucu doğru yere yazmayı sağlar.
 
 İki sonlu dizinin konvolüsyonunda: x(n) **L₁** uzunluğunda, h(n) **L₂** uzunluğundaysa çıkışın uzunluğu
 
@@ -175,7 +175,7 @@ aralığındadır. Sebebi: $x(k)\\,h(n - k)$ çarpımının sıfırdan farklı o
 
 > **Sık hata:** Uzunlukları doğrudan toplamak (L₁ + L₂). Uzunluğu 3 ve 2 olan diziler 4 örnek verir, 5 değil.
 
-MATLAB'da n konumlarını ayrı tutarız: çıkışın konumları ~ny = (nx(1) + nh(1)) : (nx(end) + nh(end))~ olur.
+MatStudio'da n konumlarını ayrı tutarız: çıkışın konumları ~ny = (nx(1) + nh(1)) : (nx(end) + nh(end))~ olur.
 `),
       matlab: {
         kod: `nx = -2:3;   x = [1 2 0 -1 1 2];     % n = -2..3
@@ -262,7 +262,7 @@ conv(x, h)                           % aynı sonuç`,
 
 [[G-H4-06]]
 
-**Polinom çarpımı.** Dizilerin elemanlarını polinom katsayısı yaparsak $x(n) \\to 1 + 2z + 3z^2$ ve $h(n) \\to 4 + 5z + 6z^2$ olur. Çarpımda $z^i \\cdot z^j = z^{i+j}$ olduğu için katsayılar tam olarak konvolüsyonla toplanır. MATLAB'da da iki polinomu çarpmak için ~conv~ kullanılır.
+**Polinom çarpımı.** Dizilerin elemanlarını polinom katsayısı yaparsak $x(n) \\to 1 + 2z + 3z^2$ ve $h(n) \\to 4 + 5z + 6z^2$ olur. Çarpımda $z^i \\cdot z^j = z^{i+j}$ olduğu için katsayılar tam olarak konvolüsyonla toplanır. MatStudio'da da iki polinomu çarpmak için ~conv~ kullanılır.
 
 > **Çözümlü örnek:** (1, 2, 3) * (4, 5, 6) dizisini kaydırma kuralıyla bul.
 >
@@ -356,7 +356,7 @@ Hareketli ortalama, örnekten örneğe bağımsız olan gürültüyü azaltır: 
 
 > **Sık hata:** h(n) = 1 (kutu) alıp 1/M ile ölçeklemeyi unutmak. O zaman çıkış ortalama değil toplam olur ve sinyal M kat büyür.
 
-MATLAB'da ~conv(x, ones(1, M)/M)~ ya da ~filter(ones(1, M)/M, 1, x)~ ile yapılır; ~filter~ çıkışı giriş uzunluğunda verir.
+MatStudio'da ~conv(x, ones(1, M)/M)~ ya da ~filter(ones(1, M)/M, 1, x)~ ile yapılır; ~filter~ çıkışı giriş uzunluğunda verir.
 `),
       matlab: {
         kod: `n = 0:199;
@@ -407,7 +407,7 @@ $$r_{xx}(n) = \\frac{a^{|n|}}{1 - a^2}$$
 
 > **Sık hata:** Korelasyonu konvolüsyonla aynı sanmak. İkisi ancak dizilerden biri n = 0'a göre simetrikse aynı sonucu verir.
 
-MATLAB'da ~xcorr(x)~ otokorelasyonu verir; ~[r, gecikme] = xcorr(x)~ gecikme değerlerini de döndürür. ~xcorr(x, y)~ ise $\\sum_n x(n + m)\\,y(n)$ tanımını kullanır; yukarıdaki $r_{xh}$ bunun ~xcorr(h, x)~ halidir.
+MatStudio'da ~xcorr(x)~ otokorelasyonu verir; ~[r, gecikme] = xcorr(x)~ gecikme değerlerini de döndürür. ~xcorr(x, y)~ ise $\\sum_n x(n + m)\\,y(n)$ tanımını kullanır; yukarıdaki $r_{xh}$ bunun ~xcorr(h, x)~ halidir.
 `),
       matlab: {
         kod: `x = [1 2];

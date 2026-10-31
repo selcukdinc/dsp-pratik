@@ -22,7 +22,7 @@ const sira = (a: number, d: number, b: number) => {
   return r;
 };
 export const INDEKS_SECIMLERI: IndeksSecimi[] = [
-  { ifade: "x(3)", indisler: [3], aciklama: "Tek bir indis: 3. eleman. MATLAB'da indisler 1'den başlar." },
+  { ifade: "x(3)", indisler: [3], aciklama: "Tek bir indis: 3. eleman. MatStudio'da indisler 1'den başlar." },
   { ifade: "x(end)", indisler: [n], aciklama: "end, o boyuttaki son indistir; burada 8." },
   { ifade: "x(3:7)", indisler: sira(3, 1, 7), aciklama: "3:7 aralığı [3 4 5 6 7] indislerini üretir; beş eleman seçilir." },
   { ifade: "x(2:2:end)", indisler: sira(2, 2, n), aciklama: "2'den başla, 2'şer art, sona kadar: çift sıradaki elemanlar." },
@@ -68,7 +68,7 @@ export const MATRIS_SECIMLERI: MatrisSecimi[] = [
   { ifade: "A(2, 3)", konumlar: [[2, 3]], aciklama: "Önce satır, sonra sütun: 2. satır, 3. sütun." },
   { ifade: "A(3, :)", konumlar: tum((i) => i === 3), aciklama: "İki nokta üst üste o boyutun tamamı demektir: 3. satırın bütün sütunları." },
   { ifade: "A(:, 3)", konumlar: tum((_, j) => j === 3), aciklama: "3. sütunun bütün satırları; sonuç bir sütun vektörüdür." },
-  { ifade: "A(6)", konumlar: [[3, 2]], aciklama: "Tek indis doğrusal indekstir. MATLAB elemanları sütun sütun saklar: 6. eleman 2. sütunun en altıdır." },
+  { ifade: "A(6)", konumlar: [[3, 2]], aciklama: "Tek indis doğrusal indekstir. MatStudio elemanları sütun sütun saklar: 6. eleman 2. sütunun en altıdır." },
   { ifade: "A(:)", konumlar: tum(() => true), aciklama: "Bütün elemanlar sütun sırasıyla tek bir sütun vektörüne dizilir." },
   { ifade: "find(A > 5)", konumlar: tum((i, j) => MATRIS[i - 1]![j - 1]! > 5), aciklama: "find koşulu sağlayan elemanların doğrusal indekslerini döndürür: [3; 6; 8; 9]." },
 ];

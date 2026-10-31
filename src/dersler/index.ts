@@ -1,5 +1,5 @@
 // Haftaların ders sayfaları. Her ders kısa anlatımlar, etkileşimli şekiller,
-// tarayıcıda çalışan MATLAB örnekleri ve soru havuzundan seçilmiş bir konu sonu testi içerir.
+// tarayıcıda çalışan MatStudio örnekleri ve soru havuzundan seçilmiş bir konu sonu testi içerir.
 
 import { haftaAdi, type Ders } from "./tipler";
 import { HAFTA_1 } from "./hafta-1";

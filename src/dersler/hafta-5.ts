@@ -26,7 +26,7 @@ Dönen noktaya üçüncü bir boyut olarak zamanı eklersek nokta bir sarmal (he
 > 1. cos 150° = −cos 30° ≈ −0,866 (nokta solda).
 > 2. sin 150° = sin 30° = 0,5 (nokta yukarıda).
 
-> **Sık hata:** Açıyı derece ile radyan arasında karıştırmak. MATLAB'ın ~sin~ ve ~cos~ fonksiyonları radyan bekler: 90° için ~sin(pi/2)~ yazılır; dereceyle çalışmak için ~sind~ yoktur, ~deg2rad~ ile çevrilir.
+> **Sık hata:** Açıyı derece ile radyan arasında karıştırmak. MatStudio'nun ~sin~ ve ~cos~ fonksiyonları radyan bekler: 90° için ~sin(pi/2)~ yazılır; dereceyle çalışmak için ~sind~ yoktur, ~deg2rad~ ile çevrilir.
 `),
       matlab: {
         kod: `theta = linspace(0, 4*pi, 200);

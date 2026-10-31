@@ -1,4 +1,4 @@
-// Değerlerin komut penceresinde MATLAB'ın "format short" görünümüne yakın
+// Değerlerin komut penceresinde MatStudio'nun "format short" görünümüne yakın
 // yazılması ve num2str/sprintf biçimlendirmesi.
 
 import { metneCevir, numel, type Deger, type Matris } from "./deger";
@@ -159,7 +159,7 @@ export function kacisCoz(s: string): string {
 }
 
 // Biçim dizgisini değerlerle doldurur; değerler bitene kadar biçim yeniden
-// kullanılır (MATLAB'daki gibi). Değerler biçimin ortasında biterse çıktı
+// kullanılır (MatStudio'daki gibi). Değerler biçimin ortasında biterse çıktı
 // orada kesilir.
 type Parca = string | { bayrak: string; gen?: string; has?: string; tur: string };
 

@@ -245,7 +245,7 @@ export function dikeyBirlestir(parcalar: Matris[]): Matris {
 
 export type Indis = Matris | ":";
 
-const INDIS_IPUCU = " MATLAB'da indisler 1'den başlar: x(0) yoktur, ilk eleman x(1)'dir.";
+const INDIS_IPUCU = " MatStudio'da indisler 1'den başlar: x(0) yoktur, ilk eleman x(1)'dir.";
 
 // İndisi 0 tabanlı konum listesine çevirir
 export function konumlar(ix: Indis, uzunluk: number, buyuyebilir = false): number[] {

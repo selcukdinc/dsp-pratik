@@ -1,4 +1,4 @@
-// /pratik: MATLAB alanı. Betik editörü, şekil penceresi, komut penceresi ve
+// /pratik: MatStudio. Betik editörü, şekil penceresi, komut penceresi ve
 // çalışma alanı; paneller sürüklenip boyutlandırılabilir. Kod tarayıcıda
 // çalışır, betikler bu tarayıcıda saklanır.
 
@@ -42,7 +42,7 @@ function yukle(): Calisma {
   return ILK;
 }
 
-// "ad.m" geçerli bir MATLAB dosya adı mı
+// "ad.m" geçerli bir MatStudio dosya adı mı
 const adHatasi = (ad: string, dolu: string[]) => {
   if (!/^[A-Za-z][A-Za-z0-9_]*\.m$/.test(ad)) return "Ad bir harfle başlamalı; yalnızca harf, rakam ve _ içermeli ve .m ile bitmeli.";
   if (dolu.includes(ad)) return "Bu adda bir betik zaten var.";
@@ -149,7 +149,7 @@ function AdPenceresi({ baslik, ilk, dolu, kapat, kaydet }: { baslik: string; ilk
 
 interface Props {
   onStatus: (s: string) => void;
-  // Başka bir sayfaya geçilince MATLAB alanı kapanmaz, gizlenir; gizliyken
+  // Başka bir sayfaya geçilince MatStudio kapanmaz, gizlenir; gizliyken
   // klavye kısayolları çalışmaz
   aktif?: boolean;
 }
@@ -485,7 +485,7 @@ export function Sandbox({ onStatus, aktif = true }: Props) {
         >
           Örnekler ▾
         </button>
-        <span className="hint toolbar-ipucu">Tarayıcıda çalışan MATLAB alt kümesi; betiklerin bu tarayıcıda saklanır.</span>
+        <span className="hint toolbar-ipucu">Tarayıcıda çalışan MatStudio alt kümesi; betiklerin bu tarayıcıda saklanır.</span>
         <span className="toolbar-bosluk" />
         <DuzenMenusu duzen={duzen} uygula={setDuzen} durum={onStatus} />
         <input ref={dosyaGirdisi} type="file" accept=".m,.txt" multiple hidden onChange={(e) => (yukleDosya(e.target.files), (e.target.value = ""))} />

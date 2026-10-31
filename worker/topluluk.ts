@@ -1,4 +1,4 @@
-// Topluluk: üyelerin paylaştığı MATLAB betikleri (/api/topluluk/kayit) ve
+// Topluluk: üyelerin paylaştığı MatStudio betikleri (/api/topluluk/kayit) ve
 // bildirimler (/api/topluluk/bildir). Kayıtlar tarayıcıda çalışır ve resmi
 // ilerlemeye sayılmaz.
 

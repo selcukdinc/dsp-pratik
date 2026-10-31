@@ -1,5 +1,5 @@
-// MATLAB şekil penceresi: yorumlayıcının şekil modelini SVG olarak çizer.
-// MATLAB'daki gibi beyaz zemin üzerinde çizilir; temadan etkilenmez.
+// MatStudio şekil penceresi: yorumlayıcının şekil modelini SVG olarak çizer.
+// MatStudio'daki gibi beyaz zemin üzerinde çizilir; temadan etkilenmez.
 
 import { useEffect, useId, useRef, useState, type ReactNode } from "react";
 import type { Eksen, Sekil, Seri } from "../matlab/cizim";
@@ -125,7 +125,7 @@ function EksenCiz({ e, x0, y0, en, boy, id }: { e: Eksen; x0: number; y0: number
   }
   const yt = guzelAraliklar(ya[0], ya[1], Math.max(2, Math.floor(ph / 40)));
   const siki = (e as { siki?: boolean }).siki;
-  // Çizgi grafiklerinde x ekseni veriye sıkı oturur (MATLAB'daki gibi), y ekseni güzel sınırlara yuvarlanır
+  // Çizgi grafiklerinde x ekseni veriye sıkı oturur (MatStudio'daki gibi), y ekseni güzel sınırlara yuvarlanır
   const sadecePlot = e.seriler.length > 0 && e.seriler.every((s) => s.tur === "plot" || s.tur === "area");
   const [xmin, xmax] = e.xSinir ?? (siki || sadecePlot || tamSinir ? (xa[0] === xa[1] ? [xa[0] - 1, xa[1] + 1] : xa) : [xt[0]!, xt.at(-1)!]);
   const [ymin, ymax] = e.ySinir ?? (siki && ya[0] !== ya[1] ? ya : [yt[0]!, yt.at(-1)!]);

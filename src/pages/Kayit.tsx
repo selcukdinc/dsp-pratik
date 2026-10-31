@@ -99,7 +99,7 @@ export function Kayit() {
       <div className="hesap-sayfa">
         <h2>Kayıt ol</h2>
         <p className="uyari">
-          Kayıt şu an kapalı, çünkü doğrulama e-postası gönderimi henüz kurulmadı. Soruları ve MATLAB alanını giriş
+          Kayıt şu an kapalı, çünkü doğrulama e-postası gönderimi henüz kurulmadı. Soruları ve MatStudio'yu giriş
           yapmadan kullanabilirsin, ilerlemen bu tarayıcıda saklanır.
         </p>
       </div>

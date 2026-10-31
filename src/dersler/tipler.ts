@@ -2,12 +2,12 @@
 // sunumları depoya girmez.
 //
 // Metinlerde ` yerine ~ yazılır (şablon dizgilerinde ters tırnak kaçış
-// gerektirdiği için); md() ~ karakterlerini ` ile değiştirir. MATLAB'ın ~=
+// gerektirdiği için); md() ~ karakterlerini ` ile değiştirir. MatStudio'nun ~=
 // ve ~ işleçleri için ¬ yazılır; md() ¬ karakterini ~ yapar.
 // Formüller $...$ (satır içi) ve $$...$$ (ayrı satır) arasında TeX olarak yazılır.
 
 export interface MiniMatlab {
-  // Bölümde çalıştırılacak MATLAB betiği
+  // Bölümde çalıştırılacak MatStudio betiği
   kod: string;
   // Öğrenciye kodda ne değiştirip deneyeceğini söyleyen kısa görev
   gorev?: string;

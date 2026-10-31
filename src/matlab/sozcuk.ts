@@ -1,4 +1,4 @@
-// MATLAB kaynak kodunu sözcüklere ayırır. Köşeli parantez içinde boşlukla
+// MatStudio kaynak kodunu sözcüklere ayırır. Köşeli parantez içinde boşlukla
 // ayrılan elemanlar için virgül, satır sonu için noktalı virgül eklenir:
 // [1 -2 3] üç elemanlı, [1 - 2] tek elemanlıdır.
 

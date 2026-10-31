@@ -2,7 +2,7 @@ import { md, type Ders } from "./tipler";
 
 // Proje haftası: hazır çözüm yoktur. Bölümler projenin adımlarını açıklar,
 // gereken kavramları önceki haftalara bağlar ve tarayıcıda denenebilecek küçük
-// yapı taşları verir. Asıl iş masaüstü MATLAB'da yapılır.
+// yapı taşları verir. Asıl iş masaüstü MatStudio'da yapılır.
 export const PROJE: Ders = {
   hafta: 9,
   proje: true,
@@ -16,13 +16,13 @@ export const PROJE: Ders = {
 
 **Adımlar.**
 1. Asıl sinyalin ve gürültülü sinyalin FFT'sini al, **tek yanlı spektrumu** incele. Filtrenin türüne (alçak, yüksek ya da bant geçiren) ve kesim frekanslarına buradan karar ver.
-2. Filtre tasarım aracıyla (Filter Designer ya da ~designfilt~) **6 filtre** tasarla: 3 FIR (eşit dalgalı, ara değerlemeli FIR, pencere) ve 3 IIR (Butterworth, Chebyshev I, eliptik). Her filtreyi bir MATLAB fonksiyonuna dönüştür.
+2. Filtre tasarım aracıyla (Filter Designer ya da ~designfilt~) **6 filtre** tasarla: 3 FIR (eşit dalgalı, ara değerlemeli FIR, pencere) ve 3 IIR (Butterworth, Chebyshev I, eliptik). Her filtreyi bir MatStudio fonksiyonuna dönüştür.
 3. Filtreleri gürültülü sinyale uygula (~filter~ ya da ~filtfilt~).
 4. Aynı işi **dalgacık dönüşümüyle** de yap: bir dalgacık ailesi seç, aynı seviyede üç farklı ayrıştırma dene (ör. aynı ailenin üç üyesi). Bütün filtrelenmiş sinyalleri asıl sinyalin üstüne çiz.
 5. Her filtreleme için başarım ölçütlerini hesapla: PSNR, MSE, en büyük hata ve L2 oranı.
 6. PSNR'si en yüksek sonuçtan, zaman ve frekans alanında **3 saniyelik parçalar** için ortalama, standart sapma, çarpıklık, basıklık ve entropi çıkar; tabloya koy ve çiz.
 
-**Bu sayfa ne yapar, ne yapmaz?** Her bölüm bir adımı açıklar, gereken kavramı önceki haftalara bağlar ve tarayıcıda çalışan küçük bir örnek verir. Örnekler yapay sinyallerle çalışır ve projenin çözümü değildir: ses dosyası okumak, filtre tasarım araçları ve dalgacık fonksiyonları masaüstü MATLAB'da (Signal Processing ve Wavelet araç kutularıyla) yapılır.
+**Bu sayfa ne yapar, ne yapmaz?** Her bölüm bir adımı açıklar, gereken kavramı önceki haftalara bağlar ve tarayıcıda çalışan küçük bir örnek verir. Örnekler yapay sinyallerle çalışır ve projenin çözümü değildir: ses dosyası okumak, filtre tasarım araçları ve dalgacık fonksiyonları masaüstü MatStudio'da (Signal Processing ve Wavelet araç kutularıyla) yapılır.
 
 > **İpucu:** Önce kısa bir sinyalle (birkaç saniye) bütün adımları uçtan uca bir kez çalıştır, sonra her adımı iyileştir. Son gün altı filtreyi birden ilk kez denemek en sık yapılan hatadır.
 `),
@@ -44,7 +44,7 @@ legend('gürültülü', 'asıl'), xlabel('t (s)')`,
     {
       baslik: "Sinyal ve gürültü",
       metin: md(`
-**Sinyal.** Masaüstü MATLAB'da bir ses dosyası şöyle okunur ve dinlenir:
+**Sinyal.** Masaüstü MatStudio'da bir ses dosyası şöyle okunur ve dinlenir:
 
 \`\`\`
 [y, Fs] = audioread('ses_sinyali.wav');   % y: örnekler, Fs: örnekleme frekansı
@@ -127,7 +127,7 @@ plot(f, genlik), xlabel('f (Hz)'), title('gürültülü sinyalin tek yanlı spek
 | Kararlılık | her zaman kararlı | kutuplara bağlı |
 | Faz | simetrik katsayılarla doğrusal | doğrusal değil |
 | Aynı şartname için derece | yüksek | düşük |
-| MATLAB'da uygulama | ~filter(b, 1, x)~ | ~filter(b, a, x)~ |
+| MatStudio'da uygulama | ~filter(b, 1, x)~ | ~filter(b, a, x)~ |
 
 **Projedeki FIR tasarımları.**
 - **Pencere yöntemi:** ideal filtrenin sonsuz dürtü yanıtı bir pencereyle (Hamming, Kaiser…) kesilir. Basittir; dalgalanma pencereye bağlıdır.
@@ -141,7 +141,7 @@ plot(f, genlik), xlabel('f (Hz)'), title('gürültülü sinyalin tek yanlı spek
 
 [[G-H9-02]]
 
-**Tasarım aracından fonksiyona.** Filter Designer'da tasarımı bitirince *File → Generate MATLAB Code → Filter Design Function* ile filtreyi bir fonksiyona dönüştür. Komut satırından aynı iş ~designfilt~ ile yapılır:
+**Tasarım aracından fonksiyona.** Filter Designer'da tasarımı bitirince *File → Generate MatStudio Code → Filter Design Function* ile filtreyi bir fonksiyona dönüştür. Komut satırından aynı iş ~designfilt~ ile yapılır:
 
 \`\`\`
 d = designfilt('lowpassiir', 'FilterOrder', 8, ...
@@ -222,7 +222,7 @@ x(n) asıl sinyal, $\\hat x(n)$ filtrelenmiş sinyal, N örnek sayısı olsun.
 - **En büyük hata:** $\\max_n |x(n) - \\hat x(n)|$. Tek bir kötü noktayı yakalar.
 - **L2 oranı:** $\\sum \\hat x^2(n) / \\sum x^2(n)$. 1'e yakın olması, filtrenin sinyalin enerjisini koruduğunu gösterir.
 
-MATLAB'daki ~measerr~ fonksiyonu bu dördünü birlikte verir: ~[psnr, mse, maxerr, L2rat] = measerr(x, xf)~. Fonksiyon senin MATLAB sürümünde yoksa formüllerle kendin hesapla.
+MatStudio'daki ~measerr~ fonksiyonu bu dördünü birlikte verir: ~[psnr, mse, maxerr, L2rat] = measerr(x, xf)~. Fonksiyon senin MatStudio sürümünde yoksa formüllerle kendin hesapla.
 
 > **Sık hata:** Gecikmeyi düzeltmeden karşılaştırmak. ~filter~ ile süzülmüş bir FIR çıkışı (M − 1)/2 örnek geç gelir; hiç düzeltmezsen iyi bir filtre bile kötü MSE alır. ~filtfilt~ ya da gecikme kadar kaydırma kullan.
 `),
@@ -256,7 +256,7 @@ L2oran = sum(xf.^2) / sum(x.^2)`,
 - **Basıklık** (kurtosis): $\\frac{1}{N}\\sum (x - \\mu)^4 / \\sigma^4$. Kuyrukların ağırlığı; normal dağılımda 3.
 - **Entropi:** değerlerin histogramından $p_i$ olasılıkları bulunup $H = -\\sum p_i \\log_2 p_i$. Sinyal ne kadar "düzensiz"se o kadar büyük.
 
-Masaüstü MATLAB'da ~mean~, ~std~, ~skewness~, ~kurtosis~ ve ~entropy~ (ya da ~wentropy~) hazırdır. Sonuçları parça × öznitelik tablosuna koy ve her özniteliği parça numarasına göre çiz.
+Masaüstü MatStudio'da ~mean~, ~std~, ~skewness~, ~kurtosis~ ve ~entropy~ (ya da ~wentropy~) hazırdır. Sonuçları parça × öznitelik tablosuna koy ve her özniteliği parça numarasına göre çiz.
 
 **Rapor ve teslim.**
 - Projede ne yaptığını anlatan **1 sayfalık** metin.
@@ -264,7 +264,7 @@ Masaüstü MATLAB'da ~mean~, ~std~, ~skewness~, ~kurtosis~ ve ~entropy~ (ya da ~
 - Zaman ve frekans alanı grafikleri resim olarak.
 - Başarım ölçütleri tablosu (her filtre için PSNR, MSE, en büyük hata, L2 oranı).
 - Öznitelik tabloları ve grafikleri.
-- MATLAB kodları (filtre fonksiyonları ve ana betik) ile Word raporu, öğrenci numaran ve adınla adlandırılmış tek bir sıkıştırılmış dosyada (ör. ~ogrencino_ad_soyad.zip~). E-postanın konu satırını boş bırakma.
+- MatStudio kodları (filtre fonksiyonları ve ana betik) ile Word raporu, öğrenci numaran ve adınla adlandırılmış tek bir sıkıştırılmış dosyada (ör. ~ogrencino_ad_soyad.zip~). E-postanın konu satırını boş bırakma.
 
 > **İpucu:** Tablo ve grafikleri betiğin kendisi üretsin (~writetable~, ~saveas~). Bir parametreyi değiştirdiğinde raporu baştan elle hazırlamak zorunda kalmazsın.
 `),

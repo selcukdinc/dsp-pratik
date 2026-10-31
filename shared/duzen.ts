@@ -1,4 +1,4 @@
-// MATLAB alanının pencere düzeni. Paneller iki satıra dizilir; her panelin
+// MatStudio'nun pencere düzeni. Paneller iki satıra dizilir; her panelin
 // satırdaki payı (oran) ve üst satırın yükseklik payı (ustOran) saklanır.
 // Kayıtlı düzenler misafirde tarayıcıda, üyede hesapta tutulur.
 

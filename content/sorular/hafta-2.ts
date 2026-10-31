@@ -1,11 +1,11 @@
-// 2. hafta: MATLAB ile çalışmak
+// 2. hafta: MatStudio ile çalışmak
 import { grupla, type Soru } from "./tipler.ts";
 
 export const hafta2: Soru[] = [
-  ...grupla(2, "matlab-temel", "matlab-temel", "Hafta 2, MATLAB işlemleri", [
+  ...grupla(2, "matlab-temel", "matlab-temel", "Hafta 2, MatStudio işlemleri", [
     {
       id: "h2-noktali-virgul", kaynak: "original", zorluk: 1, tip: "mcq",
-      soru: "MATLAB'da bir komutun sonuna noktalı virgül (~;~) konursa ne olur?",
+      soru: "MatStudio'da bir komutun sonuna noktalı virgül (~;~) konursa ne olur?",
       secenekler: [
         "Komut çalışır ama sonucu komut penceresine yazılmaz",
         "Komut çalışmaz, yorum satırı sayılır",
@@ -23,15 +23,15 @@ export const hafta2: Soru[] = [
     },
     {
       id: "h2-yorum", kaynak: "original", zorluk: 1, tip: "fill",
-      soru: "Bir MATLAB betiğini Run Section ile ayrı ayrı çalıştırılabilen bölümlere ayırmak için satır başına hangi işaret yazılır?",
+      soru: "Bir MatStudio betiğini Run Section ile ayrı ayrı çalıştırılabilen bölümlere ayırmak için satır başına hangi işaret yazılır?",
       bosluklar: [["%%"]],
       aciklama: "~%%~ ile başlayan yorum satırı yeni bir bölüm başlatır. Tek ~%~ yalnızca yorumdur.",
     },
     {
       id: "h2-nan", kaynak: "original", zorluk: 1, tip: "fill",
-      soru: "MATLAB'da ~0/0~ işleminin sonucu nedir?",
+      soru: "MatStudio'da ~0/0~ işleminin sonucu nedir?",
       bosluklar: [["NaN"]],
-      aciklama: "0/0 tanımsızdır ve MATLAB ~NaN~ (not a number) verir. ~1/0~ ise ~Inf~ verir.",
+      aciklama: "0/0 tanımsızdır ve MatStudio ~NaN~ (not a number) verir. ~1/0~ ise ~Inf~ verir.",
     },
     {
       id: "h2-clear", kaynak: "original", zorluk: 1, tip: "mcq",
@@ -93,7 +93,7 @@ export const hafta2: Soru[] = [
       soru: "~x = [5 6 7];~ tanımlıyken ~x(0)~ yazılırsa ne olur?",
       secenekler: ["5 döner", "7 döner", "Hata verir", "Boş vektör döner"],
       dogru: 2,
-      aciklama: "MATLAB'da indisler 1'den başlar; 0 geçerli bir indis değildir ve hata verir. İlk eleman ~x(1)~'dir.",
+      aciklama: "MatStudio'da indisler 1'den başlar; 0 geçerli bir indis değildir ve hata verir. İlk eleman ~x(1)~'dir.",
     },
   ]),
 
@@ -161,7 +161,7 @@ export const hafta2: Soru[] = [
   ...grupla(2, "matlab-fonksiyon", "mantiksal", "Hafta 2, İlişkisel semboller", [
     {
       id: "h2-esit-degil", kaynak: "original", zorluk: 1, tip: "fill",
-      soru: "MATLAB'da \"eşit değil\" işleci nasıl yazılır?",
+      soru: "MatStudio'da \"eşit değil\" işleci nasıl yazılır?",
       bosluklar: [["~="]],
       aciklama: "Eşit değil ~¬=~ ile yazılır. ~==~ eşitlik denetimi, ~=~ atamadır.",
     },

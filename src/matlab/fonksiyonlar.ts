@@ -1047,13 +1047,13 @@ export const YERLESIKLER: Record<string, Yerlesik> = {
   beep: () => [],
   more: () => [],
   pkg: () => [],
-  input: () => hata("input desteklenmiyor: tarayıcıdaki MATLAB alanı kullanıcıdan girdi bekleyemez. Değeri doğrudan bir değişkene ata."),
+  input: () => hata("input desteklenmiyor: tarayıcıdaki MatStudio kullanıcıdan girdi bekleyemez. Değeri doğrudan bir değişkene ata."),
   sound: (y) => {
-    y.yaz("Uyarı: sound bu MATLAB alanında ses çalmaz; sinyali plot ile çizebilirsin.\n");
+    y.yaz("Uyarı: sound MatStudio'da ses çalmaz; sinyali plot ile çizebilirsin.\n");
     return [];
   },
   soundsc: (y) => {
-    y.yaz("Uyarı: soundsc bu MATLAB alanında ses çalmaz; sinyali plot ile çizebilirsin.\n");
+    y.yaz("Uyarı: soundsc MatStudio'da ses çalmaz; sinyali plot ile çizebilirsin.\n");
     return [];
   },
   clc: (y) => {

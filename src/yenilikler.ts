@@ -14,6 +14,15 @@ export interface Yenilik {
 
 export const YENILIKLER: Yenilik[] = [
   {
+    pr: 13,
+    tarih: "2026-10-31",
+    baslik: "Kod alanının yeni adı: MatStudio",
+    maddeler: [
+      "Tarayıcıda çalışan kod alanının adı artık **MatStudio**. Menüde, derslerde, sorularda ve yardım sayfalarında bu adı göreceksin.",
+      "Değişen yalnızca ad: `.m` betiklerini yazmak, çalıştırmak, indirmek ve yüklemek eskisi gibi çalışıyor; kayıtlı betiklerin ve pencere düzenin yerinde duruyor.",
+    ],
+  },
+  {
     pr: 11,
     tarih: "2026-10-31",
     baslik: "Proje rehberi",
@@ -30,7 +39,7 @@ export const YENILIKLER: Yenilik[] = [
     maddeler: [
       "**8. hafta dersi** açıldı. Konular: doğrudan DFT'nin işlem yükü ve FFT'nin kazancı, zamanda seyreltme ve bölüm çarpanları, kelebek, 8 noktalı radix-2 akış diyagramı ve bit ters sırası, frekansta seyreltme, 2'nin kuvveti olmayan uzunluklar için karma N algoritması, FFT ile spektrum, hızlı konvolüsyon ve ters DFT.",
       "Etkileşimli şekillerin bazıları: N'yi büyütüp DFT ile FFT'nin çarpma sayılarını karşılaştırma, bölüm çarpanını değiştirip kelebeğin çıkışlarını karmaşık düzlemde görme, 8 noktalı FFT'nin ara değerlerini aşama aşama izleme, karma N tablolarını kurma, iki sinüsün spektrumunu farklı FFT uzunluklarında inceleme.",
-      "Derslerdeki MATLAB örnekleri arasında bit ters sıralı, yerinde çalışan bir radix-2 FFT de var; sonucunu `fft` ile karşılaştırabilirsin.",
+      "Derslerdeki MatStudio örnekleri arasında bit ters sıralı, yerinde çalışan bir radix-2 FFT de var; sonucunu `fft` ile karşılaştırabilirsin.",
       "Soru havuzuna 8. hafta için 41 soru eklendi; tekrarda çıkacak 13 ek soru da hazır.",
     ],
   },
@@ -87,11 +96,11 @@ export const YENILIKLER: Yenilik[] = [
   {
     pr: 4,
     tarih: "2026-10-31",
-    baslik: "2. hafta: MATLAB ile çalışmak",
+    baslik: "2. hafta: MatStudio ile çalışmak",
     maddeler: [
       "**2. hafta dersi** açıldı. Konular: betik yazma, vektör ve matris kurma, indeksleme ve doğrusal indeks, eleman eleman ve matris işlemleri, ilişkisel ve mantıksal işleçler, fonksiyon yazma, rastgele sayılar, dizi birleştirme ve istatistik fonksiyonları.",
       "Etkileşimli şekillerde bir indeksleme ifadesi seçip vektörden ya da matristen hangi elemanların alındığını görebilirsin. `mean`, `median`, `std` ve `var` için boyutu ve ağırlığı değiştirip sonucu karşılaştırabilirsin.",
-      "MATLAB alanına yeni fonksiyonlar eklendi: `cat`, `vertcat`, `corrcoef`, `randperm`, `who` ve `whos`. `mean`, `std`, `var`, `median`, `sum`, `max` ve `min` artık `'all'` seçeneğini de kabul ediyor.",
+      "MatStudio'ya yeni fonksiyonlar eklendi: `cat`, `vertcat`, `corrcoef`, `randperm`, `who` ve `whos`. `mean`, `std`, `var`, `median`, `sum`, `max` ve `min` artık `'all'` seçeneğini de kabul ediyor.",
       "Soru havuzuna 2. hafta için 46 soru eklendi; tekrarda çıkacak 20 ek soru da hazır.",
     ],
   },
@@ -102,21 +111,21 @@ export const YENILIKLER: Yenilik[] = [
     maddeler: [
       "**1. hafta dersi** açıldı: dijital sinyal işlemenin neden kullanıldığı, örnekleme ve niceleme, ortalama, standart sapma ve rms, histogram, pmf ve pdf, normal dağılım, rastgele sayılarla gürültü üretme, kesinlik ve doğruluk.",
       "Dersteki dokuz şeklin beşi etkileşimli. Bit sayısını ve örnekleme hızını değiştirerek ADC'yi deneyebilirsin. Dalga biçimini ve DC'yi değiştirerek μ, σ ve rms'i karşılaştırabilirsin. Örnek sayısını artırınca histogramın nasıl düzeldiğini, Gauss eğrisinin altındaki alanları ve rastgele sayıları toplayınca çan eğrisinin nasıl oluştuğunu görebilirsin.",
-      "Her bölümde sayfanın içinde çalışan bir MATLAB örneği ve üzerinde deneyeceğin küçük bir görev var.",
+      "Her bölümde sayfanın içinde çalışan bir MatStudio örneği ve üzerinde deneyeceğin küçük bir görev var.",
       "Soru havuzuna 1. hafta için 43 soru eklendi; tekrarda çıkacak 19 ek soru da hazır. Çoğu sayısal: sonucu kendin hesaplayıp yazıyorsun.",
-      "Düzeltme: Aynı sayfadaki birden çok MATLAB şeklinde eğrilerin ve çubukların bir kısmı kesik görünüyordu.",
+      "Düzeltme: Aynı sayfadaki birden çok MatStudio şeklinde eğrilerin ve çubukların bir kısmı kesik görünüyordu.",
     ],
   },
   {
     pr: 2,
     tarih: "2026-10-31",
-    baslik: "MATLAB alanı açıldı",
+    baslik: "MatStudio açıldı",
     maddeler: [
-      "**MATLAB alanı** tarayıcında çalışıyor: editör, şekil penceresi, komut penceresi ve çalışma alanı. Pencereleri sürükleyip boyutlandırabilir, düzenini kaydedebilirsin.",
+      "**MatStudio** tarayıcında çalışıyor: editör, şekil penceresi, komut penceresi ve çalışma alanı. Pencereleri sürükleyip boyutlandırabilir, düzenini kaydedebilirsin.",
       "Vektörler, matrisler, indeksleme, `for`, `while`, `if`, `switch`, kendi fonksiyonların ve anonim fonksiyonlar destekleniyor. `sum`, `mean`, `std`, `conv`, `filter`, `fft`, `freqz` gibi fonksiyonlarla `plot`, `stem`, `histogram`, `bar` ve `subplot` ile çizim var.",
-      "Hatalar Türkçe ve satır numarasıyla gösteriliyor; ör. `x(0)` yazınca MATLAB'da indislerin 1'den başladığını hatırlatıyor.",
+      "Hatalar Türkçe ve satır numarasıyla gösteriliyor; ör. `x(0)` yazınca MatStudio'da indislerin 1'den başladığını hatırlatıyor.",
       "**Örnekler** menüsünde sinüs çizimi, histogram, örtüşme, konvolüsyon, hareketli ortalama, Fourier serisi, FFT ve frekans yanıtı hazır betikleri var. Betiklerini `.m` dosyası olarak indirip yükleyebilirsin.",
-      "Derslerdeki MATLAB örnekleri sayfanın içinde çalışıyor; laboratuvar kayıtlarını tek tıkla MATLAB alanında açabiliyorsun.",
+      "Derslerdeki MatStudio örnekleri sayfanın içinde çalışıyor; laboratuvar kayıtlarını tek tıkla MatStudio'da açabiliyorsun.",
     ],
   },
   {
@@ -125,9 +134,9 @@ export const YENILIKLER: Yenilik[] = [
     baslik: "DSP Pratik açılıyor",
     maddeler: [
       "Sayısal sinyal işleme dersi için yeni pratik sitesi kuruldu: haftalık dersler, soru havuzu, aralıklı tekrar, ilerleme sayfası ve soru önerme burada.",
-      "Yeni soru türü: **Sayısal**. Sonucu sen hesaplayıp yazıyorsun; `0,5`, `1/2`, `pi/4` ya da `sqrt(2)/2` gibi yazımlar kabul ediliyor, küçük yuvarlama farkları doğru sayılıyor. Dizi isteyen sorularda değerleri MATLAB'daki gibi `[1 2 -1]` biçiminde yazıyorsun.",
+      "Yeni soru türü: **Sayısal**. Sonucu sen hesaplayıp yazıyorsun; `0,5`, `1/2`, `pi/4` ya da `sqrt(2)/2` gibi yazımlar kabul ediliyor, küçük yuvarlama farkları doğru sayılıyor. Dizi isteyen sorularda değerleri MatStudio'daki gibi `[1 2 -1]` biçiminde yazıyorsun.",
       "Ders ve soru metinlerinde formüller artık düzgün matematik yazısıyla görünüyor.",
-      "Topluluk bölümü **Laboratuvar kayıtları** oldu: üyeler kısa MATLAB betiklerini paylaşıp beğenebiliyor.",
+      "Topluluk bölümü **Laboratuvar kayıtları** oldu: üyeler kısa MatStudio betiklerini paylaşıp beğenebiliyor.",
     ],
   },
 ];

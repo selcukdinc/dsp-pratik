@@ -14,6 +14,16 @@ export interface Yenilik {
 
 export const YENILIKLER: Yenilik[] = [
   {
+    pr: 8,
+    tarih: "2026-10-31",
+    baslik: "6. hafta: frekans yanıtı ve DTFT",
+    maddeler: [
+      "**6. hafta dersi** açıldı. Konular: karmaşık üstellerin LTI sistemlerin özfonksiyonları olması ve frekans yanıtı; büyüklük, desibel ölçeği, faz ve grup gecikmesi; periyodiklik ve simetri; doğrusal faz, tam geçiren ve frekans seçici filtreler; kaskat ve paralel bağlantılar; DTFT, özellikleri (kaydırma, modülasyon, konvolüsyon teoremi, Parseval) ve ters sistem.",
+      "Etkileşimli şekillerin bazıları: bir kosinüsün frekansını değiştirip sistemden nasıl geçtiğini görme, dört örnek sistemin büyüklük, dB ve faz grafikleri, doğrusal faz ile tam geçireni grup gecikmesinden ayırma, alçak ve yüksek geçireni bağlayıp bant geçiren ve bant durduran kurma, modülasyonla spektrumu kaydırma.",
+      "Soru havuzuna 6. hafta için 40 soru eklendi; tekrarda çıkacak 12 ek soru da hazır.",
+    ],
+  },
+  {
     pr: 7,
     tarih: "2026-10-31",
     baslik: "5. hafta: Fourier analizi",
